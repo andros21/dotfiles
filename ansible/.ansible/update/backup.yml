@@ -1,0 +1,9 @@
+---
+- hosts: debian 
+  tasks:
+    - name: rsync backup service
+      service:
+        name: rsync-backup
+        state: started
+
+...

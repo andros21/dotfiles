@@ -1,0 +1,34 @@
+# vars/main.yml
+
+Xorg:
+  - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xsessions/dwm-xorg.desktop"
+    dest: /usr/share/xsessions/dwm-xorg.desktop
+  - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xorg.conf.d/30-touchpad.conf"
+    dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+
+file_to_rm:
+  - .bashrc
+  - .bash_profile
+  - .config/fish/
+
+path_to_mk:
+  - .config/fish/conf.d/
+  - .config/fish/functions/
+  - .gnupg/
+  - .local/bin/
+  - .local/share/fonts/Hack/
+
+cloned_gits:
+  - https://github.com/cdemoulins/pamixer
+  - https://github.com/carnager/rofi-pass
+  - https://github.com/carnager/teiler
+
+my_std_xdg_path:
+    - Pictures/Paste
+    - Pictures/Screenshots
+    - Pictures/Wallpapers
+    - Videos/Screencasts
+
+font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+
+wallpaper_url: https://w.wallhaven.cc/full/lq/wallhaven-lqpv1l.jpg

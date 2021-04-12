@@ -1,0 +1,10 @@
+---
+
+- hosts: localhost
+  roles:
+    - repo
+    - pkg
+    - git
+    - conf
+    - make
+...

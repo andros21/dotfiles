@@ -1,0 +1,8 @@
+# tasks/main.yml
+
+- name: "Add needed pkgs"
+  dnf:
+    name: "{{ pkgs }}"
+    state: latest
+    update_cache: yes
+  become: yes

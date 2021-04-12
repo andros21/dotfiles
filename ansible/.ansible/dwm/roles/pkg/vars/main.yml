@@ -1,0 +1,52 @@
+---
+# vars/main.yml
+
+pkgs:
+  - NetworkManager-tui
+  - akmod-acpi_call
+  - akmod-tp_smapi
+  - alacritty
+  - atool
+  - bat
+  - boost-devel
+  - brightnessctl
+  - clang
+  - fd-find
+  - feh
+  - ffmpeg
+  - fish
+  - fuse-encfs
+  - fzf
+  - gcc-c++
+  - gimp
+  - harfbuzz-devel
+  - htop
+  - hunspell-it
+  - kernel-devel
+  - kernel-headers
+  - kernel-modules
+  - kernel-modules-extra
+  - libX11-devel
+  - libXft-devel
+  - libXinerama-devel
+  - libXrandr-devel
+  - libxcb-devel
+  - lm_sensors
+  - maim
+  - mpv
+  - neovim
+  - pandoc
+  - pass
+  - passmenu
+  - picom
+  - pulseaudio-libs-devel
+  - pwgen
+  - ranger
+  - rofi
+  - slop
+  - socat
+  - stow
+  - telegram-desktop
+  - tlp
+  - xclip
+  - xsel

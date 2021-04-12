@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Prints the current mic volume or M if muted.
+
+[ $(pamixer --source 1 --get-mute) = true ] && echo M && exit
+
+vol="$(pamixer --source 1 --get-volume)"
+
+echo "$vol%"

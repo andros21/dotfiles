@@ -1,0 +1,27 @@
+rofi.modi:                      run,ssh,window
+rofi.terminal:                  alacritty
+rofi.ssh-command:               {terminal} -e {ssh-client} {host}
+rofi.parse-known-hosts:         disabled
+
+rofi.font:                      Hack 15
+rofi.width:                     50
+rofi.lines:                     11
+rofi.columns:                   1
+
+! State:           'bg',        'fg',      'bgalt',     'hlbg',     'hlfg'
+rofi.color-normal:  a00nord0,   a90nord9,  a00nord0,    a90nord10,  a90nord4
+rofi.color-urgent:  a00nord0,   a90nord9,  a00nord0,    a90nord10,  a90nord4
+rofi.color-active:  a00nord0,   a90nord9,  a00nord0,    a90nord10,  a90nord4
+
+! State:                        'bg',      'border'
+rofi.color-window:              a90nord0 , a90nord3
+rofi.bw:                        0
+rofi.location:                  0
+rofi.padding:                   20
+rofi.case-sensitive:            false
+rofi.fuzzy:                     true
+rofi.line-margin:               3
+rofi.separator-style:           none
+rofi.hide-scrollbar:            true
+rofi.scrollbar-width:           8
+rofi.theme:                     my-default
