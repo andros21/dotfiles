@@ -101,6 +101,7 @@ It's simple:
 ```bash
 $ git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles/ansible/.ansible/dwm/
+$ ansible-galaxy collection install -r
 $ ansible-playbook dwm.yml
 $ sudo reboot
 ```
