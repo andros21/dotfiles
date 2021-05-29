@@ -58,7 +58,6 @@ set wrap breakindent
 set timeoutlen=3000
 set relativenumber
 set spelllang+=it
-set autochdir
 set hidden
 set title
 
@@ -109,7 +108,6 @@ let g:ale_fixers                 = {
                                    \ '*'      : ['remove_trailing_lines', 'trim_whitespace'],
                                    \ 'cpp'    : ['clang-format'],
                                    \ 'python' : ['autoimport', 'black', 'isort'],
-                                   \ 'yaml'   : ['yamlfix']
                                    \}
 
 "let g:ale_virtualenv_dir_names = ['~/.pyenv/versions/']
@@ -118,7 +116,6 @@ let g:ale_python_black_executable      = expand('~/.pyenv/versions/py3nvim/bin/b
 let g:ale_python_isort_executable      = expand('~/.pyenv/versions/py3nvim/bin/isort')
 let g:ale_python_pylint_executable     = expand('~/.pyenv/versions/py3nvim/bin/pylint')
 let g:ale_vim_vint_executable          = expand('~/.pyenv/versions/py3nvim/bin/vint')
-let g:ale_yaml_yamlfix_executable      = expand('~/.pyenv/versions/py3nvim/bin/yamlfix')
 let g:ale_yaml_yamllint_executable     = expand('~/.pyenv/versions/py3nvim/bin/yamllint')
 
 """ indentLine
