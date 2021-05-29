@@ -11,14 +11,16 @@ end
 
 ## Change PATH
 
-set -x PATH "$HOME/.local/bin" $PATH
+status is-login; and set -x PATH "$HOME/.local/bin" $PATH
 
 ## If pyenv installed, source it
 
 if [ -d "$HOME/.pyenv/" ]
    set -x PATH "$HOME/.pyenv/bin" $PATH
-   status --is-interactive; and . (pyenv init -|psub)
-   status --is-interactive; and . (pyenv virtualenv-init -|psub)
+   status is-login; and pyenv init --path | source
+   pyenv init - | source
+   #status --is-interactive; and . (pyenv init -|psub)
+   #status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end
 
 ## Default EDITOR
