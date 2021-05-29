@@ -7,11 +7,10 @@ Xorg:
     dest: /etc/X11/xorg.conf.d/30-touchpad.conf
 
 file_to_rm:
-  - .bashrc
-  - .bash_profile
   - .config/fish/
 
 path_to_mk:
+  - .config/alacritty/
   - .config/fish/conf.d/
   - .config/fish/functions/
   - .gnupg/
@@ -23,11 +22,13 @@ cloned_gits:
   - https://github.com/carnager/rofi-pass
   - https://github.com/carnager/teiler
 
-my_std_xdg_path:
+my_std_xdg_ansible.builtin.path:
     - Pictures/Paste
     - Pictures/Screenshots
     - Pictures/Wallpapers
     - Videos/Screencasts
+
+nord_alatty_url: https://raw.githubusercontent.com/arcticicestudio/nord-alacritty/develop/src/nord.yml
 
 font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
 

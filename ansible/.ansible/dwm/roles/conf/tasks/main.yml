@@ -2,7 +2,7 @@
 # tasks/main.yml
 
 - name: Xorg conf
-  copy:
+  ansible.builtin.copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
     owner: root
@@ -14,83 +14,87 @@
 - name: Change dwm path
   vars:
     my_user_home: '{{ ansible_user_dir }}'
-  replace:
-    path: '{{ Xorg[0].dest }}'
+  ansible.builtin.replace:
+    ansible.builtin.path: '{{ Xorg[0].dest }}'
     regexp: Exec=*
-    replace: Exec={{ my_user_home }}/.local/bin/dwm
+    ansible.builtin.replace: Exec={{ my_user_home }}/.local/bin/dwm
   become: true
 
 - name: Firewalld conf
-  command: firewall-cmd --set-default-zone=drop
+  ansible.builtin.command: firewall-cmd --set-default-zone=drop
   become: true
 
 - name: Download and install pyenv (1/2)
-  get_url:
+  ansible.builtin.get_url:
     url: https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer
     dest: /tmp/pyenv-installer
 
 - name: Download and install pyenv (2/2)
-  command: bash /tmp/pyenv-installer
+  ansible.builtin.command: bash /tmp/pyenv-installer
 
-- name: 'Create py3nvim env '
-  shell: |
+- name: Create py3nvim env
+  ansible.builtin.shell: |
     ~/.pyenv/bin/pyenv virtualenv py3nvim
     ~/.pyenv/versions/py3nvim/bin/pip install pynvim
     exit 0
 
 - name: GNU/Stow (1/4)
   file:
-    path: '{{ ansible_user_dir }}/{{ item }}'
+    ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
     state: absent
   with_items: '{{ file_to_rm }}'
 
 - name: GNU/Stow (2/4)
   file:
-    path: '{{ ansible_user_dir }}/{{ item }}'
+    ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
     state: directory
   with_items: '{{ path_to_mk }}'
 
 - name: GNU/Stow (3/4)
-  find:
+  ansible.builtin.find:
     paths: '{{ ansible_user_dir }}/.dotfiles/'
     file_type: directory
     excludes: .git,Xorg
   register: find_result
 
 - name: GNU/Stow (4/4)
-  shell:
+  ansible.builtin.shell:
     cmd: stow "{{ item.path | basename }}"
     chdir: '{{ ansible_user_dir }}/.dotfiles/'
   with_items: '{{ find_result.files }}'
 
 - name: Chsh fish
-  user:
+  ansible.builtin.user:
     name: '{{ ansible_user_id }}'
-    shell: /usr/bin/fish
+    ansible.builtin.shell: /usr/bin/fish
   become: true
 
 - name: Patch cloned gits
   patch:
     src: '{{ item }}'
     dest: '{{ ansible_user_dir }}/Documents/{{ item[:-8] | basename }}/Makefile'
-  with_items: "{{ lookup('fileglob', '{{ playbook_dir }}/roles/conf/patches/cloned_gits/*.diff',\
-    \ wantlist=True) }}"
+  with_items: "{{ lookup('fileglob', '{{ playbook_dir }}/roles/conf/patches/cloned_gits/*.diff', wantlist=True) }}"
 
 - name: Create (my) standard xdg paths
   file:
-    path: '{{ ansible_user_dir }}/{{ item }}'
+    ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
     state: directory
   with_items: '{{ my_std_xdg_path }}'
 
+- name: Download nord theme alacritty
+  ansible.builtin.get_url:
+    url: '{{ nord_alatty_url }}'
+    dest: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
+
 - name: Download and install Hack Nerd Fonts (1/2)
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ font_url }}'
     dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
 
 - name: Download and install Hack Nerd Fonts (2/2)
-  command: fc-cache -f
+  ansible.builtin.command: fc-cache -f
 
 - name: Download default wallpaper
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ wallpaper_url }}'
     dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/nord.jpg'

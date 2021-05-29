@@ -1,7 +1,7 @@
 # tasks/main.yml
 
 - name: "Add needed pkgs"
-  dnf:
+  ansible.builtin.dnf:
     name: "{{ pkgs }}"
     state: latest
     update_cache: yes

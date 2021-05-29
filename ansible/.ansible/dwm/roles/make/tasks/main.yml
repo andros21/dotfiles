@@ -1,25 +1,24 @@
 # tasks/main.yml
 
-- name: "Make forked gits"
-  make:
+- name: Make forked gits
+  community.general.make:
     target: install
     chdir: "{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}"
   with_items: "{{ forked_gits }}"
   when: item.origin | basename != "slock"
 
-- name: "Make slock"
-  make:
+- name: Make slock
+  community.general.make:
     chdir: "{{ ansible_user_dir }}/Documents/slock"
 
-- name: "SuMake install slock"
-  make:
+- name: SuMake install slock
+  community.general.make:
     target: install
     chdir: "{{ ansible_user_dir }}/Documents/slock"
   become: yes
 
-- name: "Make cloned gits"
-  make:
+- name: Make cloned gits
+  community.general.make:
     target: install
     chdir: "{{ ansible_user_dir }}/Documents/{{ item | basename }}"
   with_items: "{{ cloned_gits }}"
-

@@ -1,10 +1,15 @@
 ---
 
-- hosts: localhost
+- hosts: thinkpad
   roles:
-    - repo
-    - pkg
-    - git
-    - conf
-    - make
+    - role: repo
+      tags: repo
+    - role: pkg
+      tags: pkg
+    - role: git
+      tags: git
+    - role: conf
+      tags: conf
+    - role: make
+      tags: make
 ...
