@@ -35,10 +35,10 @@ then
         systemctl poweroff
         ;;
       Suspend)
-        systemctl suspend; $($USE_LOCKER) && "$LOCKER";
+        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; systemctl suspend;
         ;;
       Hibernate)
-        systemctl hibernate; $($USE_LOCKER) && "$LOCKER";
+        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; systemctl hibernate;
         ;;
       *)
         ;;

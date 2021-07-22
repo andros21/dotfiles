@@ -12,6 +12,4 @@ if [ "$GDMSESSION" = "dwm-xorg" ]; then
    feh --bg-scale ~/Pictures/Wallpapers/nord.jpg
    # Run in background a window composer (to render alpha effects)
    picom -b
-   # Run dwmblocks in background (to run and refresh status bar)
-   dwmblocks &> /dev/null &
 fi
