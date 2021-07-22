@@ -1,5 +1,9 @@
 
+## Set XDG_CONFIG_HOME
+
 set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME ~/.config
+
+## If fisher not installed, install it with plugins
 
 if not functions -q fisher
    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
