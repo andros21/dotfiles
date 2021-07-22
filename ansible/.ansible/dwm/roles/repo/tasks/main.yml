@@ -1,28 +1,19 @@
 # tasks/main.yml
 
-- name: "Import rpmfusion free key (<=F32)"
+- name: "Import rpmfusion free key"
   ansible.builtin.rpm_key:
-    key: "{{ rpmfusion_free_key_below_f32 }}"
+    key: "{{ rpmfusion_free_key }}"
     state: present
-  become: yes 
-  when: ansible_distribution_major_version | int <= 32
-
-- name: "Import rpmfusion free key (>F32)"
-  ansible.builtin.rpm_key:
-    key: "{{ rpmfusion_free_key_above_f32 }}"
-    state: present
-  become: yes 
-  when: ansible_distribution_major_version | int > 32
+  become: yes
 
 - name: "Import tlp key"
   ansible.builtin.rpm_key:
     key: "{{ tlp_key }}"
     state: present
-  become: yes 
+  become: yes
 
 - name: "Add rpmfusion_free/tlp repos"
   ansible.builtin.dnf:
     name: "{{ repos }}"
     state: present
-  become: yes 
-
+  become: yes

@@ -4,7 +4,6 @@
 pkgs:
   - NetworkManager-tui
   - akmod-acpi_call
-  - akmod-tp_smapi
   - alacritty
   - atool
   - bat
