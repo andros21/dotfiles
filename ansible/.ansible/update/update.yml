@@ -8,13 +8,22 @@
         update_cache: yes
         force_apt_get: yes
         cache_valid_time: 3600
-      register: apt_updates
 
 - hosts: redhats
   tasks:
     - name: dnf update
-      dnf:
+      ansible.builtin.dnf:
         name: '*'
         state: latest
         update_cache: yes
-      register: dnf_updates
+
+- hosts: all:!raspis
+  tasks:
+    - name: last kernel
+      ansible.builtin.shell:
+        cmd: ls -tr /boot/ | egrep "^vmlinuz-[3-9]" | tail -1 | cut -d'-' -f2-
+      register: last_kernel
+    - name: check reboot
+      debug:
+        msg: "New kernel installed. Reboot when possible!"
+      when: "ansible_kernel != last_kernel.stdout"
