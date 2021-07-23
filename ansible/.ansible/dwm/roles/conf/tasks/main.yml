@@ -72,7 +72,7 @@
       ansible.builtin.find:
         paths: '{{ ansible_user_dir }}/.dotfiles/'
         file_type: directory
-        excludes: .git,Xorg
+        excludes: .cache,.git,.github,Xorg
       register: find_result
     - name: Stow them
       ansible.builtin.shell:
