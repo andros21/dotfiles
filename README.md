@@ -1,31 +1,53 @@
-# dotfiles :gear:
+<!-- PROJECT LOGO -->
+<br>
+<p align="center">
+  <a href="https://github.com/andros21/pgrank">
+    <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png" alt="Logo" width="470px">
+  </a>
+  <br>
+  <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
+    <img src="https://img.shields.io/github/workflow/status/andros21/dotfiles/Lint%20CI/master?label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI">
+  </a>
+   <a href="https://dwm.suckless.org/">
+    <img src="https://img.shields.io/badge/dwm-powered-important?logo=fedora&style=flat-square" alt="Lint CI">
+  </a>
+  <a href="https://github.com/andros21/dotfiles/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/andros21/dotfiles?color=blue&label=License&style=flat-square" alt="License">
+  </a>
 
-## :blue_book: Description
-
-Create this repo to backup and at the same time share my configuration files. The aim of this repo is in progress, cause my dotfiles are in progress too.
+  <h3 align="center">with ansible playbooks</h3>
+  <p align="center">
+    The aim of this repo is in progress,<br>cause my dotfiles are in progress too &#128521
+    <br>
+    <br>
+    <a href="ansible/.ansible/dwm/">Ansible</a>
+    ·
+    <a href="#star-features">Features</a>
+    ·
+    <a href="#rocket-usage">Usage</a>
+  </p>
+</p>
 
 ## :star: Features
 
-### Fedora dwm <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/32/distributor-logo-fedora-icon.png" alt="drawing" width="26" Hspace="7" style="margin-bottom:-3px;">
-
-#### X server | `Xorg`
+#### X server `Xorg`
 
 * Nord color style, thanks to [Nord Xresources](https://github.com/arcticicestudio/nord-xresources)
 * Custom touchpad movement using `libinput` driver
 * Custom Xsession starting **dwm** as WM on Xorg
 * `Xresources/.profile` sourced (by `xinitrc-common` on Fedora) to prepare X env, before WM start
 
-#### Window manager | `dwm`
+#### Window manager `dwm`
 
 Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build [dwm-luke](https://github.com/andros21/dwm-luke)
 
 * Xresources color/style setup
 
-#### Terminal | `alacritty`
+#### Terminal `alacritty`
 
 * Very similar st style, nord theme colors too
 
-#### Terminal multiplexer | `tmux`
+#### Terminal multiplexer `tmux`
 
 * [Nord theme status](https://github.com/arcticicestudio/nord-tmux) bar and theme
 * [Tmux-config](https://github.com/samoshkin/tmux-config)
@@ -34,7 +56,7 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
    * Nested tmux session handling (local+remote)
 * [Tpm](https://github.com/tmux-plugins/tpm) as default plugin manager
 
-#### Shell | `fish`
+#### Shell `fish`
 
 * Minimal custom fish shell prompt with git symbol integration (see [here](https://github.com/magicmonty/bash-git-prompt))
 * Switch from ssh-agent to gpg-agent for ssh-key authentication
@@ -43,38 +65,37 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
 * [Nord dir colors](https://github.com/arcticicestudio/nord-dircolors)
 * Gio mount/umount simple functions and relative aliases
 
-#### Status bar | `dwmblocks`
+#### Status bar `dwmblocks`
 
 Custom [Luke's build of dwmblocks](https://github.com/LukeSmithxyz/dwmblocks), here my build [dwmblocks-luke](https://github.com/andros21/dwmblocks-luke)
 
-`dwmstatusbar` contain the scripts needed by dwmblocks to work, with some little personal changes and not all the available [here](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar)
+`dwmstatusbar` contain the scripts needed by dwmblocks to work, all the available [here](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar)
 
 * Xresources color/style setup
 
-#### Screen locker | `slock`
+#### Screen locker `slock`
 
 Here my build [slock](https://github.com/andros21/slock)
 
 * Xresources color/style setup
 
-#### Launcher | `rofi`
+#### Launcher `rofi`
 
 * Xresources color/style setup
-* Custom default theme `my-default.rasi`, avoiding lines count and "Type to filter" after prompt
+* Custom default theme `my-default.rasi`
 
-#### Editor | `neovim`
+#### Editor `neovim`
 
 * [vim-plug](https://github.com/junegunn/vim-plug) as default plugin manager
 * aesthetics and essential plugins for file editing
 * buffers as tabs
 * autocmd for resume cursor position
 * `pynvim` module available inside pyenv virtualenv
-* [deoplete](https://github.com/Shougo/deoplete.nvim) as auto-completer
 * [ALE](https://github.com/dense-analysis/ale) as linter and fixer (bins inside pyenv virtualenv)
 * [mirror.vim](https://github.com/zenbro/mirror.vim) as advance remote file editor plugin
 * personal mappings
 
-#### File Manager | `ranger`
+#### File Manager `ranger`
 
 * custom `rc.conf` (gio utilities)
 * custom `commands.py`:
@@ -92,6 +113,13 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ## :rocket: Usage
 
+### Prerequisites
+
+* `Fedora >= 33`
+* `ansible >= 2.9.0`
+
+### How to run
+
 It's simple:
 
 * Pull the repository
@@ -99,9 +127,9 @@ It's simple:
 * Run it
 
 ```bash
-$ git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles/ansible/.ansible/dwm/
-$ ansible-galaxy collection install -r
-$ ansible-playbook dwm.yml
-$ sudo reboot
+git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles/ansible/.ansible/dwm/
+ansible-galaxy collection install -r
+ansible-playbook dwm.yml
+sudo reboot
 ```
