@@ -1,0 +1,71 @@
+#
+# LINT.YML
+#
+# Run linters `ansible-lint` and `yamllint`
+# when changes over `ansible/.ansible` are detected
+#
+# Credits to:
+#   * https://github.com/freeipa/ansible-freeipa/blob/master/.github/workflows/lint.yml
+#
+
+---
+name: Lint CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  changes:
+    name: Check changes
+    runs-on: ubuntu-latest
+    outputs:
+      ansible: ${{ steps.filter.outputs.ansible }}
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Filter paths
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            ansible:
+              - 'ansible/.ansible/**'
+
+  ansible_lint:
+    name: Verify ansible-lint
+    runs-on: ubuntu-latest
+    needs: [ changes ]
+    if: ${{ needs.changes.outputs.ansible == 'true' }}
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: |
+            ansible/.ansible/dwm/dwm.yml
+            ansible/.ansible/update/*.yml
+          args: "-c ansible/.ansible/dwm/.ansible-lint"
+        env:
+          ANSIBLE_MODULE_UTILS: plugins/module_utils
+          ANSIBLE_LIBRARY: plugins/modules
+
+  yamllint:
+    name: Verify yamllint
+    runs-on: ubuntu-latest
+    needs: [ changes ]
+    if: ${{ needs.changes.outputs.ansible == 'true' }}
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Run yaml-lint
+        uses: ibiqlik/action-yamllint@v1
+        with:
+          file_or_dir: ansible/.ansible
+          config_file: ansible/.ansible/dwm/.yamllint
