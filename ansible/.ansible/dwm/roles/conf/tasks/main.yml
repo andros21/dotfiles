@@ -8,21 +8,21 @@
     owner: root
     group: root
     mode: 0644
-  become: true
-  with_items: '{{ Xorg }}'
+  become: yes
+  with_items: '{{ xorg_conf }}'
 
 - name: Change dwm path
   vars:
     my_user_home: '{{ ansible_user_dir }}'
   ansible.builtin.replace:
-    ansible.builtin.path: '{{ Xorg[0].dest }}'
+    path: '{{ xorg_conf[0].dest }}'
     regexp: Exec=*
-    ansible.builtin.replace: Exec={{ my_user_home }}/.local/bin/dwm
-  become: true
+    replace: Exec={{ my_user_home }}/.local/bin/dwm
+  become: yes
 
 - name: Firewalld conf
   ansible.builtin.command: firewall-cmd --set-default-zone=drop
-  become: true
+  become: yes
 
 - name: Disable systemd-resolved
   block:
@@ -39,33 +39,21 @@
       ansible.builtin.service:
         name: NetworkManager
         state: restarted
-  become: true
-
-- name: Download and install pyenv
-  block:
-    - name: Download pyenv
-      ansible.builtin.get_url:
-        url: https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer
-        dest: /tmp/pyenv-installer
-    - name: Install pyenv
-      ansible.builtin.command: bash /tmp/pyenv-installer
-
-- name: Create py3nvim env
-  ansible.builtin.shell: |
-    ~/.pyenv/bin/pyenv virtualenv py3nvim
-    ~/.pyenv/versions/py3nvim/bin/pip install pynvim
-    exit 0
+    - name: Wait name resolution restart
+      ansible.builtin.pause:
+        seconds: 3
+  become: yes
 
 - name: GNU/Stow
   block:
     - name: Remove default configs
       ansible.builtin.file:
-        ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
+        path: '{{ ansible_user_dir }}/{{ item }}'
         state: absent
       with_items: '{{ file_to_rm }}'
     - name: Create some locations
       ansible.builtin.file:
-        ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
+        path: '{{ ansible_user_dir }}/{{ item }}'
         state: directory
       with_items: '{{ path_to_mk }}'
     - name: Collect paths to stow
@@ -83,18 +71,12 @@
 - name: Chsh fish
   ansible.builtin.user:
     name: '{{ ansible_user_id }}'
-    ansible.builtin.shell: /usr/bin/fish
-  become: true
-
-- name: Patch cloned gits
-  ansible.builtin.patch:
-    src: '{{ item }}'
-    dest: '{{ ansible_user_dir }}/Documents/{{ item[:-8] | basename }}/Makefile'
-  with_items: "{{ lookup('fileglob', '{{ playbook_dir }}/roles/conf/patches/cloned_gits/*.diff', wantlist=True) }}"
+    shell: /usr/bin/fish
+  become: yes
 
 - name: Create (my) standard xdg paths
-  file:
-    ansible.builtin.path: '{{ ansible_user_dir }}/{{ item }}'
+  ansible.builtin.file:
+    path: '{{ ansible_user_dir }}/{{ item }}'
     state: directory
   with_items: '{{ my_std_xdg_path }}'
 
@@ -109,7 +91,7 @@
       ansible.builtin.get_url:
         url: '{{ font_url }}'
         dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
-    - name: Install Hack Nerd Fonts (2/2)
+    - name: Install Hack Nerd Fonts
       ansible.builtin.command: fc-cache -f
 
 - name: Download default wallpaper

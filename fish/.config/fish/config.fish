@@ -1,62 +1,54 @@
+# config.fish
+# ===========
 
-## Set XDG_CONFIG_HOME
-
-set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME ~/.config
-
-## If fisher not installed, install it with plugins
-
-if not functions -q fisher
-   curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-   source $XDG_CONFIG_HOME/fish/functions/fisher.fish
-   fisher install jorgebucaran/fisher
-   fisher install jethrokuan/z
-   fisher install PatrickF1/fzf.fish
+if status is-login
+   # Set XDG_CONFIG_HOME
+   set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME ~/.config
+   # Change PATH
+   set -x PATH "$HOME/.local/bin" $PATH
+   # If fisher not installed, install it with plugins
+   if not functions -q fisher
+      curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+      if test $status
+         source $XDG_CONFIG_HOME/fish/functions/fisher.fish
+         fisher install jorgebucaran/fisher
+         fisher install jethrokuan/z
+         fisher install PatrickF1/fzf.fish
+      end
+   end
+   # If pyenv installed, source it
+   # +++ Warning +++
+   # Not initialized yet, if needed, init it:
+   # $ pyenv init --path | source
+   if [ -d "$HOME/.pyenv/" ]
+      set -x PATH "$HOME/.pyenv/bin" $PATH
+      pyenv init --path | source
+   end
+   # GPG as ssh-agent
+   if test $SSH_AUTH_SOCK != (gpgconf --list-dirs agent-ssh-socket)
+      ssh-agent -k
+      gpgconf --launch gpg-agent
+      if test $status
+         set -x GPG_TTY /dev/pts/0
+         set -x SSH_AGENT_PID (pgrep gpg-agent)
+         set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+      end
+   end
+   # Default EDITOR
+   set -x EDITOR nvim
+   # Default MANPAGER
+   set -x MANPAGER "nvim -c 'set ft=man' -"
+   # Nord theme bat
+   set -x BAT_THEME "Nord"
+else
+   # Default FZF command
+   # for fzf fisher plugin
+   set fzf_fd_opts --no-ignore --hidden --follow --exclude="{.cache,.git}"
+   # for fzf nvim plugin
+   set -x FZF_DEFAULT_COMMAND 'fd $fzf_fd_opts 2>/dev/null'
 end
 
-## Change PATH
-
-status is-login; and set -x PATH "$HOME/.local/bin" $PATH
-
-## If pyenv installed, source it
-
-if [ -d "$HOME/.pyenv/" ]
-   set -x PATH "$HOME/.pyenv/bin" $PATH
-   status is-login; and pyenv init --path | source
-   pyenv init - | source
-   #status --is-interactive; and . (pyenv init -|psub)
-   #status --is-interactive; and . (pyenv virtualenv-init -|psub)
-end
-
-## Default EDITOR
-
-set -x EDITOR nvim
-
-## Default MANPAGER
-
-set -x MANPAGER "nvim -c 'set ft=man' -"
-
-## Default FZF command
-
-set -x FZF_DEFAULT_COMMAND 'fd --hidden --follow --exclude=.git 2>/dev/null'
-
-## GPG as ssh-agent
-
-if test "$SSH_AUTH_SOCK" != "/run/user/"(id -u)"/gnupg/S.gpg-agent.ssh"
-   ssh-agent -k
-   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-   gpgconf --launch gpg-agent
-end
-
-## Nord theme dircolors
-
-test -r ~/.dir_colors && eval (dircolors -c ~/.dir_colors | sed "s/setenv/set/")
-
-## Nord theme bat
-
-set -x BAT_THEME "Nord"
-
-## Fish color scheme
-
+# Fish color scheme
 set -U fish_color_autosuggestion 969896
 set -U fish_color_cancel \x2dr
 set -U fish_color_command c397d8

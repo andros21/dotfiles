@@ -5,13 +5,14 @@
 
 # 2016 Oliver Kraitschy - http://okraits.de
 
-OPTIONS="Reboot system\nPower-off system\nSuspend system\nHibernate system"
+OPTIONS="re) Reboot system\npo) Power-off system\nsu) Suspend system\nhi) Hibernate system"
 
 # source configuration or use default values
 if [ -f $HOME/.config/rofi-power/config ]; then
   source $HOME/.config/rofi-power/config
 else
-  LAUNCHER="rofi -width 30 -dmenu -i -p rofi-power:"
+  PROMPT="rofi-power"
+  LAUNCHER="rofi -width 30 -dmenu -i"
   USE_LOCKER="false"
   LOCKER="i3lock"
 fi
@@ -21,7 +22,7 @@ if [ ${#1} -gt 0 ]; then
   OPTIONS="Exit window manager\n$OPTIONS"
 fi
 
-option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
+option=`echo -e $OPTIONS | $LAUNCHER -p "$PROMPT" | awk '{print $2}' | tr -d '\r\n'`
 if [ ${#option} -gt 0 ]
 then
     case $option in

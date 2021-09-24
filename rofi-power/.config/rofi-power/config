@@ -1,4 +1,5 @@
 # configuration for rofi-power tool
-LAUNCHER="rofi -width 30 -lines 5 -dmenu -i -p rofi-power"
-USE_LOCKER="true"
+LAUNCHER="rofi -width 30 -lines 5 -dmenu -i"
 LOCKER="slock"
+PROMPT="rofi-power > "
+USE_LOCKER="true"

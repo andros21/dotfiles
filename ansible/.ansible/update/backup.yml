@@ -1,9 +1,0 @@
----
-- hosts: debian
-  tasks:
-    - name: rsync backup service
-      ansible.builtin.service:
-        name: rsync-backup
-        state: started
-
-...

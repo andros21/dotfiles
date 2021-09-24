@@ -1,12 +1,14 @@
 # vars/main.yml
 
-Xorg:
+xorg_conf:
   - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xsessions/dwm-xorg.desktop"
     dest: /usr/share/xsessions/dwm-xorg.desktop
   - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xorg.conf.d/30-touchpad.conf"
     dest: /etc/X11/xorg.conf.d/30-touchpad.conf
 
 file_to_rm:
+  - .bash_profile
+  - .bashrc
   - .config/fish/
 
 path_to_mk:
@@ -22,7 +24,7 @@ cloned_gits:
   - https://github.com/carnager/rofi-pass
   - https://github.com/carnager/teiler
 
-my_std_xdg_ansible.builtin.path:
+my_std_xdg_path:
     - Pictures/Paste
     - Pictures/Screenshots
     - Pictures/Wallpapers

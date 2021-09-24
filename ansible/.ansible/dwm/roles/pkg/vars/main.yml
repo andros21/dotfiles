@@ -44,6 +44,7 @@ pkgs:
   - rofi
   - slop
   - socat
+  - srm
   - stow
   - telegram-desktop
   - tlp

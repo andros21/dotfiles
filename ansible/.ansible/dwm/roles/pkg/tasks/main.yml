@@ -1,8 +1,34 @@
 # tasks/main.yml
 
-- name: "Add needed pkgs"
+- name: Update pkgs
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+    update_cache: yes
+
+- name: Add needed pkgs
   ansible.builtin.dnf:
     name: "{{ pkgs }}"
     state: latest
     update_cache: yes
   become: yes
+
+- name: Download and install pyenv
+  block:
+    - name: Download pyenv
+      ansible.builtin.get_url:
+        url: https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer
+        dest: /tmp/pyenv-installer
+    - name: Install pyenv
+      ansible.builtin.command: bash /tmp/pyenv-installer
+
+- name: Create py3nvim env
+  ansible.builtin.shell: |
+    ~/.pyenv/bin/pyenv virtualenv py3nvim
+    ~/.pyenv/versions/py3nvim/bin/pip install pynvim
+    exit 0
+
+- name: Install youtube-dl locally
+  ansible.builtin.pip:
+    name: youtube_dl
+    state: latest

@@ -1,18 +1,18 @@
 # tasks/main.yml
 
-- name: "Import rpmfusion free key"
+- name: Import rpmfusion free key
   ansible.builtin.rpm_key:
     key: "{{ rpmfusion_free_key }}"
     state: present
   become: yes
 
-- name: "Import tlp key"
+- name: Import tlp key
   ansible.builtin.rpm_key:
     key: "{{ tlp_key }}"
     state: present
   become: yes
 
-- name: "Add rpmfusion_free/tlp repos"
+- name: Add rpmfusion_free/tlp repos
   ansible.builtin.dnf:
     name: "{{ repos }}"
     state: present

@@ -21,4 +21,7 @@
   community.general.make:
     target: install
     chdir: "{{ ansible_user_dir }}/Documents/{{ item | basename }}"
+    params:
+      PREFIX: ~/.local
   with_items: "{{ cloned_gits }}"
+  ignore_errors: yes
