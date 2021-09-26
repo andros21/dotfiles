@@ -106,6 +106,7 @@ Here my build [slock](https://github.com/andros21/slock)
 
 #### Miscellanea
 
+* [pamixer](https://github.com/cdemoulins/pamixer) as pulseaudio command line mixer
 * [rofi-pass](https://github.com/carnager/rofi-pass) as GNU/pass frontend
 * [rofi-power](https://github.com/okraits/rofi-tools) as systemctl power tool
 * [teiler](https://github.com/carnager/teiler) as powerful screenshots and screencasts tool
@@ -115,8 +116,9 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ### Prerequisites
 
-* `Fedora >= 33`
-* `ansible >= 2.9.0`
+* `fedora >= 33`
+* `requirements.txt`
+* `requirements-dev.txt` (optional, for devel)
 
 ### How to run
 
@@ -126,10 +128,10 @@ It's simple:
 * Read/check with attention the ansible `dwm` playbook
 * Run it
 
-```bash
-git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles/ansible/.ansible/dwm/
-ansible-galaxy collection install -r
-ansible-playbook dwm.yml
-sudo reboot
-```
+  ```bash
+  git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles/ansible/.ansible/dwm/
+  ansible-galaxy collection install -r requirements.yml
+  ansible-playbook dwm.yml
+  sudo reboot
+  ```
