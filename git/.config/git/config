@@ -1,8 +1,7 @@
 [user]
-        name = Andrea Rossoni
-        email = andrea.ros21@mail.com
-        username = andros21
+   name = andros21
+   email = andrea.ros21@e.email
 [pull]
-	rebase = false
+   rebase = false
 [alias]
-	l = log --oneline --graph --color --abbrev-commit --all --decorate
+   l = log --oneline --graph --color --abbrev-commit --all --decorate

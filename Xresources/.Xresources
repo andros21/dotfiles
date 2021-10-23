@@ -4,22 +4,18 @@
 !
 ! Features:
 !  * nord theme color (+ ARGB color)
-!  * dwm style
-!  * st style
+!  * dwm  style
 !  * rofi style
 !
 ! Author: Andrea Rossoni
-! Date:   2020.12.17
+! Date:   2021.10.17
 !
 
 ! Color Config
 #include ".Xresources.d/nord"
 
-! Dwm Config 
+! Dwm Config
 #include ".Xresources.d/dwm"
-
-! St Config
-#include ".Xresources.d/st"
 
 ! Rofi Config
 #include ".Xresources.d/rofi"

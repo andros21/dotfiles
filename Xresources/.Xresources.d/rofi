@@ -1,4 +1,3 @@
-rofi.modi:                      run,ssh,window
 rofi.terminal:                  alacritty
 rofi.ssh-command:               {terminal} -e {ssh-client} {host}
 rofi.parse-known-hosts:         disabled

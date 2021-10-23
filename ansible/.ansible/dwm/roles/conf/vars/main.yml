@@ -2,9 +2,7 @@
 
 xorg_conf:
   - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xsessions/dwm-xorg.desktop"
-    dest: /usr/share/xsessions/dwm-xorg.desktop
-  - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xorg.conf.d/30-touchpad.conf"
-    dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+    dest: /usr/local/share/xsessions/dwm-xorg.desktop
 
 file_to_rm:
   - .bash_profile

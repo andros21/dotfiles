@@ -7,5 +7,12 @@ function fish_gio_umount -d "Gio umount devs"
          gio mount -u "/run/media/"(whoami)"/$label"
          [ $status -eq 0 ] && echo "done"
       end
+   else
+      set -l block (fd --regex "/dev/sd[a-i][1-9]" | fzf +m)
+      if test -n "$block"
+         echo -n "Umounting $block ... "
+         umount "/dev/$block"
+         [ $status -eq 0 ] && echo "done"
+      end
    end
 end

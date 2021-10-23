@@ -33,7 +33,6 @@
 #### X server `Xorg`
 
 * Nord color style, thanks to [Nord Xresources](https://github.com/arcticicestudio/nord-xresources)
-* Custom touchpad movement using `libinput` driver
 * Custom Xsession starting **dwm** as WM on Xorg
 * `Xresources/.profile` sourced (by `xinitrc-common` on Fedora) to prepare X env, before WM start
 

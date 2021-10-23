@@ -1,0 +1,12 @@
+---
+- hosts: thinkpad
+  tasks:
+    - name: dnf update
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+        update_cache: yes
+      become: yes
+    - name: flatpak update
+      ansible.builtin.shell: |
+        flatpak --user update --assumeyes --noninteractive

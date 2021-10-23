@@ -2,27 +2,27 @@
 
 - name: Clone forked gits
   ansible.builtin.git:
-    repo: "{{ item.origin }}"
-    dest: "{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}"
+    repo: '{{ item.origin }}'
+    dest: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
     version: master
-  with_items: "{{ forked_gits }}"
+  with_items: '{{ forked_gits }}'
 
 - name: Add remote to forked gits
   ansible.builtin.shell:
-    cmd: git remote add remote "{{ item.remote | quote }}"
-    chdir: "{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}"
-  with_items: "{{ forked_gits }}"
+    cmd: git remote add remote '{{ item.remote | quote }}'
+    chdir: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+  with_items: '{{ forked_gits }}'
 
 - name: Clone cloned gits
   ansible.builtin.git:
-    repo: "{{ item }}"
-    dest: "{{ ansible_user_dir }}/Documents/{{ item | basename }}"
+    repo: '{{ item }}'
+    dest: '{{ ansible_user_dir }}/Documents/{{ item | basename }}'
     version: master
-  with_items: "{{ cloned_gits }}"
+  with_items: '{{ cloned_gits }}'
 
 - name: Clone ranger gits
   ansible.builtin.git:
-    repo: "{{ item }}"
-    dest: "{{ ansible_user_dir }}/.config/ranger/plugins/{{ item | basename }}"
+    repo: '{{ item }}'
+    dest: '{{ ansible_user_dir }}/.config/ranger/plugins/{{ item | basename }}'
     version: main
-  with_items: "{{ ranger_gits }}"
+  with_items: '{{ ranger_gits }}'

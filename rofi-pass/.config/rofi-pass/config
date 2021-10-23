@@ -9,7 +9,7 @@ _rofi () {
 
 # default command to generate passwords
 _pwgen () {
-	pwgen -sy "$@"
+   pwgen -sy "$@"
 }
 
 # image viewer to display qrcode of selected entry
@@ -78,7 +78,7 @@ edit_new_pass="true"
 # default_user is also used for password files that have no user field.
 #default_user="${ROFI_PASS_DEFAULT_USER-$(whoami)}"
 #default_user2=mary_ann
-password_length=21
+password_length=27
 
 # Custom Keybindings
 autotype="Alt+1"

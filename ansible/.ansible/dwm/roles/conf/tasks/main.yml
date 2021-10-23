@@ -2,14 +2,21 @@
 # tasks/main.yml
 
 - name: Xorg conf
-  ansible.builtin.copy:
-    src: '{{ item.src }}'
-    dest: '{{ item.dest }}'
-    owner: root
-    group: root
-    mode: 0644
+  block:
+    - name: Create dir conf
+      ansible.builtin.file:
+        path: '{{ item.dest | dirname }}'
+        state: directory
+      with_items: '{{ xorg_conf }}'
+    - name: Copy conf
+      ansible.builtin.copy:
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
+        owner: root
+        group: root
+        mode: 0644
+      with_items: '{{ xorg_conf }}'
   become: yes
-  with_items: '{{ xorg_conf }}'
 
 - name: Change dwm path
   vars:
@@ -22,26 +29,6 @@
 
 - name: Firewalld conf
   ansible.builtin.command: firewall-cmd --set-default-zone=drop
-  become: yes
-
-- name: Disable systemd-resolved
-  block:
-    - name: Disable systemd-resolved
-      ansible.builtin.service:
-        name: systemd-resolved
-        state: stopped
-        enabled: no
-    - name: Remove /etc/resolv.conf
-      ansible.builtin.file:
-        path: /etc/resolv.conf
-        state: absent
-    - name: Restart NetworkManager
-      ansible.builtin.service:
-        name: NetworkManager
-        state: restarted
-    - name: Wait name resolution restart
-      ansible.builtin.pause:
-        seconds: 3
   become: yes
 
 - name: GNU/Stow

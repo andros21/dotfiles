@@ -75,8 +75,10 @@ jobs:
         run: |
           cd $ansible_dwm
           ansible-playbook --syntax-check dwm.yml
+          ansible-playbook --syntax-check update.yml
 
       - name: Run ansible-lint
         run: |
           cd $ansible_dwm
           ansible-lint dwm.yml
+          ansible-lint update.yml

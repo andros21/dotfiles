@@ -10,6 +10,6 @@
       tags: git
     - role: conf
       tags: conf
-    - role: make
-      tags: make
+    - role: build
+      tags: build
 ...

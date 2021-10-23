@@ -1,52 +1,61 @@
 ---
 # vars/main.yml
 
-pkgs:
-  - NetworkManager-tui
-  - akmod-acpi_call
+base:
   - alacritty
-  - atool
   - bat
-  - boost-devel
-  - brightnessctl
-  - clang
   - fd-find
+  - fish
+  - fzf
+  - htop
+  - neovim
+  - pass
+  - ranger
+  - rofi
+
+base_deps:
+  - NetworkManager-tui
+  - atool
+  - brightnessctl
   - feh
   - ffmpeg
-  - fish
-  - fuse-encfs
-  - fzf
-  - gcc-c++
-  - gimp
-  - harfbuzz-devel
-  - htop
   - hunspell-it
-  - kernel-devel
-  - kernel-headers
-  - kernel-modules
-  - kernel-modules-extra
+  - lm_sensors
+  - maim
+  - mpv
+  - pandoc
+  - picom
+  - pwgen
+  - slop
+  - stow
+  - xclip
+  - xsel
+
+build:
+  - clang
+  - gcc-c++
+  - meson
+
+flathub:
+  - org.telegram.desktop
+
+base_libs:
+  - boost-devel
+  - harfbuzz-devel
   - libX11-devel
   - libXft-devel
   - libXinerama-devel
   - libXrandr-devel
   - libxcb-devel
-  - lm_sensors
-  - maim
-  - mpv
-  - neovim
-  - pandoc
-  - pass
-  - passmenu
-  - picom
   - pulseaudio-libs-devel
-  - pwgen
-  - ranger
-  - rofi
-  - slop
+
+pypi:
+  - ipython
+  - youtube_dl
+
+utils:
+  - firejail
+  - fuse-encfs
+  - passmenu
   - socat
   - srm
-  - stow
-  - telegram-desktop
-  - tlp
-  - xclip
-  - xsel
