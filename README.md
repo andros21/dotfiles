@@ -59,6 +59,7 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
 
 * Minimal custom fish shell prompt with git symbol integration (see [here](https://github.com/magicmonty/bash-git-prompt))
 * Switch from ssh-agent to gpg-agent for ssh-key authentication
+* Speed up shell loading, dividing `login` tasks, from `no-login` tasks
 * [Fisher](https://github.com/jorgebucaran/fisher) as default plugin manager
 * Custom aliases and functions for fish, aesthetics and functional purpose
 * [Nord dir colors](https://github.com/arcticicestudio/nord-dircolors)

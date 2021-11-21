@@ -6,7 +6,7 @@ if status is-login
    set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME ~/.config
    # Change PATH
    set -x PATH "$HOME/.local/bin" $PATH
-   # If fisher not installed, install it with plugins
+   # If FISHER not installed, install it with plugins
    if not functions -q fisher
       curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
       if test $status
@@ -16,7 +16,7 @@ if status is-login
          fisher install PatrickF1/fzf.fish
       end
    end
-   # If pyenv installed, source it
+   # If PYENV installed, source it
    # +++ Warning +++
    # Not initialized yet, if needed, init it:
    # $ pyenv init --path | source
@@ -25,11 +25,12 @@ if status is-login
       pyenv init --path | source
    end
    # GPG as ssh-agent
+   set -q SSH_AUTH_SOCK; or set -x SSH_AUTH_SOCK null
    if test $SSH_AUTH_SOCK != (gpgconf --list-dirs agent-ssh-socket)
-      ssh-agent -k
+      ssh-agent -k 2> /dev/null
       gpgconf --launch gpg-agent
       if test $status
-         set -x GPG_TTY /dev/pts/0
+         set -x GPG_TTY (tty)
          set -x SSH_AGENT_PID (pgrep gpg-agent)
          set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
       end
@@ -38,41 +39,14 @@ if status is-login
    set -x EDITOR nvim
    # Default MANPAGER
    set -x MANPAGER "nvim -c 'set ft=man' -"
-   # Nord theme bat
+   # Nord theme BAT
    set -x BAT_THEME "Nord"
+   # Set my FISH color theme
+   set -q fish_my_color_theme; or fish_set_my_color_theme
 else
    # Default FZF command
-   # for fzf fisher plugin
+   ## for fzf fisher plugin
    set fzf_fd_opts --no-ignore --hidden --follow --exclude="{.cache,.git}"
-   # for fzf nvim plugin
-   set -x FZF_DEFAULT_COMMAND 'fd $fzf_fd_opts 2>/dev/null'
+   ## for fzf nvim plugin
+   set -gx FZF_DEFAULT_COMMAND 'fd $fzf_fd_opts 2>/dev/null'
 end
-
-# Fish color scheme
-set -U fish_color_autosuggestion 969896
-set -U fish_color_cancel \x2dr
-set -U fish_color_command c397d8
-set -U fish_color_comment e7c547
-set -U fish_color_cwd green
-set -U fish_color_cwd_root red
-set -U fish_color_end c397d8
-set -U fish_color_error d54e53
-set -U fish_color_escape 00a6b2
-set -U fish_color_history_current \x2d\x2dbold
-set -U fish_color_host normal
-set -U fish_color_host_remote yellow
-set -U fish_color_match \x2d\x2dbackground\x3dbrblue
-set -U fish_color_normal normal
-set -U fish_color_operator 00a6b2
-set -U fish_color_param 7aa6da
-set -U fish_color_quote b9ca4a
-set -U fish_color_redirection 70c0b1
-set -U fish_color_search_match bryellow\x1e\x2d\x2dbackground\x3dbrblack
-set -U fish_color_selection white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
-set -U fish_color_status red
-set -U fish_color_user brgreen
-set -U fish_color_valid_path \x2d\x2dunderline
-set -U fish_pager_color_completion normal
-set -U fish_pager_color_description B3A06D\x1eyellow
-set -U fish_pager_color_prefix white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
-set -U fish_pager_color_progress brwhite\x1e\x2d\x2dbackground\x3dcyan
