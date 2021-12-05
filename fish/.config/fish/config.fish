@@ -38,15 +38,15 @@ if status is-login
    # Default EDITOR
    set -x EDITOR nvim
    # Default MANPAGER
-   set -x MANPAGER "nvim -c 'set ft=man' -"
+   set -x MANPAGER 'nvim +Man!'
    # Nord theme BAT
-   set -x BAT_THEME "Nord"
+   set -x BAT_THEME 'Nord'
    # Set my FISH color theme
    set -q fish_my_color_theme; or fish_set_my_color_theme
 else
    # Default FZF command
    ## for fzf fisher plugin
-   set fzf_fd_opts --no-ignore --hidden --follow --exclude="{.cache,.git}"
+   set fzf_fd_opts --no-ignore --hidden --follow --exclude='{.cache,.git}'
    ## for fzf nvim plugin
-   set -gx FZF_DEFAULT_COMMAND 'fd $fzf_fd_opts 2>/dev/null'
+   set -gx FZF_DEFAULT_COMMAND "fd $fzf_fd_opts 2>/dev/null"
 end

@@ -116,7 +116,7 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ### Prerequisites
 
-* `fedora >= 33`
+* `fedora >= 34`
 * `requirements.txt`
 * `requirements-dev.txt` (optional, for devel)
 

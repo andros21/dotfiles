@@ -98,6 +98,7 @@ let g:ale_fix_on_text_changed      = 0
 
 let g:ale_disable_lsp            = 1
 let g:ale_use_global_executables = 1
+let g:ale_linters_explicit       = 1
 let g:ale_linters                = {
                                    \ 'cpp'    : ['clangcheck'],
                                    \ 'fish'   : ['fish'],
@@ -207,7 +208,12 @@ nmap <leader>S  :Startify<CR>
 " Fzf vim
 nmap <leader>f  :Files<CR>
 nmap <leader>F  :Files!<CR>
+nmap <leader>GD :GFiles!?<CR>
 nmap <leader>b  :Buffers<CR>
+nmap <leader>rg :Rg<CR>
+nmap <leader>RG :Rg!<CR>
+nmap <leader>l  :BLines<CR>
+nmap <leader>L  :BLines!<CR>
 nmap <leader>w  :Windows<CR>
 nmap <leader>hh :History<CR>
 nmap <leader>H  :History!<CR>

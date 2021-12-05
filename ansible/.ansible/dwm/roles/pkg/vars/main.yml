@@ -4,6 +4,7 @@
 base:
   - alacritty
   - bat
+  - git-delta
   - fd-find
   - fish
   - fzf
@@ -26,6 +27,7 @@ base_deps:
   - pandoc
   - picom
   - pwgen
+  - ripgrep
   - slop
   - stow
   - xclip

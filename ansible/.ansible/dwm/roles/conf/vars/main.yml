@@ -16,6 +16,7 @@ path_to_mk:
   - .gnupg/
   - .local/bin/
   - .local/share/fonts/Hack/
+  - .tmux/
 
 cloned_gits:
   - https://github.com/cdemoulins/pamixer
