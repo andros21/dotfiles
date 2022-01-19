@@ -17,7 +17,9 @@ Plug 'vim-airline/vim-airline'
 " Functionalities
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-rooter'
 Plug 'alvan/vim-closetag'
+Plug 'aymericbeaumet/vim-symlink'
 Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-system-copy'
 Plug 'dense-analysis/ale'
@@ -26,6 +28,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
+Plug 'moll/vim-bbye'
 Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
@@ -36,7 +39,8 @@ call plug#end()
 
 """ Python3 nvim virtualenv
 let g:loaded_python_provider = 0
-let g:python3_host_prog      = expand('~/.pyenv/versions/py3nvim/bin/python')
+let g:pyenv_py3nvim_bin = expand('~/.pyenv/versions/py3nvim/bin/')
+let g:python3_host_prog = pyenv_py3nvim_bin . 'python'
 
 """ Coloring
 colorscheme nord
@@ -55,6 +59,7 @@ set list listchars=trail:»,tab:»-
 set fileencoding=utf-8
 set fillchars+=vert:\
 set wrap breakindent
+set inccommand=split
 set timeoutlen=3000
 set relativenumber
 set spelllang+=it
@@ -79,9 +84,7 @@ let g:system_copy_silent       = 1
 let g:system_copy#copy_command = 'xclip -sel clipboard'
 
 """ Deoplete
-let g:deoplete#enable_at_startup            = 1
-"let g:deoplete#sources#jedi#extra_path = ['~/.pyenv/plugins/pyenv-virtualenv/shims']
-"let g:deoplete#sources#jedi#enable_typeinfo = 1
+let g:deoplete#enable_at_startup = 1
 
 """ Ale
 let g:ale_lint_on_enter            = 0
@@ -103,6 +106,7 @@ let g:ale_linters                = {
                                    \ 'cpp'    : ['clangcheck'],
                                    \ 'fish'   : ['fish'],
                                    \ 'python' : ['pylint'],
+                                   \ 'vim'    : ['vint'],
                                    \ 'yaml'   : ['yamllint']
                                    \}
 let g:ale_fixers                 = {
@@ -111,13 +115,12 @@ let g:ale_fixers                 = {
                                    \ 'python' : ['autoimport', 'black', 'isort'],
                                    \}
 
-"let g:ale_virtualenv_dir_names = ['~/.pyenv/versions/']
-let g:ale_python_autoimport_executable = expand('~/.pyenv/versions/py3nvim/bin/autoimport')
-let g:ale_python_black_executable      = expand('~/.pyenv/versions/py3nvim/bin/black')
-let g:ale_python_isort_executable      = expand('~/.pyenv/versions/py3nvim/bin/isort')
-let g:ale_python_pylint_executable     = expand('~/.pyenv/versions/py3nvim/bin/pylint')
-let g:ale_vim_vint_executable          = expand('~/.pyenv/versions/py3nvim/bin/vint')
-let g:ale_yaml_yamllint_executable     = expand('~/.pyenv/versions/py3nvim/bin/yamllint')
+let g:ale_python_autoimport_executable = pyenv_py3nvim_bin . 'autoimport'
+let g:ale_python_black_executable      = pyenv_py3nvim_bin . 'black'
+let g:ale_python_isort_executable      = pyenv_py3nvim_bin . 'isort'
+let g:ale_python_pylint_executable     = pyenv_py3nvim_bin . 'pylint'
+let g:ale_vim_vint_executable          = pyenv_py3nvim_bin . 'vint'
+let g:ale_yaml_yamllint_executable     = pyenv_py3nvim_bin . 'yamllint'
 
 """ indentLine
 let g:indentLine_enabled    = 0
@@ -126,6 +129,13 @@ let g:indentLine_color_term = '102'
 
 """ mirror.vim
 let g:mirror#config_path = expand('~/.mirrors.yml')
+
+""" vim-symlink
+let g:symlink_redraw = 0
+
+""" vim-rooter
+let g:rooter_patterns      = ['requirements.*', '.git', 'LICENSE*', 'README*', 'Makefile']
+let g:rooter_resolve_links = 1
 
 """ Function
 
@@ -174,6 +184,9 @@ endif
 " Enable indentLine for particular FileType
 au FileType bash,c,cpp,fish,python,sh IndentLinesEnable
 
+" Highlight yanked text
+au TextYankPost * silent! lua require'vim.highlight'.on_yank()
+
 augroup END
 
 """ Custom Mappings
@@ -201,6 +214,7 @@ nmap <leader>r  :so $MYVIMRC<CR>
 nmap <leader>s  :w<CR>
 nmap <leader>d  :bd<CR>
 nmap <leader>D  <C-O>
+nmap <leader>cd :cd ~/Documents<CR>
 
 " Startify
 nmap <leader>S  :Startify<CR>
@@ -208,7 +222,7 @@ nmap <leader>S  :Startify<CR>
 " Fzf vim
 nmap <leader>f  :Files<CR>
 nmap <leader>F  :Files!<CR>
-nmap <leader>GD :GFiles!?<CR>
+nmap <leader>gs :GFiles?<CR>
 nmap <leader>b  :Buffers<CR>
 nmap <leader>rg :Rg<CR>
 nmap <leader>RG :Rg!<CR>
@@ -217,4 +231,4 @@ nmap <leader>L  :BLines!<CR>
 nmap <leader>w  :Windows<CR>
 nmap <leader>hh :History<CR>
 nmap <leader>H  :History!<CR>
-nmap <leader>R  :History:<CR>
+nmap <leader>rr :History:<CR>

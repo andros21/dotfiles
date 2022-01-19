@@ -7,5 +7,3 @@
    diffFilter = delta --color-only --features=interactive
 [pull]
    rebase = false
-[alias]
-   l = log --oneline --graph --color --abbrev-commit --all --decorate

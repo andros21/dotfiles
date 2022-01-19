@@ -1,82 +1,53 @@
-#
-# LINT.YML
-#
-# Run linters `ansible-lint` and `yamllint`
-# when changes over `ansible/.ansible` are detected
-#
-# Credits to:
-#   * https://github.com/freeipa/ansible-freeipa/blob/master/.github/workflows/lint.yml
-#
-
 ---
 name: Lint CI
 
-on:
+"on":
   push:
-    branches: [ master ]
+    branches:
+      - master
+    paths:
+      - 'ansible/.ansible/**'
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+    paths:
+      - 'ansible/.ansible/**'
+
+permissions: read-all
 
 jobs:
-  changes:
-    name: Check changes
-    runs-on: ubuntu-latest
-    outputs:
-      ansible: ${{ steps.filter.outputs.ansible }}
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v2
-
-      - name: Filter paths
-        uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            ansible:
-              - 'ansible/.ansible/**'
-              - '.github/workflows/**'
-
   lint:
     name: Lint playbooks
     runs-on: ubuntu-latest
-    needs: [ changes ]
-    if: ${{ needs.changes.outputs.ansible == 'true' }}
     steps:
       - name: Checkout project
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v2.4.0
       - name: Setup some envs
         run: |
           echo "HOME=$HOME" >> $GITHUB_ENV
           echo "PATH=$PATH:$HOME/.local/bin" >> $GITHUB_ENV
           echo "ansible_dwm=ansible/.ansible/dwm/" >> $GITHUB_ENV
-
       - name: Install requirements-dev.txt
         run: |
           cd $ansible_dwm
           python -m pip install -r requirements-dev.txt
-
       - name: Check ansible version
         run: |
           ansible --version
           ansible-lint --version
-
       - name: Install requirements.yml
         run: |
           cd $ansible_dwm
           ansible-galaxy collection install -r requirements.yml
-
       - name: Run yaml-lint
         run: |
           cd $ansible_dwm
           yamllint .
-
       - name: Run playbook syntax-check
         run: |
           cd $ansible_dwm
           ansible-playbook --syntax-check dwm.yml
           ansible-playbook --syntax-check update.yml
-
       - name: Run ansible-lint
         run: |
           cd $ansible_dwm

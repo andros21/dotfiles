@@ -25,10 +25,10 @@ _image_viewer () {
 
 # If for some reason, you cannot do this, you can set the command here.
 # and set fix_layout to true
-fix_layout=false
+fix_layout=true
 
 layout_cmd () {
-  setxkbmap us
+  setxkbmap it intl
 }
 
 # fields to be used
@@ -54,7 +54,7 @@ BROWSER='xdg-open'
 
 ## Misc settings
 
-default_do='copyPass' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
+default_do='autotype' # menu, autotype, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
 auto_enter='false'
 notify='false'
 default_autotype='user :tab pass'
@@ -84,11 +84,11 @@ password_length=27
 autotype="Alt+1"
 type_user="Alt+2"
 type_pass="Alt+3"
-open_url="Alt+4"
+open_url="Alt+o"
 copy_name="Alt+u"
 copy_url="Alt+l"
 copy_pass="Alt+p"
-show="Alt+o"
+show="Alt+s"
 copy_entry="Alt+2"
 type_entry="Alt+1"
 copy_menu="Alt+c"

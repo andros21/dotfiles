@@ -8,10 +8,8 @@ if status is-login
    set -x PATH "$HOME/.local/bin" $PATH
    # If FISHER not installed, install it with plugins
    if not functions -q fisher
-      curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
       if test $status
-         source $XDG_CONFIG_HOME/fish/functions/fisher.fish
-         fisher install jorgebucaran/fisher
          fisher install jethrokuan/z
          fisher install PatrickF1/fzf.fish
       end

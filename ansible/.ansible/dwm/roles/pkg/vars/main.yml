@@ -56,8 +56,10 @@ pypi:
   - youtube_dl
 
 utils:
+  - dua-cli
   - firejail
   - fuse-encfs
   - passmenu
+  - restic
   - socat
   - srm
