@@ -2,7 +2,7 @@
 <br>
 <p align="center">
   <a href="https://github.com/andros21/pgrank">
-    <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png" alt="Logo" width="470px">
+    <img src="https://user-images.githubusercontent.com/58751603/150508449-5c6e2069-8877-465d-af95-fd00b4d8105b.png" alt="Logo" width="470px">
   </a>
   <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
