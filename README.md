@@ -63,7 +63,7 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
 * [Fisher](https://github.com/jorgebucaran/fisher) as default plugin manager
 * Custom aliases and functions for fish, aesthetics and functional purpose
 * [Nord dir colors](https://github.com/arcticicestudio/nord-dircolors)
-* Gio mount/umount simple functions and relative aliases
+* udisksctl mount simple functions and relative aliases
 
 #### Status bar `dwmblocks`
 
@@ -87,17 +87,22 @@ Here my build [slock](https://github.com/andros21/slock)
 #### Editor `neovim`
 
 * [vim-plug](https://github.com/junegunn/vim-plug) as default plugin manager
+* [vim-startify](https://github.com/mhinz/vim-startify) the fancy start screen for vim
+* [vim-airline](https://github.com/vim-airline/vim-airline) with [nord-theme](https://github.com/arcticicestudio/nord-vim) plugin
+* [ALE](https://github.com/dense-analysis/ale) as linter and fixer (bins inside x project venv or in PATH)
+* [deoplete.nvim](https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources) for avoiding typing repetition (no completion sources configured)
+* [mirror.vim](https://github.com/zenbro/mirror.vim) as advance remote file editor plugin
+* [fzf.vim](https://github.com/junegunn/fzf.vim) easily moving around (files, tabs, lines, stages, ripgrep, ...)
+* [vim-rooter](https://github.com/airblade/vim-rooter) automatic root project changer
+* devicons and nerdcommenter
 * aesthetics and essential plugins for file editing
 * buffers as tabs
 * autocmd for resume cursor position
-* `pynvim` module available inside pyenv virtualenv
-* [ALE](https://github.com/dense-analysis/ale) as linter and fixer (bins inside pyenv virtualenv)
-* [mirror.vim](https://github.com/zenbro/mirror.vim) as advance remote file editor plugin
 * personal mappings
 
 #### File Manager `ranger`
 
-* custom `rc.conf` (gio utilities)
+* custom `rc.conf`
 * custom `commands.py`:
    + z jump (using fish z database)
    + devicons
