@@ -22,8 +22,8 @@ alias g    'git'
 
 # func
 # ----
-alias gmm  'fish_gio_mount'
-alias gmu  'fish_gio_umount'
+alias gmm  'fish_mount'
+alias gmu  'fish_umount'
 alias rgpg 'echo RELOADAGENT | gpg-connect-agent'
 
 # git
