@@ -14,14 +14,6 @@ if status is-login
          fisher install PatrickF1/fzf.fish
       end
    end
-   # If PYENV installed, source it
-   # +++ Warning +++
-   # Not initialized yet, if needed, init it:
-   # $ pyenv init --path | source
-   if [ -d "$HOME/.pyenv/" ]
-      set -x PATH "$HOME/.pyenv/bin" $PATH
-      pyenv init --path | source
-   end
    # GPG as ssh-agent
    set -q SSH_AUTH_SOCK; or set -x SSH_AUTH_SOCK null
    if test $SSH_AUTH_SOCK != (gpgconf --list-dirs agent-ssh-socket)
@@ -44,7 +36,7 @@ if status is-login
 else
    # Default FZF command
    ## for fzf fisher plugin
-   set fzf_fd_opts --no-ignore --hidden --follow --exclude='{.cache,.git}'
+   set fzf_fd_opts --no-ignore --hidden --follow --exclude='{.cache,.git,.venv}'
    ## for fzf nvim plugin
    set -gx FZF_DEFAULT_COMMAND "fd $fzf_fd_opts 2>/dev/null"
 end

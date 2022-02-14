@@ -37,5 +37,14 @@
 ehthumbs.db
 Icon?
 Thumbs.db
-
 *.lock
+
+# Python envs #
+###############
+.env
+.venv
+env
+ve-py3
+ve
+virtualenv
+venv

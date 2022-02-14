@@ -39,15 +39,13 @@ call plug#end()
 
 """ Python3 nvim virtualenv
 let g:loaded_python_provider = 0
-let g:pyenv_py3nvim_bin = expand('~/.pyenv/versions/py3nvim/bin/')
-let g:python3_host_prog = pyenv_py3nvim_bin . 'python'
 
 """ Coloring
 colorscheme nord
 hi Comment      ctermfg = 103
 hi Visual       ctermbg = 8
 hi LineNr       ctermfg = 3
-hi CursorLine   ctermbg = NONE
+hi CursorLine   ctermbg = 235
 hi CursorLineNr ctermfg = 1
 
 """ Other Configurations
@@ -63,6 +61,7 @@ set inccommand=split
 set timeoutlen=3000
 set relativenumber
 set spelllang+=it
+set cursorline
 set hidden
 set title
 
@@ -100,7 +99,6 @@ let g:ale_fix_on_save              = 1
 let g:ale_fix_on_text_changed      = 0
 
 let g:ale_disable_lsp            = 1
-let g:ale_use_global_executables = 1
 let g:ale_linters_explicit       = 1
 let g:ale_linters                = {
                                    \ 'cpp'    : ['clangcheck'],
@@ -114,13 +112,6 @@ let g:ale_fixers                 = {
                                    \ 'cpp'    : ['clang-format'],
                                    \ 'python' : ['autoimport', 'black', 'isort'],
                                    \}
-
-let g:ale_python_autoimport_executable = pyenv_py3nvim_bin . 'autoimport'
-let g:ale_python_black_executable      = pyenv_py3nvim_bin . 'black'
-let g:ale_python_isort_executable      = pyenv_py3nvim_bin . 'isort'
-let g:ale_python_pylint_executable     = pyenv_py3nvim_bin . 'pylint'
-let g:ale_vim_vint_executable          = pyenv_py3nvim_bin . 'vint'
-let g:ale_yaml_yamllint_executable     = pyenv_py3nvim_bin . 'yamllint'
 
 """ indentLine
 let g:indentLine_enabled    = 0
@@ -212,7 +203,7 @@ nmap <leader>n <Plug>AirlineSelectNextTab
 nmap <leader>e  :e $MYVIMRC<CR>
 nmap <leader>r  :so $MYVIMRC<CR>
 nmap <leader>s  :w<CR>
-nmap <leader>d  :bd<CR>
+nmap <leader>d  :Bd<CR>
 nmap <leader>D  <C-O>
 nmap <leader>cd :cd ~/Documents<CR>
 
