@@ -26,18 +26,3 @@
         name: '{{ item }}'
         state: present
       with_items: '{{ pypi }}'
-
-- name: Download and install pyenv
-  block:
-    - name: Download pyenv
-      ansible.builtin.get_url:
-        url: https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer
-        dest: /tmp/pyenv-installer
-    - name: Install pyenv
-      ansible.builtin.command: bash /tmp/pyenv-installer
-
-- name: Create py3nvim env
-  ansible.builtin.shell: |
-    ~/.pyenv/bin/pyenv virtualenv py3nvim
-    ~/.pyenv/versions/py3nvim/bin/pip install pynvim
-    exit 0
