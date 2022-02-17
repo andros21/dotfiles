@@ -1,0 +1,9 @@
+---
+# vats/alpine.yml
+
+rc_services:
+  - dbus
+  - dhcpcd
+  - elogind
+  - fwupd
+  - nftables

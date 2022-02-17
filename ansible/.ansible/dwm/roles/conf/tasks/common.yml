@@ -1,0 +1,55 @@
+---
+# tasks/common.yml
+
+- name: Setup XDG standard dirs
+  ansible.builtin.shell:
+    cmd: xdg-user-dirs-update
+
+- name: GNU/Stow
+  block:
+    - name: Remove default configs
+      ansible.builtin.file:
+        path: '{{ ansible_user_dir }}/{{ item }}'
+        state: absent
+      with_items: '{{ file_to_rm }}'
+    - name: Create some locations
+      ansible.builtin.file:
+        path: '{{ ansible_user_dir }}/{{ item }}'
+        state: directory
+      with_items: '{{ path_to_mk }}'
+    - name: Collect paths to stow
+      ansible.builtin.find:
+        paths: '{{ ansible_user_dir }}/.dotfiles/'
+        file_type: directory
+        excludes: .cache,.git,.github,Xorg
+      register: find_result
+    - name: Stow them
+      ansible.builtin.shell:
+        cmd: stow "{{ item.path | basename }}"
+        chdir: '{{ ansible_user_dir }}/.dotfiles/'
+      with_items: '{{ find_result.files }}'
+
+- name: Create not standard XDG dirs
+  ansible.builtin.file:
+    path: '{{ ansible_user_dir }}/{{ item }}'
+    state: directory
+  with_items: '{{ my_std_xdg_path }}'
+
+- name: Download nord theme alacritty
+  ansible.builtin.get_url:
+    url: '{{ nord_alatty_url }}'
+    dest: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
+
+- name: Download and install Hack Nerd Fonts
+  block:
+    - name: Download Hack Nerd Fonts
+      ansible.builtin.get_url:
+        url: '{{ font_url }}'
+        dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
+    - name: Install Hack Nerd Fonts
+      ansible.builtin.command: fc-cache -f
+
+- name: Download default wallpaper
+  ansible.builtin.get_url:
+    url: '{{ wallpaper_url }}'
+    dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/nord.jpg'

@@ -1,0 +1,12 @@
+---
+# tasks/fedora.yml
+
+- name: Import rpmfusion free key
+  ansible.builtin.rpm_key:
+    key: '{{ rpmfusion_free_key }}'
+    state: present
+
+- name: Add rpmfusion_free repos
+  ansible.builtin.dnf:
+    name: '{{ rpmfusion_repo }}'
+    state: present

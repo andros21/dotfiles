@@ -1,20 +1,24 @@
+---
 # tasks/main.yml
 
-- name: Import rpmfusion free key
-  ansible.builtin.rpm_key:
-    key: '{{ rpmfusion_free_key }}'
-    state: present
+- name: Fedora
+  block:
+    - ansible.builtin.include_vars:
+        file: fedora.yml
+    - ansible.builtin.include_tasks:
+        file: fedora.yml
   become: yes
+  when: ansible_distribution == "Fedora"
 
-- name: Add rpmfusion_free repos
-  ansible.builtin.dnf:
-    name: '{{ rpmfusion_repo }}'
-    state: present
+- name: Alpine Linux
+  block:
+    - ansible.builtin.include_vars:
+        file: alpine.yml
+    - ansible.builtin.include_tasks:
+        file: alpine.yml
   become: yes
+  when: ansible_distribution == "Alpine"
 
-- name: Add flathub repo
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: '{{ flathub_repo }}'
-    method: user
+- name: Common
+  ansible.builtin.include_tasks:
+    file: common.yml

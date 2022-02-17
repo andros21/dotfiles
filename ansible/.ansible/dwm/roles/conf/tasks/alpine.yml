@@ -1,0 +1,117 @@
+---
+# tasks/alpine.yml
+
+- name: Setup openrc
+  block:
+    - name: Parallel yes
+      ansible.builtin.lineinfile:
+        path: /etc/rc.conf
+        insertafter: '^#rc_parallel(.*)'
+        line: rc_parallel="YES"
+    - name: Log yes
+      ansible.builtin.lineinfile:
+        path: /etc/rc.conf
+        insertafter: '^#rc_logger(.*)'
+        line: rc_logger="YES"
+
+#- name: Setup shell
+  #block:
+    #- name: Touch login.defs
+      #ansible.builtin.file:
+        #path: /etc/login.defs
+        #state: touch
+    #- name: Mkdir default
+      #ansible.builtin.file:
+        #path: /etc/default
+        #state: directory
+    #- name: Touch useradd
+      #ansible.builtin.file:
+        #path: /etc/default/useradd
+        #state: touch
+    #- name: Chsh fish
+      #ansible.builtin.expect:
+        #command: lchsh '{{ ansible_user_id }}'
+        #responses:
+          #(.*): '/usr/bin/fish'
+
+- name: Setup pipewire
+  block:
+    - name: Load module
+      ansible.builtin.copy:
+        dest: /etc/modules-load.d/snd.conf
+        content: |
+          snd_seq
+    - name: Mkdir pipewire
+      ansible.builtin.file:
+        path: /etc/pipewire
+        state: directory
+    - name: Copy pipewire default
+      ansible.builtin.copy:
+        src: /usr/share/pipewire/pipewire.conf
+        dest: /etc/pipewire/pipewire.conf
+    - name: Enable wireplumber
+      ansible.builtin.lineinfile:
+        path: /etc/pipewire/pipewire.conf
+        insertafter: '(.*)pipewire-pulse.conf(.*)'
+        line: '    { path = "wireplumber"  args = "" }'
+    - name: Enable pulseaudio compatibility
+      ansible.builtin.replace:
+        path: /etc/pipewire/pipewire.conf
+        regexp: '(.*)#(.*pipewire-pulse.conf.*)'
+        replace: '    \2'
+
+- name: Setup network
+  block:
+    - name: Allow eth0 hotplug
+      ansible.builtin.lineinfile:
+        path: /etc/network/interfaces
+        insertafter: '(.*)auto eth0(.*)'
+        line: allow-hotplug eth0
+    - name: Delete auto eth0
+      ansible.builtin.lineinfile:
+        path: /etc/network/interfaces
+        regexp: '(.*)auto eth0(.*)'
+        state: absent
+
+- name: No ipv6
+  ansible.builtin.copy:
+    dest: /etc/sysctl.d/no-ipv6.conf
+    content: |
+      net.ipv6.conf.all.disable_ipv6=1
+
+- name: Setup sensors
+  ansible.builtin.copy:
+    dest: /etc/modules-load.d/i2c.conf
+    content: |
+      i2c-dev
+
+- name: Enable services
+  ansible.builtin.shell:
+    cmd: rc-update add '{{ item }}'
+  with_items: '{{ rc_services }}'
+  when: item != 'fwupd'
+
+- name: Enable fwupd
+  block:
+    - name: Check bios or efi
+      ansible.builtin.stat:
+        path: /sys/firmware/efi
+      register: efi
+    - name: Enable fwupd if efi
+      ansible.builtin.shell:
+        cmd: rc-update add fwupd
+      when: efi.stat.exists
+
+- name: Python alias
+  ansible.builtin.file:
+    src: /usr/bin/python3
+    dest: /usr/bin/python
+    state: link
+
+- name: Chsh fish
+  ansible.builtin.expect:
+    command: chsh -s /usr/bin/fish '{{ ansible_user_id }}'
+    timeout:
+    responses:
+      (.*)Password(.*): '{{ become_passwd }}'
+  become: no
