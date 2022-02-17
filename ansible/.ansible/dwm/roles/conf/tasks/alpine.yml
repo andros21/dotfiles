@@ -14,26 +14,6 @@
         insertafter: '^#rc_logger(.*)'
         line: rc_logger="YES"
 
-#- name: Setup shell
-  #block:
-    #- name: Touch login.defs
-      #ansible.builtin.file:
-        #path: /etc/login.defs
-        #state: touch
-    #- name: Mkdir default
-      #ansible.builtin.file:
-        #path: /etc/default
-        #state: directory
-    #- name: Touch useradd
-      #ansible.builtin.file:
-        #path: /etc/default/useradd
-        #state: touch
-    #- name: Chsh fish
-      #ansible.builtin.expect:
-        #command: lchsh '{{ ansible_user_id }}'
-        #responses:
-          #(.*): '/usr/bin/fish'
-
 - name: Setup pipewire
   block:
     - name: Load module
@@ -107,6 +87,16 @@
     src: /usr/bin/python3
     dest: /usr/bin/python
     state: link
+
+- name: Add to input group
+  block:
+    - name: Get user
+      ansible.builtin.set_fact:
+        whoami: '{{ ansible_user_id }}'
+      become: no
+    - name: Add to input
+      ansible.builtin.shell:
+        cmd: adduser '{{ whoami }}' input
 
 - name: Chsh fish
   ansible.builtin.expect:
