@@ -1,0 +1,13 @@
+/* config.rasi */
+
+configuration {
+   modi: "window,run,ssh,drun";
+   font: "DejaVu Sans Mono 15";
+   terminal: "alacritty";
+   ssh-command: "{terminal} -e {ssh-client} {host}";
+   case-sensitive: false;
+   parse-known-hosts: false;
+   matching: "fuzzy";
+}
+
+@theme "nord"

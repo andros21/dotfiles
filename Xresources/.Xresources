@@ -1,14 +1,12 @@
-! =========================
+! ========================
 ! Xresources Configuration
-! =========================
+! ========================
 !
 ! Features:
 !  * nord theme color (+ ARGB color)
 !  * dwm  style
-!  * rofi style
 !
 ! Author: Andrea Rossoni
-! Date:   2021.10.17
 !
 
 ! Color Config
@@ -16,6 +14,3 @@
 
 ! Dwm Config
 #include ".Xresources.d/dwm"
-
-! Rofi Config
-#include ".Xresources.d/rofi"
