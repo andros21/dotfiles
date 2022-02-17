@@ -11,6 +11,9 @@
    <a href="https://dwm.suckless.org/">
     <img src="https://img.shields.io/badge/dwm-powered-important?logo=fedora&style=flat-square" alt="Lint CI">
   </a>
+   <a href="https://dwm.suckless.org/">
+    <img src="https://img.shields.io/badge/dwm-powered-important?logo=alpinelinux&style=flat-square" alt="Lint CI">
+  </a>
   <a href="https://github.com/andros21/dotfiles/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/andros21/dotfiles?color=blue&label=License&style=flat-square" alt="License">
   </a>
@@ -33,8 +36,11 @@
 #### X server `Xorg`
 
 * Nord color style, thanks to [Nord Xresources](https://github.com/arcticicestudio/nord-xresources)
-* Custom Xsession starting **dwm** as WM on Xorg
-* `Xresources/.profile` sourced (by `xinitrc-common` on Fedora) to prepare X env, before WM start
+* On `fedora`:
+   + Custom Xsession starting **dwm** as WM on Xorg
+   + `Xresources/.profile` sourced (by `xinitrc-common`) to prepare X env, before WM start
+* On `alpine`:
+   + Custom `.xinitrc` for starting **dwm** with `startx`
 
 #### Window manager `dwm`
 
@@ -81,8 +87,7 @@ Here my build [slock](https://github.com/andros21/slock)
 
 #### Launcher `rofi`
 
-* Xresources color/style setup
-* Custom default theme `my-default.rasi`
+* Custom theme `nord.rasi`
 
 #### Editor `neovim`
 
@@ -122,8 +127,14 @@ Here my build [slock](https://github.com/andros21/slock)
 ### Prerequisites
 
 * `fedora >= 34`
-* `requirements.txt`
-* `requirements-dev.txt` (optional, for devel)
+   + a sudo user
+   + `requirements.txt`
+   + `requirements-dev.txt` (devel)
+* `alpine >= 3.15`
+   + a sudo user
+   + maybe `apk add py3-pip py3-cffi`
+   + `requirements.txt`
+   + `requirements-dev.txt` (devel)
 
 ### How to run
 
