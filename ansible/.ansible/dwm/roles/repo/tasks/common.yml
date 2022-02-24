@@ -1,0 +1,9 @@
+---
+# tasks/common.yml
+
+- name: Add flathub repo
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: '{{ flathub_repo }}'
+    method: user

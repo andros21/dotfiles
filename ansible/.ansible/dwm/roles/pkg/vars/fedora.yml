@@ -1,0 +1,55 @@
+---
+# vars/fedora.yml
+
+base:
+  - alacritty
+  - bat
+  - git-delta
+  - fd-find
+  - fish
+  - fzf
+  - htop
+  - neovim
+  - pass
+  - ranger
+  - rofi
+
+base_deps:
+  - NetworkManager-tui
+  - atool
+  - brightnessctl
+  - feh
+  - ffmpeg
+  - hunspell-it
+  - lm_sensors
+  - maim
+  - mpv
+  - picom
+  - pwgen
+  - python3-wheel
+  - restic
+  - ripgrep
+  - slop
+  - stow
+  - xclip
+  - xsel
+
+build:
+  - clang
+  - gcc-c++
+  - meson
+
+base_libs:
+  - cxxopts-devel
+  - harfbuzz-devel
+  - libX11-devel
+  - libXft-devel
+  - libXinerama-devel
+  - libXrandr-devel
+  - libxcb-devel
+  - pulseaudio-libs-devel
+
+utils:
+  - fuse-encfs
+  - socat
+  - srm

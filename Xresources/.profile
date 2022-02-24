@@ -1,7 +1,8 @@
-
+# fedora
+# ======
 # Sourced by xinitrc-common
 # setting up my X env, before WM start
-#
+# ------------------------------------
 
 if [ "$GDMSESSION" = "dwm-xorg" ]; then
    # Setup minor screen resolution for built-in screen

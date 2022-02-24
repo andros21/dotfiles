@@ -1,0 +1,124 @@
+---
+# vars/alpine.yml
+
+base:
+  - alacritty
+  - bash
+  - bash-completion
+  - bash-doc
+  - bat
+  - fd
+  - fish
+  - fzf
+  - htop
+  - mandoc
+  - neovim
+  - pass
+  - ranger
+  - rofi
+
+base_deps:
+  - curl
+  - feh
+  - ffmpeg
+  - hunspell
+  - mpv
+  - picom
+  - pwgen
+  - py3-cffi
+  - py3-pexpect
+  - py3-pip
+  - py3-wheel
+  - python3-dev
+  - restic
+  - ripgrep
+  - screen
+  - sqlite
+  - stow
+  - tmux
+  - xclip
+  - xsel
+
+audio_deps:
+  - pipewire
+  - pipewire-pulse
+  - rtkit
+  - wireplumber
+
+input_deps:
+  - android-tools
+  - lm-sensors
+  - udisks2
+  - udisks2-doc
+  - usbutils
+  - wpa_supplicant
+  - xf86-input-libinput
+
+net_deps:
+  - dhcpcd
+  - nftables
+
+uefi_bios_deps:
+  - fwupd
+  - fwupd-plugin-all
+  - intel-ucode
+
+video_deps:
+  - mesa-vulkan-intel
+  - pciutils
+  - xf86-video-intel
+
+xorg_deps:
+  - dbus
+  - dbus-openrc
+  - dbus-x11
+  - elogind
+  - polkit-elogind
+  - font-noto
+  - font-noto-emoji
+  - libuser
+  - setxkbmap
+  - ttf-dejavu
+  - ttf-droid
+  - ttf-freefont
+  - ttf-liberation
+  - xdg-user-dirs
+  - xinput
+  - xrandr
+  - xset
+
+build:
+  - build-base
+  - clang
+  - gcc
+  - g++
+  - meson
+
+base_libs:
+  #- glew
+  #- libxcomposite
+  - harfbuzz-dev
+  - libx11-dev
+  - libxcb-dev
+  - libxcursor-dev
+  - libxft-dev
+  - libxinerama-dev
+  - libxrandr-dev
+  - pulseaudio-dev
+
+utils:
+  - encfs
+  - socat
+
+edge_community:
+  - delta
+
+edge_testing:
+  #- maim
+  #- slop
+  - atool
+  - cxxopts-dev
+
+edge_community_repo: https://dl-cdn.alpinelinux.org/alpine/edge/community
+
+edge_testing_repo: https://dl-cdn.alpinelinux.org/alpine/edge/testing

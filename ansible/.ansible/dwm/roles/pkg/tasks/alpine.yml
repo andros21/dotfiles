@@ -1,0 +1,35 @@
+---
+# tasks/alpine.yml
+
+- name: Update pkgs
+  community.general.apk:
+    upgrade: yes
+    update_cache: yes
+
+- name: Add needed pkgs
+  block:
+    - name: Apk add
+      community.general.apk:
+        name: '{{ base + base_deps + base_libs + build + utils }}'
+        state: present
+        update_cache: yes
+    - name: Setup base xorg
+      ansible.builtin.shell:
+        cmd: setup-xorg-base
+    - name: Apk add plus
+      community.general.apk:
+        name: '{{ audio_deps + input_deps + net_deps + uefi_bios_deps + video_deps + xorg_deps }}'
+        state: present
+        update_cache: yes
+    - name: Apk add edge/community
+      community.general.apk:
+        name: '{{ edge_community }}'
+        state: present
+        update_cache: yes
+        repository: '{{ edge_community_repo }}'
+    - name: Apk add edge/testing
+      community.general.apk:
+        name: '{{ edge_testing }}'
+        state: present
+        update_cache: yes
+        repository: '{{ edge_testing_repo }}'

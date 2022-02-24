@@ -1,5 +1,6 @@
 # configuration for rofi-power tool
-LAUNCHER="rofi -width 30 -lines 5 -dmenu -i"
+LAUNCHER="rofi -dmenu -i"
+STYLE="window {width: 30%;} listview {lines: 5;}"
 LOCKER="slock"
 PROMPT="rofi-power > "
 USE_LOCKER="true"

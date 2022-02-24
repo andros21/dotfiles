@@ -1,7 +1,5 @@
-/**
- * rofi -dump-theme output.
- * Rofi version: 1.6.1
- **/
+/* nord.rasi */
+
 * {
     red:                         rgba ( 220, 50, 47, 100 % );
     selected-active-foreground:  rgba ( 216, 222, 233, 90 % );
@@ -87,6 +85,9 @@ window {
     padding:          20;
     background-color: var(background);
     border:           0;
+    width:            50%;
+    location:         center;
+    anchor:           center;
 }
 mainbox {
     padding: 0;
@@ -107,6 +108,7 @@ listview {
     spacing:      3px ;
     fixed-height: 0;
     border:       0px ;
+    lines:        11;
 }
 scrollbar {
     width:        4px ;

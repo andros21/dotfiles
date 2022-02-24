@@ -12,7 +12,7 @@ if [ -f $HOME/.config/rofi-power/config ]; then
   source $HOME/.config/rofi-power/config
 else
   PROMPT="rofi-power"
-  LAUNCHER="rofi -width 30 -dmenu -i"
+  LAUNCHER="rofi -dmenu -i"
   USE_LOCKER="false"
   LOCKER="i3lock"
 fi
@@ -22,7 +22,13 @@ if [ ${#1} -gt 0 ]; then
   OPTIONS="Exit window manager\n$OPTIONS"
 fi
 
-option=`echo -e $OPTIONS | $LAUNCHER -p "$PROMPT" | awk '{print $2}' | tr -d '\r\n'`
+# Systemd (systemctl) or elogind (loginctl)
+type loginctl  > /dev/null 2>&1 && POWERCMD="loginctl"
+type systemctl > /dev/null 2>&1 && POWERCMD="systemctl"
+
+option=`echo -e $OPTIONS | \
+   $LAUNCHER -theme-str "$STYLE" -p "$PROMPT" \
+   | awk '{print $2}' | tr -d '\r\n'`
 if [ ${#option} -gt 0 ]
 then
     case $option in
@@ -30,16 +36,16 @@ then
         eval $1
         ;;
       Reboot)
-        systemctl reboot
+        $POWERCMD reboot
         ;;
       Power-off)
-        systemctl poweroff
+        $POWERCMD poweroff
         ;;
       Suspend)
-        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; systemctl suspend;
+        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; sleep 0.5; $POWERCMD suspend;
         ;;
       Hibernate)
-        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; systemctl hibernate;
+        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; sleep 0.5; $POWERCMD hibernate;
         ;;
       *)
         ;;

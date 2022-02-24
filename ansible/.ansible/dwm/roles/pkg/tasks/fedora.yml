@@ -1,0 +1,20 @@
+---
+# tasks/fedora.yml
+
+- name: Update pkgs
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+    update_cache: yes
+
+- name: Add needed pkgs
+  block:
+    - name: Dnf install
+      ansible.builtin.dnf:
+        name: '{{ base + base_deps + base_libs + build + utils }}'
+        state: present
+        update_cache: yes
+    - name: Dnf remove
+      ansible.builtin.dnf:
+        name: firefox
+        state: absent

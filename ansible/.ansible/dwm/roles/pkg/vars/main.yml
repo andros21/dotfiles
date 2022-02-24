@@ -1,65 +1,12 @@
 ---
 # vars/main.yml
 
-base:
-  - alacritty
-  - bat
-  - git-delta
-  - fd-find
-  - fish
-  - fzf
-  - htop
-  - neovim
-  - pass
-  - ranger
-  - rofi
-
-base_deps:
-  - NetworkManager-tui
-  - atool
-  - brightnessctl
-  - feh
-  - ffmpeg
-  - hunspell-it
-  - lm_sensors
-  - maim
-  - mpv
-  - pandoc
-  - picom
-  - pwgen
-  - ripgrep
-  - slop
-  - stow
-  - xclip
-  - xsel
-
-build:
-  - clang
-  - gcc-c++
-  - meson
-
 flathub:
+  - org.mozilla.firefox
   - org.telegram.desktop
-
-base_libs:
-  - boost-devel
-  - harfbuzz-devel
-  - libX11-devel
-  - libXft-devel
-  - libXinerama-devel
-  - libXrandr-devel
-  - libxcb-devel
-  - pulseaudio-libs-devel
 
 pypi:
   - ipython
+  - pulsemixer
   - pynvim
   - youtube_dl
-
-utils:
-  - firejail
-  - fuse-encfs
-  - passmenu
-  - restic
-  - socat
-  - srm

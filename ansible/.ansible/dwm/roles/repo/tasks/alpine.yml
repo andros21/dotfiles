@@ -1,0 +1,26 @@
+---
+# tasks/alpine.yml
+
+- name: Patch repositories
+  block:
+    - name: Enable community repo
+      ansible.builtin.replace:
+        path: /etc/apk/repositories
+        regexp: '^#(.*(?<!edge)\/community.*)'
+        replace: '\1'
+    - name: Trim whitespaces
+      ansible.builtin.replace:
+        path: /etc/apk/repositories
+        regexp: ' '
+        replace: ''
+    - name: Https
+      ansible.builtin.replace:
+        path: /etc/apk/repositories
+        regexp: 'http:'
+        replace: 'https:'
+
+- name: Apk add flatpak
+  community.general.apk:
+    name: flatpak
+    state: present
+    update_cache: yes

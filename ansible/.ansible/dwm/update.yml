@@ -1,5 +1,5 @@
 ---
-- hosts: thinkpad
+- hosts: laptop
   tasks:
     - name: dnf update
       ansible.builtin.dnf:
@@ -10,3 +10,16 @@
     - name: flatpak update
       ansible.builtin.shell: |
         flatpak --user update --assumeyes --noninteractive
+    - name: get outdated pip packages
+      ansible.builtin.shell:
+        cmd: |
+          pip list --user --outdated | awk '{print $1}' | tail -n +3
+          exit 0
+      register: pypi
+    - name: pip install
+      ansible.builtin.pip:
+        name: '{{ item }}'
+        state: present
+        executable: /usr/bin/pip
+        extra_args: --user --upgrade
+      with_items: '{{ pypi.stdout_lines }}'

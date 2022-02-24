@@ -1,87 +1,22 @@
 ---
 # tasks/main.yml
 
-- name: Xorg conf
+- name: Fedora
   block:
-    - name: Create dir conf
-      ansible.builtin.file:
-        path: '{{ item.dest | dirname }}'
-        state: directory
-      with_items: '{{ xorg_conf }}'
-    - name: Copy conf
-      ansible.builtin.copy:
-        src: '{{ item.src }}'
-        dest: '{{ item.dest }}'
-        owner: root
-        group: root
-        mode: 0644
-      with_items: '{{ xorg_conf }}'
+    - ansible.builtin.include_tasks:
+        file: fedora.yml
   become: yes
+  when: ansible_distribution == "Fedora"
 
-- name: Change dwm path
-  vars:
-    my_user_home: '{{ ansible_user_dir }}'
-  ansible.builtin.replace:
-    path: '{{ xorg_conf[0].dest }}'
-    regexp: Exec=*
-    replace: Exec={{ my_user_home }}/.local/bin/dwm
-  become: yes
-
-- name: Firewalld conf
-  ansible.builtin.command: firewall-cmd --set-default-zone=drop
-  become: yes
-
-- name: GNU/Stow
+- name: Alpine Linux
   block:
-    - name: Remove default configs
-      ansible.builtin.file:
-        path: '{{ ansible_user_dir }}/{{ item }}'
-        state: absent
-      with_items: '{{ file_to_rm }}'
-    - name: Create some locations
-      ansible.builtin.file:
-        path: '{{ ansible_user_dir }}/{{ item }}'
-        state: directory
-      with_items: '{{ path_to_mk }}'
-    - name: Collect paths to stow
-      ansible.builtin.find:
-        paths: '{{ ansible_user_dir }}/.dotfiles/'
-        file_type: directory
-        excludes: .cache,.git,.github,Xorg
-      register: find_result
-    - name: Stow them
-      ansible.builtin.shell:
-        cmd: stow "{{ item.path | basename }}"
-        chdir: '{{ ansible_user_dir }}/.dotfiles/'
-      with_items: '{{ find_result.files }}'
-
-- name: Chsh fish
-  ansible.builtin.user:
-    name: '{{ ansible_user_id }}'
-    shell: /usr/bin/fish
+    - ansible.builtin.include_vars:
+        file: alpine.yml
+    - ansible.builtin.include_tasks:
+        file: alpine.yml
   become: yes
+  when: ansible_distribution == "Alpine"
 
-- name: Create (my) standard xdg paths
-  ansible.builtin.file:
-    path: '{{ ansible_user_dir }}/{{ item }}'
-    state: directory
-  with_items: '{{ my_std_xdg_path }}'
-
-- name: Download nord theme alacritty
-  ansible.builtin.get_url:
-    url: '{{ nord_alatty_url }}'
-    dest: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
-
-- name: Download and install Hack Nerd Fonts
-  block:
-    - name: Download Hack Nerd Fonts
-      ansible.builtin.get_url:
-        url: '{{ font_url }}'
-        dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
-    - name: Install Hack Nerd Fonts
-      ansible.builtin.command: fc-cache -f
-
-- name: Download default wallpaper
-  ansible.builtin.get_url:
-    url: '{{ wallpaper_url }}'
-    dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/nord.jpg'
+- name: Common
+  ansible.builtin.include_tasks:
+    file: common.yml

@@ -2,6 +2,10 @@
 
 # Prints the current volume or M if muted.
 
+case $BLOCK_BUTTON in
+   1) setsid -f alacritty -e pulsemixer ;;
+esac
+
 [ $(pamixer --get-mute) = true ] && echo "M" && exit
 
 vol="$(pamixer --get-volume)"
