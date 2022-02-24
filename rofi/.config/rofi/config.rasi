@@ -7,7 +7,6 @@ configuration {
    ssh-command: "{terminal} -e {ssh-client} {host}";
    case-sensitive: false;
    parse-known-hosts: false;
-   matching: "fuzzy";
 }
 
 @theme "nord"
