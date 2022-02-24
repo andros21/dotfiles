@@ -34,6 +34,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'zenbro/mirror.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 
 call plug#end()
 
@@ -104,6 +107,7 @@ let g:ale_linters                = {
                                    \ 'cpp'    : ['clangcheck'],
                                    \ 'fish'   : ['fish'],
                                    \ 'python' : ['pylint'],
+                                   \ 'rust'   : ['cargo'],
                                    \ 'vim'    : ['vint'],
                                    \ 'yaml'   : ['yamllint']
                                    \}
@@ -111,6 +115,7 @@ let g:ale_fixers                 = {
                                    \ '*'      : ['remove_trailing_lines', 'trim_whitespace'],
                                    \ 'cpp'    : ['clang-format'],
                                    \ 'python' : ['autoimport', 'black', 'isort'],
+                                   \ 'rust'   : ['rustfmt'],
                                    \}
 
 """ indentLine
@@ -127,6 +132,13 @@ let g:symlink_redraw = 0
 """ vim-rooter
 let g:rooter_patterns      = ['requirements.*', '.git', 'LICENSE*', 'README*', 'Makefile']
 let g:rooter_resolve_links = 1
+
+""" vim-easytags
+let g:easytags_always_enabled = 0
+let g:easytags_auto_highlight = 0
+let g:easytags_auto_update    = 0
+let g:easytags_on_cursorhold  = 0
+let g:easytags_dynamic_files  = 2
 
 """ Function
 
@@ -173,7 +185,10 @@ if v:version >= 700
 endif
 
 " Enable indentLine for particular FileType
-au FileType bash,c,cpp,fish,python,sh IndentLinesEnable
+au FileType bash,c,cpp,fish,python,rust,sh IndentLinesEnable
+
+" Enable vim-easytags for particular FileType
+au FileType c,cpp,python,rust let b:easytags_auto_update=1
 
 " Highlight yanked text
 au TextYankPost * silent! lua require'vim.highlight'.on_yank()
@@ -213,6 +228,7 @@ nmap <leader>S  :Startify<CR>
 " Fzf vim
 nmap <leader>f  :Files<CR>
 nmap <leader>F  :Files!<CR>
+nmap <leader>gf :GFiles<CR>
 nmap <leader>gs :GFiles?<CR>
 nmap <leader>b  :Buffers<CR>
 nmap <leader>rg :Rg<CR>
@@ -223,3 +239,5 @@ nmap <leader>w  :Windows<CR>
 nmap <leader>hh :History<CR>
 nmap <leader>H  :History!<CR>
 nmap <leader>rr :History:<CR>
+nmap <leader>t  :Tags<CR>
+nmap <leader>T  :BTags<CR>

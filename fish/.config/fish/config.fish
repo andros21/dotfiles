@@ -9,6 +9,10 @@ if status is-login
       ~/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
    # Change PATH
    set -x PATH "$HOME/.local/bin" $PATH
+   # If RUST installed, modify PATH
+   if test -d ~/.cargo/bin
+      set -x PATH "$HOME/.cargo/bin" $PATH
+   end
    # If FISHER not installed, install it with plugins
    if not functions -q fisher
       curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher

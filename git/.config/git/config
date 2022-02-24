@@ -2,6 +2,7 @@
    pager = delta
 [user]
    name = andros21
+   username = andros21
    email = andrea.ros21@e.email
 [interactive]
    diffFilter = delta --color-only --features=interactive
