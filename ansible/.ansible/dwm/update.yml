@@ -8,8 +8,9 @@
         update_cache: yes
       become: yes
     - name: flatpak update
-      ansible.builtin.shell: |
-        flatpak --user update --assumeyes --noninteractive
+      ansible.builtin.shell:
+        cmd: |
+          flatpak --user update --assumeyes --noninteractive
     - name: get outdated pip packages
       ansible.builtin.shell:
         cmd: |
