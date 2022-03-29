@@ -12,13 +12,12 @@ window:
   padding:
     x: 19
     y: 19
+  opacity: 0.91
 
 font:
   normal:
     family: DejaVu Sans Mono
   size: 14
-
-background_opacity: 0.91
 
 key_bindings:
   - {key: End, mode: Vi, action: Last}
