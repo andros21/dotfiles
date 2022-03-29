@@ -99,6 +99,7 @@ Here my build [slock](https://github.com/andros21/slock)
 * [mirror.vim](https://github.com/zenbro/mirror.vim) as advance remote file editor plugin
 * [fzf.vim](https://github.com/junegunn/fzf.vim) easily moving around (files, tabs, lines, stages, ripgrep, ...)
 * [vim-rooter](https://github.com/airblade/vim-rooter) automatic root project changer
+* [vim-easytags](https://github.com/xolox/vim-easytags)
 * devicons and nerdcommenter
 * aesthetics and essential plugins for file editing
 * buffers as tabs
@@ -121,6 +122,8 @@ Here my build [slock](https://github.com/andros21/slock)
 * [rofi-power](https://github.com/okraits/rofi-tools) as systemctl power tool
 * [teiler](https://github.com/carnager/teiler) as powerful screenshots and screencasts tool
 * [ytdl-mpv](https://github.com/andros21/ytdl-mpv) as yt player
+* [ctags](https://github.com/universal-ctags/ctags) as universal ctags generator
+* [distrobox](https://github.com/89luca89/distrobox) as podman wrapper
 
 ## :rocket: Usage
 
