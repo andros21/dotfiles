@@ -53,6 +53,26 @@
         regexp: '(.*)auto eth0(.*)'
         state: absent
 
+- name: Setup podman
+  block:
+    - name: Enable tun module
+      ansible.builtin.copy:
+        dest: /etc/modules-load.d/podman.conf
+        content: |
+          tun
+    - name: Get user
+      ansible.builtin.set_fact:
+        whoami: '{{ ansible_user_id }}'
+      become: no
+    - name: Rootless support
+      ansible.builtin.copy:
+        dest: '/etc/{{ item }}'
+        content: |
+          {{ whoami }}:100000:65536
+      with_items:
+        - subgid
+        - subuid
+
 - name: No ipv6
   ansible.builtin.copy:
     dest: /etc/sysctl.d/no-ipv6.conf

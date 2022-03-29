@@ -34,4 +34,8 @@ nord_alatty_url: https://raw.githubusercontent.com/arcticicestudio/nord-alacritt
 
 font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
 
-wallpaper_url: https://w.wallhaven.cc/full/lq/wallhaven-lqpv1l.jpg
+wallpapers:
+  - url: https://r4.wallpaperbetter.com/wallpaper/912/256/892/landscape-forest-deer-artwork-wallpaper-19d0082d01fa2debd647a8df70a166fd.jpg
+    name: nord00.jpg
+  - url: https://r4.wallpaperbetter.com/wallpaper/208/967/794/lake-artwork-gradient-vector-wallpaper-68665d38c080fca8809ca18e8862342a.jpg
+    name: nord01.jpg

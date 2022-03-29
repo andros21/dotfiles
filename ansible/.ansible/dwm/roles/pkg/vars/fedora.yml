@@ -35,6 +35,8 @@ base_deps:
   - xsel
 
 build:
+  - autoconf
+  - automake
   - clang
   - gcc-c++
   - meson

@@ -1,7 +1,8 @@
 ---
-# vats/alpine.yml
+# vars/alpine.yml
 
 rc_services:
+  - cgroups
   - dbus
   - dhcpcd
   - elogind

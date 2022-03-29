@@ -37,3 +37,16 @@
         meson install -C build
         exit 0
       with_items: '{{ cloned_gits_meson }}'
+    - name: Automake ctags
+      ansible.builtin.shell: |
+        cd '{{ ansible_user_dir }}/Documents/{{ ctags_git | basename }}'
+        ./autogen.sh
+        ./configure --prefix=~/.local
+        make
+        make install
+        exit 0
+    - name: Install distrobox
+      ansible.builtin.shell: |
+        cd '{{ ansible_user_dir }}/Documents/{{ distrobox_git | basename }}'
+        ./install
+        exit 0

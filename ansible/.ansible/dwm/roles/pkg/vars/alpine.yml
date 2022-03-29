@@ -24,6 +24,7 @@ base_deps:
   - hunspell
   - mpv
   - picom
+  - podman
   - pwgen
   - py3-cffi
   - py3-pexpect
@@ -88,10 +89,12 @@ xorg_deps:
   - xset
 
 build:
+  - autoconf
+  - automake
   - build-base
   - clang
-  - gcc
   - g++
+  - gcc
   - meson
 
 base_libs:
