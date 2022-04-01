@@ -5,6 +5,7 @@
     <img src="https://user-images.githubusercontent.com/58751603/150508449-5c6e2069-8877-465d-af95-fd00b4d8105b.png" alt="Logo" width="470px">
   </a>
   <br>
+  <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
     <img src="https://img.shields.io/github/workflow/status/andros21/dotfiles/Lint%20CI/master?label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI">
   </a>
