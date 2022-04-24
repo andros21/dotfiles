@@ -37,7 +37,6 @@
 ehthumbs.db
 Icon?
 Thumbs.db
-*.lock
 tags
 
 # Python envs #
