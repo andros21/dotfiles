@@ -50,14 +50,7 @@
       ansible.builtin.command: fc-cache -f
 
 - name: Download and set wallpaper
-  block:
-    - name: Download wallpaper
-      ansible.builtin.get_url:
-        url: '{{ item.url }}'
-        dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/{{ item.name }}'
-      with_items: '{{ wallpapers }}'
-    - name: Set wallpaper
-      ansible.builtin.file:
-        src: '{{ ansible_user_dir }}/Pictures/Wallpapers/nord00.jpg'
-        dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/nord.jpg'
-        state: link
+  ansible.builtin.get_url:
+    url: '{{ item.url }}'
+    dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/{{ item.name }}'
+  with_items: '{{ wallpapers }}'

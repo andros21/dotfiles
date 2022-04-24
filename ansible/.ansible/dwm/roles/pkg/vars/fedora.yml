@@ -31,6 +31,7 @@ base_deps:
   - ripgrep
   - slop
   - stow
+  - xautolock
   - xclip
   - xsel
 

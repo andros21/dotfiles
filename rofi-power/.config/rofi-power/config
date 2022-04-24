@@ -1,6 +1,6 @@
 # configuration for rofi-power tool
 LAUNCHER="rofi -dmenu -i"
 STYLE="window {width: 30%;} listview {lines: 5;}"
-LOCKER="slock"
+LOCKER="xautolock -locknow"
 PROMPT="rofi-power > "
 USE_LOCKER="true"

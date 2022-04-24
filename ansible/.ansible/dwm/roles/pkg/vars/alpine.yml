@@ -29,6 +29,7 @@ base_deps:
   - py3-cffi
   - py3-pexpect
   - py3-pip
+  - py3-setuptools
   - py3-wheel
   - python3-dev
   - restic
@@ -74,15 +75,16 @@ xorg_deps:
   - dbus-openrc
   - dbus-x11
   - elogind
-  - polkit-elogind
   - font-noto
   - font-noto-emoji
   - libuser
+  - polkit-elogind
   - setxkbmap
   - ttf-dejavu
   - ttf-droid
   - ttf-freefont
   - ttf-liberation
+  - xautolock
   - xdg-user-dirs
   - xinput
   - xrandr

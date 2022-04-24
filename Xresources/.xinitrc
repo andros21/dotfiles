@@ -14,12 +14,14 @@ setxkbmap it
 xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Tapping Enabled" 1
 xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "AlpsPS/2 ALPS GlidePoint" "libinput Accel Speed" 0.3
-# Setup a static wallpaper
-feh --bg-scale ~/Pictures/Wallpapers/nord.jpg
+# Setup a random wallpaper
+feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 # Run in background a window composer (to render alpha effects)
 picom -b
 # Source Xresources
 xrdb -merge ~/.Xresources
+# Run xautolocker
+xautolock -time 5 -locker slock -nowlocker slock -corners 000- &
 # Run pipewire
 pipewire &> /dev/null &
 # Run WM via dbus

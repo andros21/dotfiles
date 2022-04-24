@@ -42,10 +42,10 @@ then
         $POWERCMD poweroff
         ;;
       Suspend)
-        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; sleep 0.5; $POWERCMD suspend;
+        $(${USE_LOCKER}) && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD suspend;
         ;;
       Hibernate)
-        $($USE_LOCKER) && "$LOCKER" & &> /dev/null; sleep 0.5; $POWERCMD hibernate;
+        $(${USE_LOCKER}) && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD hibernate;
         ;;
       *)
         ;;
