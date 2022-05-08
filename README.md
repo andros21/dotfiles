@@ -1,9 +1,8 @@
 <!-- PROJECT LOGO -->
 <br>
-<p align="center">
-  <a href="https://github.com/andros21/pgrank">
-    <img src="https://user-images.githubusercontent.com/58751603/150508449-5c6e2069-8877-465d-af95-fd00b4d8105b.png" alt="Logo" width="470px">
-  </a>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/58751603/167299901-c1b48418-9d5c-4381-ba3f-edd1abb66687.png#gh-dark-mode-only" alt="dark-logo" width="470px">
+    <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png#gh-light-mode-only" alt="light-logo" width="470px">
   <br>
   <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
@@ -20,7 +19,7 @@
   </a>
 
   <h3 align="center">with ansible playbooks</h3>
-  <p align="center">
+  <div align="center">
     The aim of this repo is in progress,<br>cause my dotfiles are in progress too &#128521
     <br>
     <br>
@@ -29,8 +28,8 @@
     <a href="#star-features">Features</a>
     ·
     <a href="#rocket-usage">Usage</a>
-  </p>
-</p>
+  </div>
+</div>
 
 ## :star: Features
 
