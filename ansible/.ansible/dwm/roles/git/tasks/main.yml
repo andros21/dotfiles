@@ -16,9 +16,9 @@
 
 - name: Clone cloned gits
   ansible.builtin.git:
-    repo: '{{ item }}'
-    dest: '{{ ansible_user_dir }}/Documents/{{ item | basename }}'
-    version: master
+    repo: '{{ item.origin }}'
+    dest: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+    version: '{{ item.branch }}'
   with_items: '{{ cloned_gits }}'
 
 - name: Clone ranger gits

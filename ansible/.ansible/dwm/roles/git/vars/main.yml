@@ -10,12 +10,18 @@ forked_gits:
      remote: https://git.suckless.org/slock
 
 cloned_gits:
-   - https://github.com/andros21/ytdl-mpv
-   - https://github.com/carnager/rofi-pass
-   - https://github.com/carnager/teiler
-   - https://github.com/cdemoulins/pamixer
-   - https://github.com/universal-ctags/ctags
-   - https://github.com/89luca89/distrobox
+   - origin: https://github.com/andros21/ytdl-mpv
+     branch: master
+   - origin: https://github.com/carnager/rofi-pass
+     branch: master
+   - origin: https://github.com/carnager/teiler
+     branch: master
+   - origin: https://github.com/cdemoulins/pamixer
+     branch: master
+   - origin: https://github.com/universal-ctags/ctags
+     branch: master
+   - origin: https://github.com/89luca89/distrobox
+     branch: main
 
 ranger_gits:
    - https://github.com/alexanderjeurissen/ranger_devicons
