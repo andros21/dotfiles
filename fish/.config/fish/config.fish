@@ -52,7 +52,7 @@ if status is-login
 else
    # Default FZF command
    ## for fzf fisher plugin
-   set fzf_fd_opts --no-ignore --hidden --follow --exclude='{.cache,.git,.venv}'
+   set fzf_fd_opts --hidden --follow --exclude='{.cache,.git,.venv}'
    ## for fzf nvim plugin
    set -gx FZF_DEFAULT_COMMAND "fd $fzf_fd_opts 2>/dev/null"
 end
