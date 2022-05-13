@@ -10,3 +10,4 @@ pypi:
   - pulsemixer
   - pynvim
   - youtube_dl
+  - vim-vint
