@@ -1,0 +1,10 @@
+[core]
+   pager = delta
+[user]
+	email    = andrearossoni@lcm.mi.infn.it
+	name     = rox
+	username = andrearossoni
+[interactive]
+   diffFilter = delta --color-only --features=interactive
+[pull]
+   rebase = false

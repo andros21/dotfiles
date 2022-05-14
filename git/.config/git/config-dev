@@ -1,0 +1,10 @@
+[core]
+   pager = delta
+[user]
+   email    = andrea.ros21@e.email
+   name     = andros21
+   username = andros21
+[interactive]
+   diffFilter = delta --color-only --features=interactive
+[pull]
+   rebase = false

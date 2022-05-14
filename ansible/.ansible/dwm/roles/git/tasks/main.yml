@@ -4,20 +4,20 @@
 - name: Clone forked gits
   ansible.builtin.git:
     repo: '{{ item.origin }}'
-    dest: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+    dest: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
     version: master
   with_items: '{{ forked_gits }}'
 
 - name: Add remote to forked gits
   ansible.builtin.shell:
     cmd: git remote add remote '{{ item.remote | quote }}'
-    chdir: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+    chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
   with_items: '{{ forked_gits }}'
 
 - name: Clone cloned gits
   ansible.builtin.git:
     repo: '{{ item.origin }}'
-    dest: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+    dest: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
     version: '{{ item.branch }}'
   with_items: '{{ cloned_gits }}'
 

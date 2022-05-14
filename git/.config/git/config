@@ -1,10 +1,6 @@
-[core]
-   pager = delta
-[user]
-   name = andros21
-   username = andros21
-   email = andrea.ros21@e.email
-[interactive]
-   diffFilter = delta --color-only --features=interactive
-[pull]
-   rebase = false
+[includeIf "gitdir:~/.dotfiles/"]
+   path = ~/.config/git/config-dev
+[includeIf "gitdir:~/Documents/dev/"]
+   path = ~/.config/git/config-dev
+[includeIf "gitdir:~/Documents/lcm/"]
+   path = ~/.config/git/config-lcm

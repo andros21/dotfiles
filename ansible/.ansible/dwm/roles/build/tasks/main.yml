@@ -4,7 +4,7 @@
 - name: Build and install forked gits
   community.general.make:
     target: install
-    chdir: '{{ ansible_user_dir }}/Documents/{{ item.origin | basename }}'
+    chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
   with_items: '{{ forked_gits }}'
   when: item.origin | basename != 'slock'
 
@@ -12,11 +12,11 @@
   block:
     - name: Build slock
       community.general.make:
-        chdir: '{{ ansible_user_dir }}/Documents/slock'
+        chdir: '{{ ansible_user_dir }}/Documents/dev/slock'
     - name: Install slock
       community.general.make:
         target: install
-        chdir: '{{ ansible_user_dir }}/Documents/slock'
+        chdir: '{{ ansible_user_dir }}/Documents/dev/slock'
       become: yes
 
 - name: Build and install cloned gits
@@ -24,29 +24,25 @@
     - name: Make build system
       community.general.make:
         target: install
-        chdir: '{{ ansible_user_dir }}/Documents/{{ item | basename }}'
+        chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item | basename }}'
         params:
           PREFIX: ~/.local
       with_items: '{{ cloned_gits_make }}'
       ignore_errors: yes
     - name: Meson build system
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/{{ item | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/{{ item | basename }}'
         meson setup build --prefix '~/.local'
         meson compile -C build
         meson install -C build
-        exit 0
       with_items: '{{ cloned_gits_meson }}'
     - name: Automake ctags
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/{{ ctags_git | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/{{ ctags_git | basename }}'
         ./autogen.sh
-        ./configure --prefix=~/.local
-        make
+        ./configure --prefix=$HOME/.local
         make install
-        exit 0
     - name: Install distrobox
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/{{ distrobox_git | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/{{ distrobox_git | basename }}'
         ./install
-        exit 0
