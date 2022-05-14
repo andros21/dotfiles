@@ -18,13 +18,13 @@ if status is-login
       curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
       if test $status
          fisher install jethrokuan/z
-         fisher install PatrickF1/fzf.fish
+         fisher install PatrickF1/fzf.fish@v8.1
       end
    end
    # GPG as ssh-agent
-   set -q SSH_AUTH_SOCK; or set -x SSH_AUTH_SOCK null
+   set -q SSH_AUTH_SOCK; or set -l SSH_AUTH_SOCK null
    if test $SSH_AUTH_SOCK != (gpgconf --list-dirs agent-ssh-socket)
-      ssh-agent -k 2> /dev/null
+      type ssh-agent >/dev/null 2>&1; and ssh-agent -k 2>/dev/null
       gpgconf --launch gpg-agent
       if test $status
          set -x GPG_TTY (tty)
