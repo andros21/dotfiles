@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/58751603/167299901-c1b48418-9d5c-4381-ba3f-edd1abb66687.png#gh-dark-mode-only" alt="dark-logo" width="470px">
+    <img src="https://user-images.githubusercontent.com/58751603/169137703-717ae1ef-3b2e-482b-a70b-377e38f9ee35.png#gh-dark-mode-only" alt="dark-logo" width="470px">
     <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png#gh-light-mode-only" alt="light-logo" width="470px">
   <br>
   <br>
@@ -135,7 +135,7 @@ Here my build [slock](https://github.com/andros21/slock)
    + `requirements-dev.txt` (devel)
 * `alpine >= 3.15`
    + a sudo user
-   + maybe `apk add py3-pip py3-cffi`
+   + advice `apk add py3-pip py3-cryptography`
    + `requirements.txt`
    + `requirements-dev.txt` (devel)
 
