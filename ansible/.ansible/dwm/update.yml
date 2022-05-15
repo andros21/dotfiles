@@ -7,6 +7,13 @@
         state: latest
         update_cache: yes
       become: yes
+      when: ansible_distribution == "Fedora"
+    - name: apk update
+      community.general.apk:
+        upgrade: yes
+        update_cache: yes
+      become: yes
+      when: ansible_distribution == "Alpine"
     - name: flatpak update
       ansible.builtin.shell:
         cmd: |
@@ -14,8 +21,9 @@
     - name: get outdated pip packages
       ansible.builtin.shell:
         cmd: |
-          pip list --user --outdated | awk '{print $1}' | tail -n +3
-          exit 0
+          pip list --user --outdated --exclude ansible --exclude ansible-lint \
+          | awk '{print $1}' \
+          | tail -n +3
       register: pypi
     - name: pip install
       ansible.builtin.pip:
