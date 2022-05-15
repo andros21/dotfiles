@@ -35,6 +35,8 @@ alias gp     'git push'
 alias gd     'git diff'
 alias gpu    'git pull'
 alias gm     'git merge'
+alias gri    'git rebase -i'
+alias grc    'git rebase --continue'
 
 alias ga     'git add'
 alias gaa    'git add -A'
