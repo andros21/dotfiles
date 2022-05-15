@@ -26,7 +26,6 @@ base_deps:
   - picom
   - podman
   - pwgen
-  - py3-cffi
   - py3-pexpect
   - py3-pip
   - py3-setuptools
@@ -57,8 +56,10 @@ input_deps:
   - xf86-input-libinput
 
 net_deps:
+  - awall
   - dhcpcd
-  - nftables
+  - ip6tables
+  - iptables
 
 uefi_bios_deps:
   - fwupd
@@ -78,6 +79,7 @@ xorg_deps:
   - font-noto
   - font-noto-emoji
   - libuser
+  - pinentry-gtk
   - polkit-elogind
   - setxkbmap
   - ttf-dejavu
@@ -85,7 +87,10 @@ xorg_deps:
   - ttf-freefont
   - ttf-liberation
   - xautolock
+  - xdg-desktop-portal-gtk
   - xdg-user-dirs
+  - xdg-utils
+  - xdotool
   - xinput
   - xrandr
   - xset
@@ -113,6 +118,8 @@ base_libs:
 
 utils:
   - encfs
+  - rng-tools
+  - shellcheck
   - socat
 
 edge_community:

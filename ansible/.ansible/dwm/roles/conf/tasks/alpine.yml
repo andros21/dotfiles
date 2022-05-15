@@ -85,6 +85,63 @@
     content: |
       i2c-dev
 
+- name: Setup awall
+  block:
+    - name: Create base.json
+      ansible.builtin.copy:
+        dest: '/etc/awall/optional/base.json'
+        force: yes
+        content: |
+          {
+            "description": "Base zones and policies",
+            "zone": {
+              "LAN": { "iface": [ "eth0", "wlan0" ] },
+              "WAN": { "iface": "usb0" }
+            },
+            "policy": [
+               { "in": "LAN", "action": "drop" },
+               { "out": "LAN", "action": "accept" },
+               { "in": "WAN", "action": "drop" },
+               { "out": "WAN", "action": "accept" }
+            ]
+          }
+    - name: Create custom-services.json
+      ansible.builtin.copy:
+        dest: '/etc/awall/private/custom-services.json'
+        force: yes
+        content: |
+          {
+              "service": {
+                  "syncthing": [
+                      { "proto": "tcp", "port": 22000 },
+                      { "proto": "udp", "port": 21027 }
+                  ]
+              }
+          }
+    - name: Create syncthing.json
+      ansible.builtin.copy:
+        dest: '/etc/awall/optional/syncthing.json'
+        force: yes
+        content: |
+          {
+            "description": "Allow syncthing on LAN",
+            "import": [ "custom-services" ],
+            "filter": [
+              {
+                "in": "LAN",
+                "out": "_fw",
+                "service": "syncthing",
+                "action": "accept"
+              }
+            ]
+          }
+    - name: Enable base.json
+      community.general.awall:
+        name:
+          - base
+        state: enabled
+        activate: yes
+
 - name: Enable services
   ansible.builtin.shell:
     cmd: rc-update add '{{ item }}'

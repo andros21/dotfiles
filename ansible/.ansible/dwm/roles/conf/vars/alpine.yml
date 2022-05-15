@@ -7,4 +7,6 @@ rc_services:
   - dhcpcd
   - elogind
   - fwupd
-  - nftables
+  - ip6tables
+  - iptables
+  - rngd
