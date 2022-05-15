@@ -21,17 +21,6 @@ if status is-login
          fisher install PatrickF1/fzf.fish@v8.1
       end
    end
-   # GPG as ssh-agent
-   set -q SSH_AUTH_SOCK; or set -l SSH_AUTH_SOCK null
-   if test $SSH_AUTH_SOCK != (gpgconf --list-dirs agent-ssh-socket)
-      type ssh-agent >/dev/null 2>&1; and ssh-agent -k 2>/dev/null
-      gpgconf --launch gpg-agent
-      if test $status
-         set -x GPG_TTY (tty)
-         set -x SSH_AGENT_PID (pgrep gpg-agent)
-         set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-      end
-   end
    # Default EDITOR
    set -x EDITOR nvim
    # Default MANPAGER
@@ -42,9 +31,9 @@ if status is-login
    set -q fish_my_color_theme; or fish_set_my_color_theme
    # Startx for Alpine Linux (.xinitrc no gdm)
    if test (awk -F '=' '/^ID=/ {print $2}' /etc/os-release) = 'alpine'
+      # Tweak PATH appending
+      set -ax PATH /usr/local/bin /usr/local/sbin /usr/sbin /sbin
       if test -z "$DISPLAY" -a "$XDG_VTNR"=1 -a (tty) = "/dev/tty1"
-         # Tweak PATH appending
-         set -ax PATH /usr/local/bin /usr/local/sbin /usr/sbin /sbin
          # Startx
          exec startx -- -keeptty
       end
