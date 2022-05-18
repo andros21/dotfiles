@@ -2,4 +2,5 @@
 # requirements.yml
 
 collections:
-  - community.general
+  - name: community.general
+    version: '<5.0.0'
