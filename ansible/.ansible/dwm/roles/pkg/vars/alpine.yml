@@ -36,6 +36,7 @@ base_deps:
   - screen
   - sqlite
   - stow
+  - syncthing
   - tmux
   - xclip
   - xsel
