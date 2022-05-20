@@ -4,13 +4,13 @@ function fish_umount -d "Umount devs"
       set -l label (ls "/dev/disk/by-label/" | fzf +m)
       if test -n "$label"
          echo -n "Umounting $label ... "
-         umount "/run/media/"(whoami)"/$label" && echo "done"
+         udisksctl unmount -b (realpath /dev/disk/by-label/$label)
       end
    else
       set -l block (fd --regex "/dev/sd[a-i][1-9]" | fzf +m)
       if test -n "$block"
          echo -n "Umounting $block ... "
-         umount "/dev/$block" && echo "done"
+         udisksctl unmount -b "/dev/$block" && echo "done"
       end
    end
 end
