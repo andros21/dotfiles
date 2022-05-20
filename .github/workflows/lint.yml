@@ -30,15 +30,15 @@ jobs:
           echo "ansible_dwm=ansible/.ansible/dwm/" >> $GITHUB_ENV
       - name: Check requirements-dev.txt cache
         uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
-        id: cache
+        id: cache-txt
         with:
           path: |
             ~/.local/bin
             ~/.local/lib
           key: |
-            ${{ runner.os }}-ansible-${{ hashFiles('requirements-dev.txt') }}
+            ${{ runner.os }}-ansible-${{ hashFiles('**/requirements-dev.txt') }}
       - name: Install requirements-dev.txt
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-txt.outputs.cache-hit != 'true'
         run: |
           cd $ansible_dwm
           python -m pip install -r requirements-dev.txt
@@ -46,7 +46,16 @@ jobs:
         run: |
           ansible --version
           ansible-lint --version
+      - name: Check requirements.yml cache
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        id: cache-yml
+        with:
+          path: |
+            ~/.ansible/collections
+          key: |
+            ${{ runner.os }}-ansible-${{ hashFiles('**/requirements.yml') }}
       - name: Install requirements.yml
+        if: steps.cache-yml.outputs.cache-hit != 'true'
         run: |
           cd $ansible_dwm
           ansible-galaxy collection install -r requirements.yml
