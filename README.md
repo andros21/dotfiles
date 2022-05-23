@@ -1,8 +1,12 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/58751603/169137703-717ae1ef-3b2e-482b-a70b-377e38f9ee35.png#gh-dark-mode-only" alt="dark-logo" width="470px">
-    <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png#gh-light-mode-only" alt="light-logo" width="470px">
+  <a href="https://github.com/andros21/dotfiles">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/58751603/169137703-717ae1ef-3b2e-482b-a70b-377e38f9ee35.png">
+      <img src="https://user-images.githubusercontent.com/58751603/126770241-9aa8d18c-bd06-433c-b542-1ab9f66a3495.png" alt="Logo" width="470">
+    </picture>
+  </a>
   <br>
   <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
