@@ -35,6 +35,27 @@
     state: directory
   with_items: '{{ my_std_xdg_path }}'
 
+- name: Syncthing .stignore
+  block:
+    - name: In dev
+      ansible.builtin.copy:
+        dest: '{{ ansible_user_dir }}/Documents/dev/.stignore'
+        content: |
+          // .stignore
+          //
+          #include ../../.config/git/ignore
+          **/build/
+          **/target/
+    - name: In gnupg
+      ansible.builtin.copy:
+        dest: '{{ ansible_user_dir }}/.gnupg/.stignore'
+        content: |
+          // .stignore
+          //
+          #include ../.config/git/ignore
+          random_seed
+          .#*
+
 - name: Download nord theme alacritty
   ansible.builtin.get_url:
     url: '{{ nord_alatty_url }}'
