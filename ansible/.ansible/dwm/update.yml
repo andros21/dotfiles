@@ -21,7 +21,7 @@
     - name: get outdated pip packages
       ansible.builtin.shell:
         cmd: |
-          pip list --user --outdated --exclude ansible --exclude ansible-lint \
+          pip list --user --outdated --exclude ansible-core --exclude ansible-lint \
           | awk '{print $1}' \
           | tail -n +3
       register: pypi
