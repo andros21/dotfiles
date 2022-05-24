@@ -1,5 +1,7 @@
 [includeIf "gitdir:~/.dotfiles/"]
    path = ~/.config/git/config-dev
+[includeIf "gitdir:~/.password-store/"]
+   path = ~/.config/git/config-dev
 [includeIf "gitdir:~/Documents/dev/"]
    path = ~/.config/git/config-dev
 [includeIf "gitdir:~/Documents/lcm/"]
