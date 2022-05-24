@@ -80,6 +80,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch    = ''
 let g:airline_symbols.notexists = '?'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.linenr    = ' '
 
 """ vim-system-copy
 let g:system_copy_silent       = 1
