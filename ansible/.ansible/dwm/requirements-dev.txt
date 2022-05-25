@@ -1,2 +1,2 @@
 ansible-core<2.12
-ansible-lint[yamllint]<6.0.0
+ansible-lint[yamllint]<7.0.0
