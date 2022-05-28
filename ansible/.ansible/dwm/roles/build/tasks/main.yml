@@ -2,36 +2,41 @@
 # tasks/main.yml
 
 - name: Build and install forked gits
-  community.general.make:
-    target: install
-    chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
-  with_items: '{{ forked_gits }}'
-  when: item.origin | basename != 'slock'
-
-- name: Build and install slock
   block:
-    - name: Build slock
-      community.general.make:
-        chdir: '{{ ansible_user_dir }}/Documents/dev/slock'
-    - name: Install slock
-      community.general.make:
+    - community.general.make:
         target: install
-        chdir: '{{ ansible_user_dir }}/Documents/dev/slock'
+        chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
+      when: item.origin | basename != 'slock'
+      with_items: '{{ forked_gits }}'
+    - community.general.make:
+        target: install
+        chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
       become: yes
+      when: item.origin | basename == 'slock'
+      with_items: '{{ forked_gits }}'
 
 - name: Build and install cloned gits
   block:
     - name: Make build system
       community.general.make:
         target: install
+        chdir: '{{ ansible_user_dir }}/Documents/dev/clone/{{ item | basename }}'
+        params:
+          PREFIX: ~/.local
+      with_items: '{{ cloned_gits_make }}'
+      when: item | basename != 'ytdl-mpv'
+      ignore_errors: yes
+    - name: Make ytdl-mpv
+      community.general.make:
+        target: install
         chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item | basename }}'
         params:
           PREFIX: ~/.local
       with_items: '{{ cloned_gits_make }}'
-      ignore_errors: yes
+      when: item | basename == 'ytdl-mpv'
     - name: Meson build system
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/dev/{{ item | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ item | basename }}'
         rm -fr build/
         meson setup build --prefix '~/.local'
         meson compile -C build
@@ -39,11 +44,11 @@
       with_items: '{{ cloned_gits_meson }}'
     - name: Automake ctags
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/dev/{{ ctags_git | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ ctags_git | basename }}'
         ./autogen.sh
         ./configure --prefix=$HOME/.local
         make install
     - name: Install distrobox
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/dev/{{ distrobox_git | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ distrobox_git | basename }}'
         ./install

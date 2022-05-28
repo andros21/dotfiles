@@ -44,6 +44,8 @@
           // .stignore
           //
           #include ../../.config/git/ignore
+          clone/
+          fork/
           **/build/
           **/target/
     - name: In gnupg
