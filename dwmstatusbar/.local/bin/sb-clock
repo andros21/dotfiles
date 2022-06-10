@@ -4,4 +4,4 @@ case $BLOCK_BUTTON in
    1) gnome-calendar ;;
 esac
 
-echo -n ' '; date "+%Y %b %d (%a) %H:%M"
+printf ' '; date "+%Y %b %d (%a) %H:%M"
