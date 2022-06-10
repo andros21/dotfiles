@@ -6,8 +6,4 @@ case $BLOCK_BUTTON in
    1) setsid -f alacritty -e pulsemixer ;;
 esac
 
-[ $(pamixer --default-source --get-mute) = true ] && echo M && exit
-
-vol="$(pamixer --default-source --get-volume)"
-
-echo "$vol%"
+printf '%s' "$(pamixer --get-volume-human)" | sed 's/muted/M/'

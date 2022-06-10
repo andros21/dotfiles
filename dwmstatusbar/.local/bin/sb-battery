@@ -25,4 +25,4 @@ do
    # Prints the info
    printf "%s%s%s%%" "$status" "$warn" "$capacity"; unset warn
 done | sed 's/ *$//'
-echo -n ' '
+printf ' '
