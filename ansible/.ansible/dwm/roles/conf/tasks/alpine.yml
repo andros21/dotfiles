@@ -13,6 +13,11 @@
         path: /etc/rc.conf
         insertafter: '^#rc_logger(.*)'
         line: rc_logger="YES"
+    - name: Cgroups v2
+      ansible.builtin.lineinfile:
+        path: /etc/rc.conf
+        insertafter: '^#rc_cgroup_mode(.*)'
+        line: rc_cgroup_mode="unified"
 
 - name: Setup pipewire
   block:

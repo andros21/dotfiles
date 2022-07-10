@@ -19,9 +19,11 @@ base:
 
 base_deps:
   - curl
+  - delta
   - feh
   - ffmpeg
   - hunspell
+  - maim
   - mpv
   - picom
   - podman
@@ -34,11 +36,15 @@ base_deps:
   - restic
   - ripgrep
   - screen
+  - slop
   - sqlite
   - stow
   - syncthing
   - tmux
+  - util-linux-misc
+  - xautolock
   - xclip
+  - xdotool
   - xsel
 
 audio_deps:
@@ -50,6 +56,7 @@ audio_deps:
 input_deps:
   - android-tools
   - lm-sensors
+  - rng-tools
   - udisks2
   - udisks2-doc
   - usbutils
@@ -83,15 +90,14 @@ xorg_deps:
   - pinentry-gtk
   - polkit-elogind
   - setxkbmap
+  - shadow-login
   - ttf-dejavu
   - ttf-droid
   - ttf-freefont
   - ttf-liberation
-  - xautolock
   - xdg-desktop-portal-gtk
   - xdg-user-dirs
   - xdg-utils
-  - xdotool
   - xinput
   - xrandr
   - xset
@@ -104,9 +110,9 @@ build:
   - g++
   - gcc
   - meson
+  - shellcheck
 
 base_libs:
-  #- glew
   #- libxcomposite
   - harfbuzz-dev
   - libx11-dev
@@ -119,16 +125,11 @@ base_libs:
 
 utils:
   - encfs
-  - rng-tools
-  - shellcheck
   - socat
 
 edge_community:
-  - delta
 
 edge_testing:
-  #- maim
-  #- slop
   - atool
   - cxxopts-dev
 
