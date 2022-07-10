@@ -133,11 +133,11 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ### Prerequisites
 
-* `fedora >= 34`
+* `fedora == 35`
    + a sudo user
    + `requirements.txt`
    + `requirements-dev.txt` (devel)
-* `alpine >= 3.15`
+* `alpine == 3.16`
    + a sudo user
    + advice `apk add py3-pip py3-cryptography`
    + `requirements.txt`
