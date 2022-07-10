@@ -113,7 +113,7 @@ function append_git_prompt -d "Append git prompt"
    set GIT_PROMPT_CHANGED "$Blue!"
    set GIT_PROMPT_REMOTE " "
    set GIT_PROMPT_UNTRACKED "?"
-   set GIT_PROMPT_STASHED "⚑ "
+   set GIT_PROMPT_STASHED "\$"
 
    set -e __CURRENT_GIT_STATUS
    set gitstatus "$__GIT_PROMPT_DIR/gitstatus.py"
