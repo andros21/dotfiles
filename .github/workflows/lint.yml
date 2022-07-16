@@ -71,5 +71,5 @@ jobs:
       - name: Run ansible-lint
         run: |
           cd $ansible_dwm
-          ansible-lint dwm.yml
-          ansible-lint update.yml
+          ansible-lint --offline dwm.yml
+          ansible-lint --offline update.yml
