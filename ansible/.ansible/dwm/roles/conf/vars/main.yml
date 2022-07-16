@@ -1,10 +1,6 @@
 ---
 # vars/main.yml
 
-xorg_conf:
-  - src: "{{ ansible_user_dir }}/.dotfiles/Xorg/xsessions/dwm-xorg.desktop"
-    dest: /usr/local/share/xsessions/dwm-xorg.desktop
-
 file_to_rm:
   - .bash_profile
   - .bashrc

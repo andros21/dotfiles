@@ -1,29 +1,19 @@
 ---
-# tasks/common.yml
+# tasks/fedora.yml
 
 - name: Xorg conf
   block:
     - name: Create dir conf
       ansible.builtin.file:
-        path: '{{ item.dest | dirname }}'
+        path: '{{ xorg_conf.dest | dirname }}'
         state: directory
-      with_items: '{{ xorg_conf }}'
-    - name: Copy conf
-      ansible.builtin.copy:
-        src: '{{ item.src }}'
-        dest: '{{ item.dest }}'
+    - name: Copy conf from template
+      ansible.builtin.template:
+        src: '{{ xorg_conf.src }}'
+        dest: '{{ xorg_conf.dest }}'
         owner: root
         group: root
         mode: 0644
-      with_items: '{{ xorg_conf }}'
-
-- name: Change dwm path
-  vars:
-    my_user_home: '{{ ansible_user_dir }}'
-  ansible.builtin.replace:
-    path: '{{ xorg_conf[0].dest }}'
-    regexp: Exec=*
-    replace: Exec={{ my_user_home }}/.local/bin/dwm
 
 - name: Firewalld conf
   ansible.builtin.command: firewall-cmd --set-default-zone=drop

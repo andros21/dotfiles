@@ -3,6 +3,8 @@
 
 - name: Fedora
   block:
+    - ansible.builtin.include_vars:
+        file: fedora.yml
     - ansible.builtin.include_tasks:
         file: fedora.yml
   become: yes
