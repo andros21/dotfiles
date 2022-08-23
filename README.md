@@ -48,7 +48,7 @@
 
 #### Window manager `dwm`
 
-Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build [dwm-luke](https://github.com/andros21/dwm-luke)
+Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build [dwm](https://github.com/andros21/dwm)
 
 * Xresources color/style setup
 
@@ -77,7 +77,7 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
 
 #### Status bar `dwmblocks`
 
-Custom [Luke's build of dwmblocks](https://github.com/LukeSmithxyz/dwmblocks), here my build [dwmblocks-luke](https://github.com/andros21/dwmblocks-luke)
+Custom [Luke's build of dwmblocks](https://github.com/LukeSmithxyz/dwmblocks), here my build [dwmblocks](https://github.com/andros21/dwmblocks)
 
 `dwmstatusbar` contain the scripts needed by dwmblocks to work, all the available [here](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar)
 

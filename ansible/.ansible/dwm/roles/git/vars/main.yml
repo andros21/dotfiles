@@ -2,12 +2,12 @@
 # vars/main.yml
 
 forked_gits:
-   - origin: https://github.com/andros21/dwm-luke
-     remote: https://github.com/lukesmithxyz/dwm
-   - origin: https://github.com/andros21/dwmblocks-luke
-     remote: https://github.com/lukesmithxyz/dwmblocks
+   - origin: https://github.com/andros21/dwm
+     upstream: https://github.com/lukesmithxyz/dwm
+   - origin: https://github.com/andros21/dwmblocks
+     upstream: https://github.com/lukesmithxyz/dwmblocks
    - origin: https://github.com/andros21/slock
-     remote: https://git.suckless.org/slock
+     upstream: https://git.suckless.org/slock
 
 cloned_gits:
    - origin: https://github.com/andros21/ytdl-mpv
