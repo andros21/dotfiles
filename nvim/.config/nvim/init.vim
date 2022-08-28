@@ -66,7 +66,7 @@ set relativenumber
 set spelllang+=it
 set cursorline
 set hidden
-set title
+"set title
 
 """ Airline
 let g:airline_detect_spell                       = 0
