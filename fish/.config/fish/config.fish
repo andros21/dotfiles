@@ -13,10 +13,6 @@ if status is-login
    if test -d ~/.cargo/bin
       set -x PATH "$HOME/.cargo/bin" $PATH
    end
-   # If POETRY installed, modify PATH
-   if test -d ~/.poetry/bin
-      set -x PATH "$HOME/.poetry/bin" $PATH
-   end
    # If FISHER not installed, install it with plugins
    if not functions -q fisher
       curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
