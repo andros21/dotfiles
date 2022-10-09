@@ -2,7 +2,7 @@
 # vars/main.yml
 
 flathub:
-  - org.mozilla.firefox
+  - io.gitlab.librewolf-community
   - org.telegram.desktop
 
 pypi:
