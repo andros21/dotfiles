@@ -35,3 +35,7 @@
     dest: '{{ ansible_user_dir }}/.config/ranger/plugins/{{ item | basename }}'
     version: main
   with_items: '{{ ranger_gits }}'
+
+- name: Latest tag
+  ansible.builtin.include_tasks:
+    file: latest.yml

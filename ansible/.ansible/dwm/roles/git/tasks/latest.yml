@@ -1,0 +1,11 @@
+---
+# tasks/latest.yml
+
+- name: Checkout latest tag for cloned gits
+  ansible.builtin.shell:
+    chdir: '{{ ansible_user_dir }}/Documents/dev/clone/{{ item | basename }}'
+    cmd: |
+      git fetch --tags
+      latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+      git checkout $latestTag
+  with_items: "{{ cloned_gits | map(attribute='origin') | list | select('match', '^.*com/.*/(?!(ytdl-mpv|teiler)).*') | list }}"
