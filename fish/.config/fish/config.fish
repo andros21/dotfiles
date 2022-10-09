@@ -15,7 +15,8 @@ if status is-login
    end
    # If FISHER not installed, install it with plugins
    if not functions -q fisher
-      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+      curl -sSL https://raw.githubusercontent.com/jorgebucaran/fisher/HEAD/functions/fisher.fish \
+         | source && fisher install jorgebucaran/fisher
       if test $status
          fisher install jethrokuan/z
          fisher install PatrickF1/fzf.fish@v8.1
