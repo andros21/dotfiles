@@ -8,27 +8,42 @@
         update_cache: yes
       become: yes
       when: ansible_distribution == "Fedora"
+      tags: pkg
     - name: apk update
       community.general.apk:
         upgrade: yes
         update_cache: yes
       become: yes
       when: ansible_distribution == "Alpine"
+      tags: pkg
+    - name: cloned git update
+      block:
+        - ansible.builtin.include_role:
+            name: git
+            tasks_from: latest
+        - ansible.builtin.include_role:
+            name: build
+            tasks_from: latest
+      tags: git
     - name: flatpak update
       ansible.builtin.shell:
         cmd: |
           flatpak --user update --assumeyes --noninteractive
-    - name: get outdated pip packages
-      ansible.builtin.shell:
-        cmd: |
-          pip list --user --outdated --exclude ansible-core --exclude ansible-lint \
-          | awk '{print $1}' \
-          | tail -n +3
-      register: pypi
-    - name: pip install
-      ansible.builtin.pip:
-        name: '{{ item }}'
-        state: present
-        executable: /usr/bin/pip
-        extra_args: --user --upgrade
-      with_items: '{{ pypi.stdout_lines }}'
+      tags: flatpak
+    - name: pip update
+      block:
+        - name: get outdated pip packages
+          ansible.builtin.shell:
+            cmd: |
+              pip list --user --outdated --exclude ansible-core --exclude ansible-lint \
+              | awk '{print $1}' \
+              | tail -n +3
+          register: pypi
+        - name: pip install
+          ansible.builtin.pip:
+            name: '{{ item }}'
+            state: present
+            executable: /usr/bin/pip
+            extra_args: --user --upgrade
+          with_items: '{{ pypi.stdout_lines }}'
+      tags: pip
