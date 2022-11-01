@@ -5,20 +5,46 @@ name: Lint CI
   push:
     branches:
       - master
-    paths:
-      - 'ansible/.ansible/**'
   pull_request:
     branches:
       - master
-    paths:
-      - 'ansible/.ansible/**'
 
 permissions:
   contents: read
 
 jobs:
-  lint:
+  changes:
+    name: Filter changes
+    runs-on: ubuntu-latest
+    outputs:
+      scripts: ${{ steps.filter.outputs.scripts }}
+      playbooks: ${{ steps.filter.outputs.playbooks }}
+    steps:
+      - name: checkout project
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: filter
+        with:
+          filters: |
+            scripts:
+              - '**/.local/bin/*'
+            playbooks:
+              - 'ansible/.ansible/**'
+  lint-shell:
+    name: Lint scripts
+    needs: changes
+    if: ${{ needs.changes.outputs.scripts == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Shellcheck scripts
+        run: |
+          find * -type f -executable -exec shellcheck {} \;
+  lint-playbook:
     name: Lint playbooks
+    needs: changes
+    if: ${{ needs.changes.outputs.playbooks == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
