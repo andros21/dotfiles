@@ -2,22 +2,26 @@
 # tasks/main.yml
 
 - name: Fedora
-  block:
-    - ansible.builtin.include_vars:
-        file: fedora.yml
-    - ansible.builtin.include_tasks:
-        file: fedora.yml
   become: yes
   when: ansible_distribution == "Fedora"
+  block:
+    - name: Include vars
+      ansible.builtin.include_vars:
+        file: fedora.yml
+    - name: Include tasks
+      ansible.builtin.include_tasks:
+        file: fedora.yml
 
 - name: Alpine Linux
-  block:
-    - ansible.builtin.include_vars:
-        file: alpine.yml
-    - ansible.builtin.include_tasks:
-        file: alpine.yml
   become: yes
   when: ansible_distribution == "Alpine"
+  block:
+    - name: Include vars
+      ansible.builtin.include_vars:
+        file: alpine.yml
+    - name: Include tasks
+      ansible.builtin.include_tasks:
+        file: alpine.yml
 
 - name: Common
   ansible.builtin.include_tasks:

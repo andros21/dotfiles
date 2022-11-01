@@ -16,13 +16,15 @@
 
 - name: Clone cloned gits
   block:
-    - ansible.builtin.git:
+    - name: Git clone others
+      ansible.builtin.git:
         repo: '{{ item.origin }}'
         dest: '{{ ansible_user_dir }}/Documents/dev/clone/{{ item.origin | basename }}'
         version: '{{ item.branch }}'
       with_items: '{{ cloned_gits }}'
       when: item.origin | basename != 'ytdl-mpv'
-    - ansible.builtin.git:
+    - name: Git clone ytdl-mpv
+      ansible.builtin.git:
         repo: '{{ item.origin }}'
         dest: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
         version: '{{ item.branch }}'

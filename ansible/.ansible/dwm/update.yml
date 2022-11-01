@@ -1,49 +1,52 @@
 ---
-- hosts: laptop
+- name: Update
+  hosts: laptop
   tasks:
-    - name: dnf update
+    - name: Dnf update
+      tags: pkg
       ansible.builtin.dnf:
         name: '*'
         state: latest
         update_cache: yes
       become: yes
       when: ansible_distribution == "Fedora"
+    - name: Apk update
       tags: pkg
-    - name: apk update
       community.general.apk:
         upgrade: yes
         update_cache: yes
       become: yes
       when: ansible_distribution == "Alpine"
-      tags: pkg
-    - name: cloned git update
+    - name: Cloned git update
+      tags: git
       block:
-        - ansible.builtin.include_role:
+        - name: Include git from latest
+          ansible.builtin.include_role:
             name: git
             tasks_from: latest
-        - ansible.builtin.include_role:
+        - name: Include build from latest
+          ansible.builtin.include_role:
             name: build
             tasks_from: latest
-      tags: git
-    - name: flatpak update
+    - name: Flatpak update
+      tags: flatpak
       ansible.builtin.shell:
         cmd: |
           flatpak --user update --assumeyes --noninteractive
-      tags: flatpak
-    - name: pip update
+    - name: Pip update
+      tags: pip
       block:
-        - name: get outdated pip packages
+        - name: Get outdated pip packages
           ansible.builtin.shell:
             cmd: |
               pip list --user --outdated --exclude ansible-core --exclude ansible-lint \
               | awk '{print $1}' \
               | tail -n +3
           register: pypi
-        - name: pip install
+        - name: Pip install
           ansible.builtin.pip:
             name: '{{ item }}'
             state: present
             executable: /usr/bin/pip
             extra_args: --user --upgrade
           with_items: '{{ pypi.stdout_lines }}'
-      tags: pip

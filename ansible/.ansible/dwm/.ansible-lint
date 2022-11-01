@@ -13,7 +13,7 @@ skip_list:
    - '306' # Shells that use pipes should set the pipefail option
    - '502' # All tasks should be named
    - '505' # Referenced missing file
-   # +++ yamllint +++
+   # +++ ansiblelint +++
    - command-instead-of-module
    - ignore-errors
    - package-latest

@@ -3,12 +3,14 @@
 
 - name: Build and install forked gits
   block:
-    - community.general.make:
+    - name: Make others
+      community.general.make:
         target: install
         chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
       when: item.origin | basename != 'slock'
       with_items: '{{ forked_gits }}'
-    - community.general.make:
+    - name: Make slock
+      community.general.make:
         target: install
         chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
       become: yes
