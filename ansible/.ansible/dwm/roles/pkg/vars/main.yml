@@ -6,8 +6,13 @@ flathub:
   - org.telegram.desktop
 
 pypi:
+  - autoimport
+  - black
+  - flake8
   - ipython
+  - isort
   - pulsemixer
   - pynvim
-  - youtube_dl
   - vim-vint
+  - yamllint
+  - youtube_dl
