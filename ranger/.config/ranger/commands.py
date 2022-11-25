@@ -1,9 +1,9 @@
 import os
 import re
 import subprocess
+import sys
 
-import ranger.api
-from ranger.api.commands import *
+from ranger.api.commands import Command
 from ranger.core.loader import CommandLoader
 
 
@@ -28,7 +28,7 @@ class fzf_select(Command):
     def execute(self):
         command = (
             os.getenv("FZF_DEFAULT_COMMAND")
-            + " | fzf +m --preview='bash /usr/share/doc/ranger/config/scope.sh"
+            + f" | fzf +m --preview='{sys.path[-1]}/ranger/data/scope.sh"
             + " {} 100 100 /tmp False 2> /dev/null'"
         )
         fzf = self.fm.execute_command(
@@ -68,7 +68,7 @@ class z(Command):
             #  smallest(length) directory will be the directory required
             self.fm.execute_console("cd " + min(directories, key=lambda x: len(x)))
         except Exception as e:
-            raise Exception("Directory not found")
+            raise print("Directory not found: ", e)
 
 
 class extract(Command):
