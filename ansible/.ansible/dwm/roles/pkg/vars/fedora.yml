@@ -52,6 +52,10 @@ base_libs:
   - libxcb-devel
 
 utils:
+  - cloud-utils
+  - coreos-installer
   - fuse-encfs
+  - guestfs-tools
   - socat
   - srm
+  - virt-rescue
