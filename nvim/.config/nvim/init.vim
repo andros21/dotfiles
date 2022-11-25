@@ -18,20 +18,22 @@ Plug 'vim-airline/vim-airline'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-rooter'
-Plug 'alvan/vim-closetag'
 Plug 'aymericbeaumet/vim-symlink'
 Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-system-copy'
 Plug 'dense-analysis/ale'
 Plug 'dkarter/bullets.vim'
+"https://github.com/windwp/nvim-autopairs
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-startify'
 Plug 'moll/vim-bbye'
 Plug 'preservim/nerdcommenter'
+"https://github.com/nvim-treesitter/nvim-treesitter
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
+"https://github.com/kylechui/nvim-surround
 Plug 'tpope/vim-surround'
 Plug 'zenbro/mirror.vim'
 Plug 'rust-lang/rust.vim'
@@ -66,7 +68,7 @@ set relativenumber
 set spelllang+=it
 set cursorline
 set hidden
-"set title
+set title
 
 """ Airline
 let g:airline_detect_spell                       = 0
@@ -108,7 +110,7 @@ let g:ale_linters_explicit       = 1
 let g:ale_linters                = {
                                    \ 'cpp'    : ['clangcheck'],
                                    \ 'fish'   : ['fish'],
-                                   \ 'python' : ['pylint'],
+                                   \ 'python' : ['flake8'],
                                    \ 'rust'   : ['cargo'],
                                    \ 'vim'    : ['vint'],
                                    \ 'yaml'   : ['yamllint']
@@ -191,6 +193,9 @@ au FileType bash,c,cpp,fish,python,rust,sh IndentLinesEnable
 
 " Enable vim-easytags for particular FileType
 au FileType c,cpp,python,rust let b:easytags_auto_update=1
+
+" Enable text-wrap for particular FileType
+au FileType markdown setlocal textwidth=60
 
 " Highlight yanked text
 au TextYankPost * silent! lua require'vim.highlight'.on_yank()
