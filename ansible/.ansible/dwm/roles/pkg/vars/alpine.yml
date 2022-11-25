@@ -28,7 +28,6 @@ base_deps:
   - picom
   - podman
   - pwgen
-  - py3-pexpect
   - py3-pip
   - py3-setuptools
   - py3-wheel
@@ -41,7 +40,7 @@ base_deps:
   - stow
   - syncthing
   - tmux
-  - util-linux-misc
+  - util-linux-misc # apk add mount umount if needed
   - xautolock
   - xclip
   - xdotool
@@ -122,6 +121,7 @@ base_libs:
   - libxinerama-dev
   - libxrandr-dev
   - pulseaudio-dev
+  - cxxopts-dev
 
 utils:
   - encfs
@@ -131,7 +131,6 @@ edge_community:
 
 edge_testing:
   - atool
-  - cxxopts-dev
 
 edge_community_repo: https://dl-cdn.alpinelinux.org/alpine/edge/community
 

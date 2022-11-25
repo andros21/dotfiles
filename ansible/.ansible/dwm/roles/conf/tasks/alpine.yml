@@ -181,9 +181,6 @@
         cmd: adduser '{{ whoami }}' input
 
 - name: Chsh fish
-  ansible.builtin.expect:
-    command: chsh -s /usr/bin/fish '{{ ansible_user_id }}'
-    timeout:
-    responses:
-      (.*)Password(.*): '{{ become_passwd }}'
-  become: no
+  ansible.builtin.shell:
+    cmd: |
+      usermod --shell /usr/bin/fish '{{ ansible_user_id }}'

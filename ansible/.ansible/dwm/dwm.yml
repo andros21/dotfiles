@@ -2,10 +2,6 @@
 
 - name: Dwm
   hosts: laptop
-  vars_prompt:
-    - name: become_passwd
-      prompt: BECOME password (expect)
-      private: yes
   roles:
     - role: repo
       tags: repo
