@@ -8,9 +8,9 @@
     version: master
   with_items: '{{ forked_gits }}'
 
-- name: Add remote to forked gits
+- name: Add upstream to forked gits
   ansible.builtin.shell:
-    cmd: git remote add remote '{{ item.remote | quote }}'
+    cmd: git remote add upstream '{{ item.upstream | quote }}'
     chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
   with_items: '{{ forked_gits }}'
 
