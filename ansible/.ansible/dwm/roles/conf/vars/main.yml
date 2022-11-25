@@ -15,11 +15,6 @@ path_to_mk:
   - .local/share/fonts/Hack/
   - .tmux/
 
-cloned_gits:
-  - https://github.com/cdemoulins/pamixer
-  - https://github.com/carnager/rofi-pass
-  - https://github.com/carnager/teiler
-
 my_std_xdg_path:
     - Pictures/Paste
     - Pictures/Screenshots
