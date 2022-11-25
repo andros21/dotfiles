@@ -121,7 +121,6 @@ base_libs:
   - libxinerama-dev
   - libxrandr-dev
   - pulseaudio-dev
-  - cxxopts-dev
 
 utils:
   - encfs

@@ -14,7 +14,6 @@ cloned_gits_make:
    - https://github.com/carnager/rofi-pass
    - https://github.com/carnager/teiler
 cloned_gits_meson:
-   - https://github.com/cdemoulins/pamixer
 ctags_git: https://github.com/universal-ctags/ctags
 distrobox_git: https://github.com/89luca89/distrobox
 

@@ -44,14 +44,12 @@ build:
   - meson
 
 base_libs:
-  - cxxopts-devel
   - harfbuzz-devel
   - libX11-devel
   - libXft-devel
   - libXinerama-devel
   - libXrandr-devel
   - libxcb-devel
-  - pulseaudio-libs-devel
 
 utils:
   - fuse-encfs

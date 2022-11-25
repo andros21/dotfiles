@@ -121,7 +121,6 @@ Here my build [slock](https://github.com/andros21/slock)
 
 #### Miscellanea
 
-* [pamixer](https://github.com/cdemoulins/pamixer) as pulseaudio command line mixer
 * [rofi-pass](https://github.com/carnager/rofi-pass) as GNU/pass frontend
 * [rofi-power](https://github.com/okraits/rofi-tools) as systemctl power tool
 * [teiler](https://github.com/carnager/teiler) as powerful screenshots and screencasts tool

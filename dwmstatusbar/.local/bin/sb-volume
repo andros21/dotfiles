@@ -6,4 +6,6 @@ case $BLOCK_BUTTON in
    1) setsid -f alacritty -e pulsemixer ;;
 esac
 
-printf '%s' "$(pamixer --get-volume-human)" | sed 's/muted/M/'
+printf '%s' "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)" \
+   | sed -E 's/Volume: 0.(.*)/\1%/' \
+   | sed -E 's/(.*)[MUTED](.*)/M/'

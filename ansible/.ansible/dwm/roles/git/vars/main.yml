@@ -16,8 +16,6 @@ cloned_gits:
      branch: master
    - origin: https://github.com/carnager/teiler
      branch: master
-   - origin: https://github.com/cdemoulins/pamixer
-     branch: master
    - origin: https://github.com/universal-ctags/ctags
      branch: master
    - origin: https://github.com/89luca89/distrobox
