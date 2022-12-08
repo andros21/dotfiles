@@ -28,7 +28,8 @@ _image_viewer () {
 fix_layout=true
 
 layout_cmd () {
-  setxkbmap it intl
+  setxkbmap it
+  xinput -list | grep -q "Dell KB216 Wired Keyboard" && setxkbmap us
 }
 
 # fields to be used
