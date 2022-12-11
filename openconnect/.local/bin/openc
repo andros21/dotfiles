@@ -1,0 +1,51 @@
+#!/usr/bin/env sh
+
+# openc
+# =====
+# openconnect script with facilities (semi rootless)
+
+set -e
+WHO="$(whoami)"
+CONF="${HOME}/.vpn/openc.conf"
+
+_start() {
+   sudo ip tuntap add "${IFACE}" mode tun user "${WHO}" && \
+      echo "info: tuntap ${IFACE} created"
+   openconnect --background \
+               --syslog \
+               --interface "${IFACE}" \
+               --script 'sudo -E /etc/vpnc/vpnc-script &>/dev/null' \
+               --protocol gp \
+               --certificate "${HOME}/.vpn/${CERT}" \
+               --user "${USER}" \
+               "${GATEWAY}" && echo 'info: openconnect started'
+}
+
+_status() {
+   if pgrep openconnect >/dev/null; then
+      echo 'openconnect is running'
+   else
+      echo 'openconnect is not running'
+   fi
+}
+
+_stop() {
+   pkill openconnect 2>/dev/null && \
+      echo 'info: openconnect stopped' && \
+      sleep 3 && \
+      ip tuntap del "${IFACE}" mode tun && \
+      echo "info: tuntap ${IFACE} deleted"
+}
+
+_help() {
+   echo 'openc [start|status|stop]'
+}
+
+. "${CONF}"
+
+case $1 in
+   start)    _start;;
+   status)   _status;;
+   stop)     _stop;;
+   *)        _help;;
+esac
