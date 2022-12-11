@@ -128,13 +128,13 @@ let g:indentLine_char       = '▏'
 let g:indentLine_color_term = '102'
 
 """ mirror.vim
-let g:mirror#config_path = expand('~/.mirrors.yml')
+let g:mirror#config_path = expand('~/.ssh/.mirrors.yml')
 
 """ vim-symlink
 let g:symlink_redraw = 0
 
 """ vim-rooter
-let g:rooter_patterns      = ['requirements.*', '.git', 'LICENSE*', 'README*', 'Makefile']
+let g:rooter_patterns      = ['requirements.*', '.git', 'LICENSE*', 'README*']
 let g:rooter_resolve_links = 1
 
 """ vim-easytags
@@ -228,6 +228,7 @@ nmap <leader>s  :w<CR>
 nmap <leader>d  :Bd<CR>
 nmap <leader>D  <C-O>
 nmap <leader>cd :cd ~/Documents<CR>
+nmap <leader>mp :w<CR>:MirrorPush<CR>
 
 " Startify
 nmap <leader>S  :Startify<CR>
