@@ -8,6 +8,10 @@
 *.so
 *.pyc
 *.gch
+*.aux
+*.fls
+*.fdb_latexmk
+*_minted-*
 
 # Temporary files #
 ###################
