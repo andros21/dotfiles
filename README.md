@@ -10,7 +10,7 @@
   <br>
   <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
-    <img src="https://img.shields.io/github/workflow/status/andros21/dotfiles/Lint%20CI/master?label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI">
+    <img src="https://img.shields.io/github/actions/workflow/status/andros21/dotfiles/lint.yml?branch=master&label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI">
   </a>
    <a href="https://dwm.suckless.org/">
     <img src="https://img.shields.io/badge/dwm-powered-important?logo=fedora&style=flat-square" alt="Lint CI">
