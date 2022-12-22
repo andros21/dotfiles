@@ -68,6 +68,7 @@ set relativenumber
 set spelllang+=it
 set cursorline
 set hidden
+set mouse=
 set title
 
 """ Airline
