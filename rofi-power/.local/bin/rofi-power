@@ -12,17 +12,18 @@ OPTIONS="re) Reboot system\npo) Power-off system\nsu) Suspend system\nhi) Hibern
 
 # Source configuration or use default values
 if [ -f "$HOME/.config/rofi-power/config" ]; then
-  source "$HOME/.config/rofi-power/config"
+   # shellcheck source=/dev/null
+   source "$HOME/.config/rofi-power/config"
 else
-  PROMPT="rofi-power"
-  LAUNCHER="rofi -dmenu -i"
-  USE_LOCKER="false"
-  LOCKER="i3lock"
+   PROMPT="rofi-power"
+   LAUNCHER="rofi -dmenu -i"
+   USE_LOCKER="false"
+   LOCKER="i3lock"
 fi
 
 # Show exit wm option if exit command is provided as an argument
 if [ ${#1} -gt 0 ]; then
-  OPTIONS="Exit window manager\n$OPTIONS"
+   OPTIONS="Exit window manager\n$OPTIONS"
 fi
 
 # Systemd (systemctl) or elogind (loginctl)
@@ -34,23 +35,23 @@ option=$(echo -e "$OPTIONS" \
    | awk '{print $2}' | tr -d '\r\n')
 if [ ${#option} -gt 0 ]
 then
-    case $option in
+   case $option in
       Exit)
-        eval "$1"
-        ;;
+         eval "$1"
+         ;;
       Reboot)
-        $POWERCMD reboot
-        ;;
+         $POWERCMD reboot
+         ;;
       Power-off)
-        $POWERCMD poweroff
-        ;;
+         $POWERCMD poweroff
+         ;;
       Suspend)
-        eval ${USE_LOCKER} && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD suspend;
-        ;;
+         eval ${USE_LOCKER} && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD suspend;
+         ;;
       Hibernate)
-        eval ${USE_LOCKER} && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD hibernate;
-        ;;
+         eval ${USE_LOCKER} && ${LOCKER} &> /dev/null; sleep 0.5; $POWERCMD hibernate;
+         ;;
       *)
-        ;;
-    esac
+         ;;
+   esac
 fi
