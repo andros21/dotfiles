@@ -30,16 +30,21 @@ base_deps:
   - restic
   - ripgrep
   - slop
+  - sqlite
   - stow
   - syncthing
   - xautolock
   - xclip
+  - xinput
+  - xrandr
   - xsel
+  - xset
 
 build:
   - autoconf
   - automake
   - clang
+  - clang-tools-extra
   - gcc-c++
   - meson
 
@@ -56,6 +61,7 @@ utils:
   - coreos-installer
   - fuse-encfs
   - guestfs-tools
+  - libguestfs-rescue
+  - openssl
   - socat
   - srm
-  - virt-rescue

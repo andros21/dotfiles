@@ -65,8 +65,6 @@ input_deps:
 net_deps:
   - awall
   - dhcpcd
-  - ip6tables
-  - iptables
 
 uefi_bios_deps:
   - fwupd
@@ -105,7 +103,8 @@ build:
   - autoconf
   - automake
   - build-base
-  - clang
+  - clang15
+  - clang15-extra-tools
   - g++
   - gcc
   - meson
