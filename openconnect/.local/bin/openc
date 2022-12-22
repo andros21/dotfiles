@@ -2,23 +2,19 @@
 
 # openc
 # =====
-# openconnect script with facilities (semi rootless)
+# openconnect script with facilities (root)
 
 set -e
-WHO="$(whoami)"
 CONF="${HOME}/.vpn/openc.conf"
 
 _start() {
-   sudo ip tuntap add "${IFACE}" mode tun user "${WHO}" && \
-      echo "info: tuntap ${IFACE} created"
-   openconnect --background \
-               --syslog \
-               --interface "${IFACE}" \
-               --script 'sudo -E /etc/vpnc/vpnc-script &>/dev/null' \
-               --protocol gp \
-               --certificate "${HOME}/.vpn/${CERT}" \
-               --user "${USER}" \
-               "${GATEWAY}" && echo 'info: openconnect started'
+   sudo openconnect --background \
+                    --syslog \
+                    --interface "${IFACE}" \
+                    --protocol gp \
+                    --certificate "${HOME}/.vpn/${CERT}" \
+                    --user "${USER}" \
+                    "${GATEWAY}" && echo 'info: openconnect started'
 }
 
 _status() {
@@ -30,17 +26,15 @@ _status() {
 }
 
 _stop() {
-   pkill openconnect 2>/dev/null && \
-      echo 'info: openconnect stopped' && \
-      sleep 3 && \
-      ip tuntap del "${IFACE}" mode tun && \
-      echo "info: tuntap ${IFACE} deleted"
+   sudo pkill openconnect 2>/dev/null && \
+      echo 'info: openconnect stopped'
 }
 
 _help() {
    echo 'openc [start|status|stop]'
 }
 
+# shellcheck source=/dev/null
 . "${CONF}"
 
 case $1 in
