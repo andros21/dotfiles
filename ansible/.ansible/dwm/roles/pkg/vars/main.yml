@@ -11,8 +11,9 @@ pypi:
   - flake8
   - ipython
   - isort
+  - pre-commit
   - pulsemixer
   - pynvim
   - vim-vint
   - yamllint
-  - youtube_dl
+  - yt-dlp
