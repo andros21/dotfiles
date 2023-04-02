@@ -7,10 +7,10 @@ function fish_mount -d "Udisksctl mount devs"
          udisksctl mount -b (realpath /dev/disk/by-label/$label)
       end
    else
-      set -l block (fd --regex "/dev/sd[a-i][1-9]" | fzf +m)
+      set -l block (fd "(sd[a-i][1-9]|mmcblk0p[1-9])" /dev | fzf +m)
       if test -n "$block"
          echo -n "Mounting $block ... "
-         udisksctl mount -b "/dev/$block"
+         udisksctl mount -b "$block"
       end
    end
 end
