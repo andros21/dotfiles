@@ -1,0 +1,16 @@
+# starship.toml
+# =============
+# starship config
+# see https://starship.rs/config
+
+[username]
+show_always = true
+style_user = 'bold purple'
+format = '[$user]($style) on '
+
+[hostname]
+ssh_only = false
+style = 'bold yellow'
+
+[cmd_duration]
+style = 'bold green'
