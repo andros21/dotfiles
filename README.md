@@ -95,20 +95,15 @@ Here my build [slock](https://github.com/andros21/slock)
 
 #### Editor `neovim`
 
-* [vim-plug](https://github.com/junegunn/vim-plug) as default plugin manager
-* [vim-startify](https://github.com/mhinz/vim-startify) the fancy start screen for vim
-* [vim-airline](https://github.com/vim-airline/vim-airline) with [nord-theme](https://github.com/arcticicestudio/nord-vim) plugin
-* [ALE](https://github.com/dense-analysis/ale) as linter and fixer (bins inside x project venv or in PATH)
-* [deoplete.nvim](https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources) for avoiding typing repetition (no completion sources configured)
-* [mirror.vim](https://github.com/zenbro/mirror.vim) as advance remote file editor plugin
-* [fzf.vim](https://github.com/junegunn/fzf.vim) easily moving around (files, tabs, lines, stages, ripgrep, ...)
-* [vim-rooter](https://github.com/airblade/vim-rooter) automatic root project changer
-* [vim-easytags](https://github.com/xolox/vim-easytags)
+* [lazy.nvim](https://github.com/folke/lazy.nvim) as default plugin manager
+* [lualine](https://github.com/nvim-lualine/lualine.nvim) with [nord-theme](https://github.com/arcticicestudio/nord-vim) plugin
+* [bufferline](https://github.com/akinsho/bufferline.nvim) buffers as tabs and more
+* [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) as lsp-client: lint and format (bins automatically provisioned by [mason-null-ls](https://github.com/jay-babu/mason-null-ls.nvim))
+* [fzf-lua](https://github.com/ibhagwan/fzf-lua) easily moving around (files, tabs, lines, stages, ripgrep, ...)
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlight and more
 * devicons and nerdcommenter
-* aesthetics and essential plugins for file editing
-* buffers as tabs
-* autocmd for resume cursor position
-* personal mappings
+* [LazyVim](https://github.com/LazyVim/LazyVim) autocmds, options, keymaps
+* aesthetics and essential plugins for file editing e.g. [mini](https://github.com/echasnovski/mini.nvim)
 
 #### File Manager `ranger`
 
