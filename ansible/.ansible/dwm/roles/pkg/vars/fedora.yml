@@ -4,15 +4,20 @@
 base:
   - alacritty
   - bat
-  - git-delta
+  - btop
+  - exa
   - fd-find
   - fish
   - fzf
+  - git-delta
   - htop
   - neovim
   - pass
   - ranger
+  - ripgrep
   - rofi
+  - stow
+  - zoxide
 
 base_deps:
   - NetworkManager-tui
@@ -28,10 +33,7 @@ base_deps:
   - pwgen
   - python3-wheel
   - restic
-  - ripgrep
   - slop
-  - sqlite
-  - stow
   - syncthing
   - xautolock
   - xclip

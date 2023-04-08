@@ -7,6 +7,9 @@ base:
   - bash-completion
   - bash-doc
   - bat
+  - btop
+  - delta
+  - exa
   - fd
   - fish
   - fzf
@@ -15,11 +18,13 @@ base:
   - neovim
   - pass
   - ranger
+  - ripgrep
   - rofi
+  - stow
+  - zoxide
 
 base_deps:
   - curl
-  - delta
   - feh
   - ffmpeg
   - hunspell
@@ -33,11 +38,9 @@ base_deps:
   - py3-wheel
   - python3-dev
   - restic
-  - ripgrep
   - screen
   - slop
   - sqlite
-  - stow
   - syncthing
   - tmux
   - util-linux-misc # apk add mount umount if needed
