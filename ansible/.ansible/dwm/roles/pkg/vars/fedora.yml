@@ -47,6 +47,8 @@ build:
   - clang-tools-extra
   - gcc-c++
   - meson
+  - npm
+  - shellcheck
 
 base_libs:
   - harfbuzz-devel

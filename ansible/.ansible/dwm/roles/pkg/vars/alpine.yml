@@ -108,6 +108,7 @@ build:
   - g++
   - gcc
   - meson
+  - npm
   - shellcheck
 
 base_libs:
