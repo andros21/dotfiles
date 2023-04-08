@@ -50,6 +50,7 @@ base_deps:
   - xsel
 
 audio_deps:
+  - pavucontrol-qt
   - pipewire
   - pipewire-pulse
   - rtkit

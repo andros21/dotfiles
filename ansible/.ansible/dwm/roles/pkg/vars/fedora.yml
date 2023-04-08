@@ -29,6 +29,7 @@ base_deps:
   - lm_sensors
   - maim
   - mpv
+  - pavucontrol-qt
   - picom
   - pwgen
   - python3-wheel

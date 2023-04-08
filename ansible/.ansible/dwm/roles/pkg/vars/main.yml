@@ -8,5 +8,4 @@ flathub:
 pypi:
   - ipython
   - pre-commit
-  - pulsemixer
   - yt-dlp
