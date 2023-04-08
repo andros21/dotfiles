@@ -1,5 +1,4 @@
 import os
-import re
 import subprocess
 import sys
 
@@ -41,34 +40,6 @@ class fzf_select(Command):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
-
-
-class z(Command):
-    """:z
-    Uses .z file to set the current directory.
-
-    See: https://github.com/ask1234560/ranger-zjumper
-    """
-
-    def execute(self):
-
-        # location of .z file
-        z_loc = f"{os.getenv('HOME')}/.local/share/z/data"
-        with open(z_loc, "r") as fobj:
-            flists = fobj.readlines()
-
-        # user given directory
-        req = re.compile(".*".join(self.args[1:]), re.IGNORECASE)
-        directories = []
-        for i in flists:
-            if req.search(i):
-                directories.append(i.split("|")[0])
-
-        try:
-            #  smallest(length) directory will be the directory required
-            self.fm.execute_console("cd " + min(directories, key=lambda x: len(x)))
-        except Exception as e:
-            raise print("Directory not found: ", e)
 
 
 class extract(Command):

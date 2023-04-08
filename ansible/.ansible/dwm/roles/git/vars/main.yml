@@ -23,3 +23,4 @@ cloned_gits:
 
 ranger_gits:
    - https://github.com/alexanderjeurissen/ranger_devicons
+   - https://github.com/jchook/ranger-zoxide
