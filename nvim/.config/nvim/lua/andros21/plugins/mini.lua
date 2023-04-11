@@ -93,4 +93,23 @@ return {
          require("mini.trailspace").setup(opts)
       end,
    },
+
+   -- jump
+   {
+      "echasnovski/mini.jump",
+      event = "VeryLazy",
+      config = function(_, opts)
+         require("mini.jump").setup(opts)
+      end,
+   },
+
+   -- jump2d
+   {
+      "echasnovski/mini.jump2d",
+      event = "VeryLazy",
+      config = function(_, opts)
+         require("mini.jump2d").setup(opts)
+         vim.api.nvim_set_hl(0, "MiniJump", { fg = "#d08770" })
+      end,
+   },
 }
