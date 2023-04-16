@@ -10,15 +10,18 @@ andros21.cfg = {
       -- see andros21/plugins/mason-null-ls.lua
       sources = {
          diagnostics = {
-            "shellcheck",
             "fish",
+            "hadolint",
             "ruff",
+            "shellcheck",
+            "yamllint",
          },
          formatting = {
             "beautysh",
             "black",
             "fish_indent",
             "stylua",
+            "yamlfmt",
          },
       },
       exclude_install = { "fish", "fish_indent" },
