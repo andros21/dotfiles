@@ -10,6 +10,7 @@ andros21.cfg = {
       -- see andros21/plugins/mason-null-ls.lua
       sources = {
          diagnostics = {
+            "actionlint",
             "fish",
             "hadolint",
             "ruff",
@@ -21,6 +22,7 @@ andros21.cfg = {
             "black",
             "fish_indent",
             "stylua",
+            "taplo",
             "yamlfmt",
          },
       },
