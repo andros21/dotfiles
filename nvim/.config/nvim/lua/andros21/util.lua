@@ -6,7 +6,7 @@
 
 local M = {}
 
--- this will return a function that calls telescope.
+-- this will return a function that calls fzflua.
 -- cwd will default to lazyvim.util.get_root
 -- for `files`, git_files or find_files will be chosen depending on .git
 function M.fzflua(builtin, opts)

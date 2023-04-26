@@ -32,7 +32,7 @@ return {
       { "<leader>sd", "<cmd>FzfLua lsp_document_diagnostics<cr>", desc = "Diagnostics document" },
       { "<leader>sD", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", desc = "Diagnostics workspace" },
       { "<leader>sg", util.fzflua("grep_project"), desc = "Grep (root dir)" },
-      { "<leader>sG", util.fzflua("grep_project", { cwd = false }), desc = "Grep (cwd)" },
+      { "<leader>sG", util.fzflua("grep_project", { cwd = "." }), desc = "Grep (cwd)" },
       { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
       { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
       { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
