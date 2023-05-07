@@ -10,7 +10,7 @@ function fish_umount -d "Umount devs"
       set -l block (fd "(sd[a-i][1-9]|mmcblk0p[1-9])" /dev | fzf +m)
       if test -n "$block"
          echo -n "Umounting $block ... "
-         udisksctl unmount -b "$block" && echo "done"
+         udisksctl unmount -b "$block"
       end
    end
 end
