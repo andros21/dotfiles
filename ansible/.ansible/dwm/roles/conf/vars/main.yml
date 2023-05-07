@@ -16,14 +16,14 @@ path_to_mk:
   - .tmux/
 
 my_std_xdg_path:
-    - Pictures/Paste
-    - Pictures/Screenshots
-    - Pictures/Wallpapers
-    - Videos/Screencasts
+  - Pictures/Paste
+  - Pictures/Screenshots
+  - Pictures/Wallpapers
+  - Videos/Screencasts
 
 nord_alatty_url: https://raw.githubusercontent.com/arcticicestudio/nord-alacritty/develop/src/nord.yml
 
-font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
 
 wallpapers:
   - url: https://r4.wallpaperbetter.com/wallpaper/912/256/892/landscape-forest-deer-artwork-wallpaper-19d0082d01fa2debd647a8df70a166fd.jpg
