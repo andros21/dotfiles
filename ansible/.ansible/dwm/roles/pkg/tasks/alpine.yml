@@ -14,7 +14,7 @@
         state: present
         update_cache: yes
     - name: Setup base xorg
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: setup-xorg-base
     - name: Apk add plus
       community.general.apk:

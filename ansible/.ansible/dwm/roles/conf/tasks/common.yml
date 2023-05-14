@@ -2,7 +2,7 @@
 # tasks/common.yml
 
 - name: Setup XDG standard dirs
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: xdg-user-dirs-update
 
 - name: GNU/Stow
@@ -24,7 +24,7 @@
         excludes: .cache,.git,.github,Xorg
       register: find_result
     - name: Stow them
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: stow "{{ item.path | basename }}"
         chdir: '{{ ansible_user_dir }}/.dotfiles/'
       with_items: '{{ find_result.files }}'

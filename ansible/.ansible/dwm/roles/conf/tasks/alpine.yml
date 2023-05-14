@@ -148,7 +148,7 @@
         activate: yes
 
 - name: Enable services
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: rc-update add '{{ item }}'
   with_items: '{{ rc_services }}'
   when: item != 'fwupd'
@@ -160,7 +160,7 @@
         path: /sys/firmware/efi
       register: efi
     - name: Enable fwupd if efi
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: rc-update add fwupd
       when: efi.stat.exists
 
@@ -177,10 +177,10 @@
         whoami: '{{ ansible_user_id }}'
       become: no
     - name: Add to input
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: adduser '{{ whoami }}' input
 
 - name: Chsh fish
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: |
       usermod --shell /usr/bin/fish '{{ ansible_user_id }}'

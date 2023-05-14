@@ -30,7 +30,7 @@
             tasks_from: latest
     - name: Flatpak update
       tags: flatpak
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: |
           flatpak --user update --assumeyes --noninteractive
     - name: Pip update
