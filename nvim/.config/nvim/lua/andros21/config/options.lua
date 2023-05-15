@@ -12,4 +12,3 @@ opt.shiftwidth = 3
 
 -- additional options
 opt.breakindent = true
-opt.title = true
