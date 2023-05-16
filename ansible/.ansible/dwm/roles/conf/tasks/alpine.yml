@@ -67,13 +67,13 @@
           tun
     - name: Get user
       ansible.builtin.set_fact:
-        whoami: '{{ ansible_user_id }}'
+        conf_whoami: '{{ ansible_user_id }}'
       become: no
     - name: Rootless support
       ansible.builtin.copy:
         dest: '/etc/{{ item }}'
         content: |
-          {{ whoami }}:100000:65536
+          {{ conf_whoami }}:100000:65536
       with_items:
         - subgid
         - subuid
@@ -158,11 +158,11 @@
     - name: Check bios or efi
       ansible.builtin.stat:
         path: /sys/firmware/efi
-      register: efi
+      register: conf_efi
     - name: Enable fwupd if efi
       ansible.builtin.command:
         cmd: rc-update add fwupd
-      when: efi.stat.exists
+      when: conf_efi.stat.exists
 
 - name: Python alias
   ansible.builtin.file:
@@ -174,11 +174,11 @@
   block:
     - name: Get user
       ansible.builtin.set_fact:
-        whoami: '{{ ansible_user_id }}'
+        conf_whoami: '{{ ansible_user_id }}'
       become: no
     - name: Add to input
       ansible.builtin.command:
-        cmd: adduser '{{ whoami }}' input
+        cmd: adduser '{{ conf_whoami }}' input
 
 - name: Chsh fish
   ansible.builtin.command:

@@ -22,12 +22,12 @@
         paths: '{{ ansible_user_dir }}/.dotfiles/'
         file_type: directory
         excludes: .cache,.git,.github,Xorg
-      register: find_result
+      register: conf_find_result
     - name: Stow them
       ansible.builtin.command:
         cmd: stow "{{ item.path | basename }}"
         chdir: '{{ ansible_user_dir }}/.dotfiles/'
-      with_items: '{{ find_result.files }}'
+      with_items: '{{ conf_find_result.files }}'
 
 - name: Create not standard XDG dirs
   ansible.builtin.file:
