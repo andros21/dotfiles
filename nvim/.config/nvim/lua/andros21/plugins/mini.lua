@@ -29,41 +29,33 @@ return {
             end,
          })
       end,
-      config = function(_, opts)
-         require("mini.indentscope").setup(opts)
-      end,
    },
 
    -- auto pairs
    {
       "echasnovski/mini.pairs",
       event = "VeryLazy",
-      config = function(_, opts)
-         require("mini.pairs").setup(opts)
-      end,
+      opts = {},
    },
 
    -- surround
    {
       "echasnovski/mini.surround",
-      config = function(_, opts)
-         require("mini.surround").setup(opts)
-      end,
+      opts = {},
    },
 
    -- comment
    {
       "echasnovski/mini.comment",
       event = "VeryLazy",
-      config = function(_, opts)
-         require("mini.comment").setup(opts)
-      end,
+      opts = {},
    },
 
    -- bufremove
    {
       "echasnovski/mini.bufremove",
       event = "VeryLazy",
+      opts = {},
       keys = {
          {
             "<leader>bd",
@@ -80,26 +72,23 @@ return {
             desc = "Delete Buffer (Force)",
          },
       },
-      config = function(_, opts)
-         require("mini.bufremove").setup(opts)
-      end,
    },
 
    -- trailspace
    {
       "echasnovski/mini.trailspace",
       event = "VeryLazy",
-      config = function(_, opts)
-         require("mini.trailspace").setup(opts)
-      end,
+      opts = {},
    },
 
    -- jump
    {
       "echasnovski/mini.jump",
       event = "VeryLazy",
+      opts = {},
       config = function(_, opts)
          require("mini.jump").setup(opts)
+         vim.api.nvim_set_hl(0, "MiniJump", { fg = "#d08770" })
       end,
    },
 
@@ -107,9 +96,6 @@ return {
    {
       "echasnovski/mini.jump2d",
       event = "VeryLazy",
-      config = function(_, opts)
-         require("mini.jump2d").setup(opts)
-         vim.api.nvim_set_hl(0, "MiniJump", { fg = "#d08770" })
-      end,
+      opts = {},
    },
 }
