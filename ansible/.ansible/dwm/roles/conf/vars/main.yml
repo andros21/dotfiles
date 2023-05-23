@@ -21,7 +21,7 @@ my_std_xdg_path:
   - Pictures/Wallpapers
   - Videos/Screencasts
 
-nord_alatty_url: https://raw.githubusercontent.com/arcticicestudio/nord-alacritty/develop/src/nord.yml
+nord_alatty_url: https://raw.githubusercontent.com/nordtheme/alacritty/main/src/nord.yaml
 
 font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
 
