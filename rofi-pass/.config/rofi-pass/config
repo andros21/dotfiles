@@ -48,7 +48,7 @@ xdotool_delay=12
 
 ## Programs to be used
 # Editor
-EDITOR='nvim'
+EDITOR="nvim -i NONE -u ~/.config/nvim/tmp.vim"
 
 # Browser
 BROWSER='xdg-open'
