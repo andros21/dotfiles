@@ -28,6 +28,7 @@ alias sha 'sha256sum -c --ignore-missing'
 alias md5 'md5sum -c --ignore-missing'
 alias xclip 'xclip -selection clipboard'
 alias htop btop
+alias k kubectl
 
 # func
 # ----
