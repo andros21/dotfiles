@@ -132,6 +132,8 @@ utils:
   - socat
 
 edge_community:
+  - helm
+  - kubectl
 
 edge_testing:
   - atool

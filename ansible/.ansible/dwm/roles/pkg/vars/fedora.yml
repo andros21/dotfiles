@@ -67,6 +67,8 @@ utils:
   - coreos-installer
   - fuse-encfs
   - guestfs-tools
+  - helm
+  - kubernetes-client
   - libguestfs-rescue
   - openssl
   - socat
