@@ -14,6 +14,7 @@ base:
   - fish
   - fzf
   - htop
+  - just
   - mandoc
   - neovim
   - pass
@@ -43,7 +44,7 @@ base_deps:
   - sqlite
   - syncthing
   - tmux
-  - util-linux-misc # apk add mount umount if needed
+  - util-linux-misc   # apk add mount umount if needed
   - xautolock
   - xclip
   - xdotool

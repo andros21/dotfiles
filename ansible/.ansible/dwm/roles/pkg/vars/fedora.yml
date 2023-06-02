@@ -11,6 +11,7 @@ base:
   - fzf
   - git-delta
   - htop
+  - just
   - neovim
   - pass
   - ranger
