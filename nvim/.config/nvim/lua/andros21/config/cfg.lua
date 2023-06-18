@@ -21,6 +21,7 @@ andros21.cfg = {
             "beautysh",
             "black",
             "fish_indent",
+            "isort",
             "stylua",
             "taplo",
             "yamlfmt",
