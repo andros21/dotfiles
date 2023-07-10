@@ -15,8 +15,9 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.opt_local.spell = true
    end,
 })
+
 --
--- wrap and check for spell also in txt files
+-- wrap width override
 vim.api.nvim_create_autocmd("FileType", {
    group = augroup("wrap_width"),
    pattern = { "gitcommit", "markdown", "text" },
