@@ -11,7 +11,7 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
    },
    opts = {
-      ensure_installed = nil,
+      ensure_installed = { "rust-analyzer" },
       automatic_installation = { exclude = andros21.cfg.null_ls.exclude_install },
       automatic_setup = false,
    },
