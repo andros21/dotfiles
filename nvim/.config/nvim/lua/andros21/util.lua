@@ -2,7 +2,6 @@
 -- ========
 -- see:
 --  * https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/util/init.lua
---  * https://github.com/nikbrunner/vin/blob/main/lua/vin/plugins/lsp/null_ls.lua
 
 local M = {}
 
@@ -27,20 +26,6 @@ function M.fzflua(builtin, opts)
    end
 end
 
--- build null-ls sources from cfg dict
-function M.build_sources(null_ls, config)
-   local sources = {}
-
-   for category, entries in pairs(config) do
-      for _, entry in ipairs(entries) do
-         local source = null_ls.builtins[category][entry]
-         table.insert(sources, source)
-      end
-   end
-
-   return sources
-end
-
 -- lsp_zero on_attach function setup
 --  * default keymaps
 --  * format on save
@@ -48,21 +33,50 @@ function M.lsp_zero_on_attach(lsp_zero)
    return function(client, bufnr)
       lsp_zero.default_keymaps({ buffer = bufnr })
       lsp_zero.buffer_autoformat({ client = client, buffer = bufnr, opts = opts })
-      vim.api.nvim_create_autocmd("CursorHold", {
-         buffer = bufnr,
-         callback = function()
-            local opts = {
-               focusable = false,
-               close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-               border = "rounded",
-               source = "always",
-               prefix = " ",
-               scope = "cursor",
-            }
-            vim.diagnostic.open_float(nil, opts)
-         end,
-      })
    end
+end
+
+-- get formatter.nvim filetype table of required builtin
+function M.get_filetypes(config)
+   local filetypes = {}
+   for filetype, fmts in pairs(config) do
+      filetypes[filetype] = {}
+      for _, fmt in pairs(fmts) do
+         local require = 'return require("formatter.filetypes.' .. filetype .. '").' .. fmt
+         local ffmt = loadstring(require)
+         table.insert(filetypes[filetype], ffmt())
+      end
+   end
+   return filetypes
+end
+
+-- get requirements that must be installed with mason
+function M.get_requirements(config)
+   local unique = {}
+   local requirements = {}
+   local function contains(table, val)
+      for i = 1, #table do
+         if table[i] == val then
+            return true
+         end
+      end
+      return false
+   end
+   for key, filetypes in pairs(config) do
+      if key ~= "exclude_install" then
+         for _, deps in pairs(filetypes) do
+            for i, dep in pairs(deps) do
+               unique[dep] = i
+            end
+         end
+      end
+   end
+   for dep, _ in pairs(unique) do
+      if not contains(config.exclude_install, dep) then
+         table.insert(requirements, dep)
+      end
+   end
+   return requirements
 end
 
 return M

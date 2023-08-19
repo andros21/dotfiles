@@ -5,29 +5,28 @@
 _G.andros21 = { cfg = {} }
 
 andros21.cfg = {
-   null_ls = {
-      -- via jay-babu/mason-null-ls.nvim
-      -- see andros21/plugins/mason-null-ls.lua
-      sources = {
-         diagnostics = {
-            "actionlint",
-            "fish",
-            "hadolint",
-            "ruff",
-            "shellcheck",
-            "yamllint",
-         },
-         formatting = {
-            "beautysh",
-            "black",
-            "fish_indent",
-            "isort",
-            "stylua",
-            "taplo",
-            "yamlfmt",
-         },
+   mason = {
+      -- via WhoIsSethDaniel/mason-tool-installer.nvim
+      -- see andros21/plugins/mason-tool-installer.nvim
+      formatter = {
+         lua = { "stylua" },
+         sh = { "shfmt" },
+         fish = { "fishindent" },
+         python = { "black", "isort" },
+         yaml = { "yamlfmt" },
+         toml = { "taplo" },
+         javascript = { "prettier" },
+         css = { "prettier" },
+         html = { "prettier" },
+         markdown = { "prettier" },
       },
-      exclude_install = { "fish", "fish_indent" },
+      nvim_lint = {
+         yaml = { "yamllint", "actionlint" },
+         sh = { "shellcheck" },
+         python = { "ruff" },
+      },
+      lsp_zero = { rust = { "rust-analyzer" } },
+      exclude_install = { "fishindent" },
    },
    syntax = {
       -- via nvim-treesitter/nvim-treesitter
@@ -55,6 +54,7 @@ andros21.cfg = {
          "regex",
          "rust",
          "scss",
+         "toml",
          "tsx",
          "typescript",
          "vim",
