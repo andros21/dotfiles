@@ -28,12 +28,6 @@
         meson install -C build
       with_items: '{{ cloned_gits_meson }}'
       when: cloned_gits_meson is iterable
-    - name: Automake ctags
-      ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ ctags_git | basename }}'
-        ./autogen.sh
-        ./configure --prefix=$HOME/.local
-        make install
     - name: Install distrobox
       ansible.builtin.shell: |
         cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ distrobox_git | basename }}'

@@ -67,15 +67,15 @@ Custom [Luke's build of dwm](https://github.com/LukeSmithxyz/dwm), here my build
 
 #### Shell `fish`
 
-* [starship](https://starship.rs/) cross-shell prompt
-* [zoxide](https://github.com/ajeetdsouza/zoxide) smarter cd command
-* Switch from ssh-agent to gpg-agent for ssh-key authentication
-* Speed up shell loading, dividing `login` tasks, from `no-login` tasks
-* [Fisher](https://github.com/jorgebucaran/fisher) as default plugin manager
-* [fzf.fish](https://github.com/PatrickF1/fzf.fish) fzf fisher plugin
-* Custom aliases and functions for fish, aesthetics and functional purpose
-* [Nord dir colors](https://github.com/arcticicestudio/nord-dircolors)
-* udisksctl mount simple functions and relative aliases
+- [starship](https://starship.rs/) cross-shell prompt
+- [zoxide](https://github.com/ajeetdsouza/zoxide) smarter cd command
+- Switch from ssh-agent to gpg-agent for ssh-key authentication
+- Speed up shell loading, dividing `login` tasks, from `no-login` tasks
+- [Fisher](https://github.com/jorgebucaran/fisher) as default plugin manager
+- [fzf.fish](https://github.com/PatrickF1/fzf.fish) fzf fisher plugin
+- Custom aliases and functions for fish, aesthetics and functional purpose
+- [Nord dir colors](https://github.com/arcticicestudio/nord-dircolors)
+- udisksctl mount simple functions and relative aliases
 
 #### Status bar `dwmblocks`
 
@@ -110,12 +110,12 @@ Here my build [slock](https://github.com/andros21/slock)
 
 #### File Manager `ranger`
 
-* custom `rc.conf`
-* custom `commands.py`:
-   + [zoxide](https://github.com/jchook/ranger-zoxide)
-   + [devicons](https://github.com/alexanderjeurissen/ranger_devicons)
-   + fzf search
-   + compress/extract with [atool](https://www.nongnu.org/atool/)
+- custom `rc.conf`
+- custom `commands.py`:
+  - [zoxide](https://github.com/jchook/ranger-zoxide)
+  - [devicons](https://github.com/alexanderjeurissen/ranger_devicons)
+  - fzf search
+  - compress/extract with [atool](https://www.nongnu.org/atool/)
 
 #### Miscellanea
 
@@ -123,7 +123,6 @@ Here my build [slock](https://github.com/andros21/slock)
 - [rofi-power](https://github.com/okraits/rofi-tools) as systemctl power tool
 - [teiler](https://github.com/carnager/teiler) as powerful screenshots and screencasts tool
 - [ytdl-mpv](https://github.com/andros21/ytdl-mpv) as yt player
-- [ctags](https://github.com/universal-ctags/ctags) as universal ctags generator
 - [distrobox](https://github.com/89luca89/distrobox) as podman wrapper
 
 ## :rocket: Usage
