@@ -15,8 +15,8 @@ if status is-login
     end
     # If FISHER not installed, install it with plugins
     if not functions -q fisher
-        set -l FISHER_SHA 36810b39401536650d7a1018c8f3832f51741950 # tag: 4.4.3
-        set -l FZF_SHA 9876f5f74aab7f58b0359341dc26bf4a0f2e9021 # tag: v9.9
+        set -l FISHER_SHA 2efd33ccd0777ece3f58895a093f32932bd377b6 # tag: 4.4.4
+        set -l FZF_SHA f9e2e48a54199fe7c6c846556a12003e75ab798e # tag: v10.0
         curl -sSL https://raw.githubusercontent.com/jorgebucaran/fisher/$FISHER_SHA/functions/fisher.fish \
             | source && fisher install jorgebucaran/fisher@$FISHER_SHA
         if test $status
@@ -47,6 +47,7 @@ else
     # Default FZF command
     ## for fzf fisher plugin
     set fzf_fd_opts --hidden --follow --exclude='{.cache,.git,.venv}'
+    set fzf_diff_highlighter (which delta)
     ## for fzf inside ranger
     set -gx FZF_DEFAULT_COMMAND "fd $fzf_fd_opts 2>/dev/null"
     # Starship fire on
