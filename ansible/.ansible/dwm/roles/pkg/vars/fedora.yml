@@ -1,7 +1,7 @@
 ---
 # vars/fedora.yml
 
-base:
+pkg_base:
   - alacritty
   - bat
   - btop
@@ -20,7 +20,7 @@ base:
   - stow
   - zoxide
 
-base_deps:
+pkg_base_deps:
   - NetworkManager-tui
   - atool
   - brightnessctl
@@ -44,7 +44,7 @@ base_deps:
   - xsel
   - xset
 
-build:
+pkg_build:
   - autoconf
   - automake
   - clang
@@ -54,7 +54,7 @@ build:
   - npm
   - shellcheck
 
-base_libs:
+pkg_base_libs:
   - harfbuzz-devel
   - libX11-devel
   - libXft-devel
@@ -62,7 +62,7 @@ base_libs:
   - libXrandr-devel
   - libxcb-devel
 
-utils:
+pkg_utils:
   - cloud-utils
   - coreos-installer
   - fuse-encfs

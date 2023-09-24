@@ -1,4 +1,4 @@
 ---
 # vars/main.yml
 
-flathub_repo: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+repo_flathub: "https://dl.flathub.org/repo/flathub.flatpakrepo"

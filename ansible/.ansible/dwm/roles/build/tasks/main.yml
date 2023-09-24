@@ -8,14 +8,14 @@
         target: install
         chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
       when: item.origin | basename != 'slock'
-      with_items: '{{ forked_gits }}'
+      with_items: '{{ build_forked_gits }}'
     - name: Make slock
       community.general.make:
         target: install
         chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
       become: yes
       when: item.origin | basename == 'slock'
-      with_items: '{{ forked_gits }}'
+      with_items: '{{ build_forked_gits }}'
 
 - name: Latest build
   ansible.builtin.include_tasks:

@@ -1,7 +1,7 @@
 ---
 # vars/alpine.yml
 
-base:
+pkg_base:
   - alacritty
   - bash
   - bash-completion
@@ -24,7 +24,7 @@ base:
   - stow
   - zoxide
 
-base_deps:
+pkg_base_deps:
   - curl
   - feh
   - ffmpeg
@@ -50,14 +50,14 @@ base_deps:
   - xdotool
   - xsel
 
-audio_deps:
+pkg_audio_deps:
   - pavucontrol-qt
   - pipewire
   - pipewire-pulse
   - rtkit
   - wireplumber
 
-input_deps:
+pkg_input_deps:
   - android-tools
   - lm-sensors
   - rng-tools
@@ -67,21 +67,21 @@ input_deps:
   - wpa_supplicant
   - xf86-input-libinput
 
-net_deps:
+pkg_net_deps:
   - awall
   - dhcpcd
 
-uefi_bios_deps:
+pkg_uefi_bios_deps:
   - fwupd
   - fwupd-plugin-all
   - intel-ucode
 
-video_deps:
+pkg_video_deps:
   - mesa-vulkan-intel
   - pciutils
   - xf86-video-intel
 
-xorg_deps:
+pkg_xorg_deps:
   - dbus
   - dbus-openrc
   - dbus-x11
@@ -104,7 +104,7 @@ xorg_deps:
   - xrandr
   - xset
 
-build:
+pkg_build:
   - autoconf
   - automake
   - build-base
@@ -116,7 +116,7 @@ build:
   - npm
   - shellcheck
 
-base_libs:
+pkg_base_libs:
   #- libxcomposite
   - harfbuzz-dev
   - libx11-dev
@@ -127,17 +127,17 @@ base_libs:
   - libxrandr-dev
   - pulseaudio-dev
 
-utils:
+pkg_utils:
   - encfs
   - socat
 
-edge_community:
+pkg_edge_community:
   - helm
   - kubectl
 
-edge_testing:
+pkg_edge_testing:
   - atool
 
-edge_community_repo: https://dl-cdn.alpinelinux.org/alpine/edge/community
+pkg_edge_community_repo: https://dl-cdn.alpinelinux.org/alpine/edge/community
 
-edge_testing_repo: https://dl-cdn.alpinelinux.org/alpine/edge/testing
+pkg_edge_testing_repo: https://dl-cdn.alpinelinux.org/alpine/edge/testing

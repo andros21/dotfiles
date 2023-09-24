@@ -1,11 +1,11 @@
 ---
 # vars/main.yml
 
-flathub:
+pkg_flathub:
   - io.gitlab.librewolf-community
   - org.telegram.desktop
 
-pypi:
+pkg_pypi:
   - ipython
   - pre-commit
   - yt-dlp

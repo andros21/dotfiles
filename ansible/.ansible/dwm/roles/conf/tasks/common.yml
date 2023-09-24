@@ -11,12 +11,12 @@
       ansible.builtin.file:
         path: '{{ ansible_user_dir }}/{{ item }}'
         state: absent
-      with_items: '{{ file_to_rm }}'
+      with_items: '{{ conf_file_to_rm }}'
     - name: Create some locations
       ansible.builtin.file:
         path: '{{ ansible_user_dir }}/{{ item }}'
         state: directory
-      with_items: '{{ path_to_mk }}'
+      with_items: '{{ conf_path_to_mk }}'
     - name: Collect paths to stow
       ansible.builtin.find:
         paths: '{{ ansible_user_dir }}/.dotfiles/'
@@ -33,7 +33,7 @@
   ansible.builtin.file:
     path: '{{ ansible_user_dir }}/{{ item }}'
     state: directory
-  with_items: '{{ my_std_xdg_path }}'
+  with_items: '{{ conf_my_std_xdg_path }}'
 
 - name: Syncthing .stignore
   block:
@@ -62,7 +62,7 @@
   block:
     - name: Download nord theme
       ansible.builtin.get_url:
-        url: '{{ nord_alatty_url }}'
+        url: '{{ conf_nord_alatty_url }}'
         dest: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
     - name: Temp patch it (lazy upstream)
       ansible.builtin.replace:
@@ -74,7 +74,7 @@
   block:
     - name: Download Hack Nerd Fonts
       ansible.builtin.get_url:
-        url: '{{ font_url }}'
+        url: '{{ conf_font_url }}'
         dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
     - name: Install Hack Nerd Fonts
       ansible.builtin.command: fc-cache -f
@@ -83,4 +83,4 @@
   ansible.builtin.get_url:
     url: '{{ item.url }}'
     dest: '{{ ansible_user_dir }}/Pictures/Wallpapers/{{ item.name }}'
-  with_items: '{{ wallpapers }}'
+  with_items: '{{ conf_wallpapers }}'

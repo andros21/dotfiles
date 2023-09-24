@@ -10,7 +10,7 @@
   block:
     - name: Apk add
       community.general.apk:
-        name: '{{ base + base_deps + base_libs + build + utils }}'
+        name: '{{ pkg_base + pkg_base_deps + pkg_base_libs + pkg_build + pkg_utils }}'
         state: present
         update_cache: yes
     - name: Setup base xorg
@@ -18,18 +18,18 @@
         cmd: setup-xorg-base
     - name: Apk add plus
       community.general.apk:
-        name: '{{ audio_deps + input_deps + net_deps + uefi_bios_deps + video_deps + xorg_deps }}'
+        name: '{{ pkg_audio_deps + pkg_input_deps + pkg_net_deps + pkg_uefi_bios_deps + pkg_video_deps + pkg_xorg_deps }}'
         state: present
         update_cache: yes
     - name: Apk add edge/community
       community.general.apk:
-        name: '{{ edge_community }}'
+        name: '{{ pkg_edge_community }}'
         state: present
         update_cache: yes
-        repository: '{{ edge_community_repo }}'
+        repository: '{{ pkg_edge_community_repo }}'
     - name: Apk add edge/testing
       community.general.apk:
-        name: '{{ edge_testing }}'
+        name: '{{ pkg_edge_testing }}'
         state: present
         update_cache: yes
-        repository: '{{ edge_testing_repo }}'
+        repository: '{{ pkg_edge_testing_repo }}'

@@ -9,7 +9,7 @@
         chdir: '{{ ansible_user_dir }}/Documents/dev/clone/{{ item | basename }}'
         params:
           PREFIX: ~/.local
-      with_items: '{{ cloned_gits_make }}'
+      with_items: '{{ build_cloned_gits_make }}'
       when: item | basename != 'ytdl-mpv'
       ignore_errors: yes
     - name: Make ytdl-mpv
@@ -18,7 +18,7 @@
         chdir: '{{ ansible_user_dir }}/Documents/dev/{{ item | basename }}'
         params:
           PREFIX: ~/.local
-      with_items: '{{ cloned_gits_make }}'
+      with_items: '{{ build_cloned_gits_make }}'
       when: item | basename == 'ytdl-mpv'
     - name: Meson build system
       ansible.builtin.shell: |
@@ -26,8 +26,8 @@
         meson setup build --prefix '~/.local'
         meson compile -C build
         meson install -C build
-      with_items: '{{ cloned_gits_meson }}'
-      when: cloned_gits_meson is iterable
+      with_items: '{{ build_cloned_gits_meson }}'
+      when: build_cloned_gits_meson is iterable
     - name: Install distrobox
       ansible.builtin.shell: |
         cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ distrobox_git | basename }}'

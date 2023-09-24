@@ -1,12 +1,12 @@
 ---
 # vars/main.yml
 
-file_to_rm:
+conf_file_to_rm:
   - .bash_profile
   - .bashrc
   - .config/fish/
 
-path_to_mk:
+conf_path_to_mk:
   - .config/alacritty/
   - .config/fish/conf.d/
   - .config/fish/functions/
@@ -15,17 +15,17 @@ path_to_mk:
   - .local/share/fonts/Hack/
   - .tmux/
 
-my_std_xdg_path:
+conf_my_std_xdg_path:
   - Pictures/Paste
   - Pictures/Screenshots
   - Pictures/Wallpapers
   - Videos/Screencasts
 
-nord_alatty_url: https://raw.githubusercontent.com/nordtheme/alacritty/main/src/nord.yaml
+conf_nord_alatty_url: https://raw.githubusercontent.com/nordtheme/alacritty/main/src/nord.yaml
 
-font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
+conf_font_url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
 
-wallpapers:
+conf_wallpapers:
   - url: https://r4.wallpaperbetter.com/wallpaper/912/256/892/landscape-forest-deer-artwork-wallpaper-19d0082d01fa2debd647a8df70a166fd.jpg
     name: nord00.jpg
   - url: https://r4.wallpaperbetter.com/wallpaper/208/967/794/lake-artwork-gradient-vector-wallpaper-68665d38c080fca8809ca18e8862342a.jpg

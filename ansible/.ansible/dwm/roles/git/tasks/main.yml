@@ -6,13 +6,13 @@
     repo: '{{ item.origin }}'
     dest: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
     version: master
-  with_items: '{{ forked_gits }}'
+  with_items: '{{ git_forked_gits }}'
 
 - name: Add upstream to forked gits
   ansible.builtin.command:
     cmd: git remote add upstream '{{ item.upstream | quote }}'
     chdir: '{{ ansible_user_dir }}/Documents/dev/fork/{{ item.origin | basename }}'
-  with_items: '{{ forked_gits }}'
+  with_items: '{{ git_forked_gits }}'
 
 - name: Clone cloned gits
   block:
@@ -21,14 +21,14 @@
         repo: '{{ item.origin }}'
         dest: '{{ ansible_user_dir }}/Documents/dev/clone/{{ item.origin | basename }}'
         version: '{{ item.branch }}'
-      with_items: '{{ cloned_gits }}'
+      with_items: '{{ git_cloned_gits }}'
       when: item.origin | basename != 'ytdl-mpv'
     - name: Git clone ytdl-mpv
       ansible.builtin.git:
         repo: '{{ item.origin }}'
         dest: '{{ ansible_user_dir }}/Documents/dev/{{ item.origin | basename }}'
         version: '{{ item.branch }}'
-      with_items: '{{ cloned_gits }}'
+      with_items: '{{ git_cloned_gits }}'
       when: item.origin | basename == 'ytdl-mpv'
 
 - name: Clone ranger gits
@@ -36,7 +36,7 @@
     repo: '{{ item }}'
     dest: '{{ ansible_user_dir }}/.config/ranger/plugins/{{ item | basename }}'
     version: main
-  with_items: '{{ ranger_gits }}'
+  with_items: '{{ git_ranger_gits }}'
 
 - name: Latest tag
   ansible.builtin.include_tasks:

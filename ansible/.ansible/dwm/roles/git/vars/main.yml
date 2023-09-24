@@ -1,7 +1,7 @@
 ---
 # vars/main.yml
 
-forked_gits:
+git_forked_gits:
   - origin: https://github.com/andros21/dwm
     upstream: https://github.com/lukesmithxyz/dwm
   - origin: https://github.com/andros21/dwmblocks
@@ -9,7 +9,7 @@ forked_gits:
   - origin: https://github.com/andros21/slock
     upstream: https://git.suckless.org/slock
 
-cloned_gits:
+git_cloned_gits:
   - origin: https://github.com/andros21/ytdl-mpv
     branch: master
   - origin: https://github.com/carnager/rofi-pass
@@ -19,6 +19,6 @@ cloned_gits:
   - origin: https://github.com/89luca89/distrobox
     branch: main
 
-ranger_gits:
+git_ranger_gits:
   - https://github.com/alexanderjeurissen/ranger_devicons
   - https://github.com/jchook/ranger-zoxide
