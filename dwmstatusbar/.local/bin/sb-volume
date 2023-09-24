@@ -3,9 +3,9 @@
 # Prints the current volume or M if muted.
 
 case $BLOCK_BUTTON in
-   1) setsid -f alacritty -e pulsemixer ;;
+    1) setsid -f pavucontrol-qt ;;
 esac
 
 printf '%s' "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)" \
-   | sed -E 's/Volume: 0.(.*)/\1%/' \
-   | sed -E 's/(.*)[MUTED](.*)/M/'
+    | sed -E 's/Volume: 0.(.*)/\1%/' \
+    | sed -E 's/(.*)[MUTED](.*)/M/'

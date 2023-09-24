@@ -1,21 +1,20 @@
 ---
 # vars/main.yml
 
-forked_gits:
-   - origin: https://github.com/andros21/dwm-luke
-     remote: https://github.com/lukesmithxyz/dwm
-   - origin: https://github.com/andros21/dwmblocks-luke
-     remote: https://github.com/lukesmithxyz/dwmblocks
-   - origin: https://github.com/andros21/slock
-     remote: https://git.suckless.org/slock
+build_forked_gits:
+  - origin: https://github.com/andros21/dwm-luke
+    remote: https://github.com/lukesmithxyz/dwm
+  - origin: https://github.com/andros21/dwmblocks-luke
+    remote: https://github.com/lukesmithxyz/dwmblocks
+  - origin: https://github.com/andros21/slock
+    remote: https://git.suckless.org/slock
 
-cloned_gits_make:
-   - https://github.com/andros21/ytdl-mpv
-   - https://github.com/carnager/rofi-pass
-   - https://github.com/carnager/teiler
-cloned_gits_meson:
-ctags_git: https://github.com/universal-ctags/ctags
-distrobox_git: https://github.com/89luca89/distrobox
+build_cloned_gits_make:
+  - https://github.com/andros21/ytdl-mpv
+  - https://github.com/carnager/rofi-pass
+  - https://github.com/carnager/teiler
+build_cloned_gits_meson:
+build_distrobox_git: https://github.com/89luca89/distrobox
 
-ranger_gits:
-   - https://github.com/alexanderjeurissen/ranger_devicons
+build_ranger_gits:
+  - https://github.com/alexanderjeurissen/ranger_devicons

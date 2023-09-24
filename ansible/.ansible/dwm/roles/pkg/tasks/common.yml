@@ -8,11 +8,11 @@
         name: '{{ item }}'
         state: present
         method: user
-      with_items: '{{ flathub }}'
+      with_items: '{{ pkg_flathub }}'
     - name: Pip install
       ansible.builtin.pip:
         name: '{{ item }}'
         state: present
         executable: /usr/bin/pip
         extra_args: --user
-      with_items: '{{ pypi }}'
+      with_items: '{{ pkg_pypi }}'

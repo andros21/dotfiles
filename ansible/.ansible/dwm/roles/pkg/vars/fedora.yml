@@ -1,20 +1,26 @@
 ---
 # vars/fedora.yml
 
-base:
+pkg_base:
   - alacritty
   - bat
-  - git-delta
+  - btop
+  - exa
   - fd-find
   - fish
   - fzf
+  - git-delta
   - htop
+  - just
   - neovim
   - pass
   - ranger
+  - ripgrep
   - rofi
+  - stow
+  - zoxide
 
-base_deps:
+pkg_base_deps:
   - NetworkManager-tui
   - atool
   - brightnessctl
@@ -24,14 +30,12 @@ base_deps:
   - lm_sensors
   - maim
   - mpv
+  - pavucontrol-qt
   - picom
   - pwgen
   - python3-wheel
   - restic
-  - ripgrep
   - slop
-  - sqlite
-  - stow
   - syncthing
   - xautolock
   - xclip
@@ -40,7 +44,7 @@ base_deps:
   - xsel
   - xset
 
-build:
+pkg_build:
   - autoconf
   - automake
   - clang
@@ -50,7 +54,7 @@ build:
   - npm
   - shellcheck
 
-base_libs:
+pkg_base_libs:
   - harfbuzz-devel
   - libX11-devel
   - libXft-devel
@@ -58,11 +62,13 @@ base_libs:
   - libXrandr-devel
   - libxcb-devel
 
-utils:
+pkg_utils:
   - cloud-utils
   - coreos-installer
   - fuse-encfs
   - guestfs-tools
+  - helm
+  - kubernetes-client
   - libguestfs-rescue
   - openssl
   - socat

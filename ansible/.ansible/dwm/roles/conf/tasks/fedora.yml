@@ -5,12 +5,12 @@
   block:
     - name: Create dir conf
       ansible.builtin.file:
-        path: '{{ xorg_conf.dest | dirname }}'
+        path: '{{ conf_xorg.dest | dirname }}'
         state: directory
     - name: Copy conf from template
       ansible.builtin.template:
-        src: '{{ xorg_conf.src }}'
-        dest: '{{ xorg_conf.dest }}'
+        src: '{{ conf_xorg.src }}'
+        dest: '{{ conf_xorg.dest }}'
         owner: root
         group: root
         mode: 0644

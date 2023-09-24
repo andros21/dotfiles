@@ -8,4 +8,4 @@
       git fetch --tags
       latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
       git checkout $latestTag
-  with_items: "{{ cloned_gits | map(attribute='origin') | list | select('match', '^.*com/.*/(?!(ytdl-mpv|teiler)).*') | list }}"
+  with_items: "{{ git_cloned_gits | map(attribute='origin') | list | select('match', '^.*com/.*/(?!(ytdl-mpv|teiler)).*') | list }}"

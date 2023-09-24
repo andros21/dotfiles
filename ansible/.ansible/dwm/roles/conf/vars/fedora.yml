@@ -1,8 +1,8 @@
 ---
 # vars/fedora.yml
 
-xorg_conf:
+conf_xorg:
   src: '{{ ansible_user_dir }}/.dotfiles/Xorg/xsessions/dwm-xorg.desktop.j2'
   dest: '/usr/local/share/xsessions/dwm-xorg.desktop'
 
-dwm_path: '{{ ansible_user_dir }}/.local/bin/dwm'
+conf_dwm_path: '{{ ansible_user_dir }}/.local/bin/dwm'

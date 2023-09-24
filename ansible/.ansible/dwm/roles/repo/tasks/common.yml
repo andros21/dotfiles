@@ -5,5 +5,5 @@
   community.general.flatpak_remote:
     name: flathub
     state: present
-    flatpakrepo_url: '{{ flathub_repo }}'
+    flatpakrepo_url: '{{ repo_flathub }}'
     method: user

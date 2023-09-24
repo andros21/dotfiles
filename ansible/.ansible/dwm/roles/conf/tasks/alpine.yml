@@ -150,7 +150,7 @@
 - name: Enable services
   ansible.builtin.command:
     cmd: rc-update add '{{ item }}'
-  with_items: '{{ rc_services }}'
+  with_items: '{{ conf_rc_services }}'
   when: item != 'fwupd'
 
 - name: Enable fwupd

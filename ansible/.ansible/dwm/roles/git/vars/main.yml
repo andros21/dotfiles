@@ -1,25 +1,24 @@
 ---
 # vars/main.yml
 
-forked_gits:
-   - origin: https://github.com/andros21/dwm
-     upstream: https://github.com/lukesmithxyz/dwm
-   - origin: https://github.com/andros21/dwmblocks
-     upstream: https://github.com/lukesmithxyz/dwmblocks
-   - origin: https://github.com/andros21/slock
-     upstream: https://git.suckless.org/slock
+git_forked_gits:
+  - origin: https://github.com/andros21/dwm
+    upstream: https://github.com/lukesmithxyz/dwm
+  - origin: https://github.com/andros21/dwmblocks
+    upstream: https://github.com/lukesmithxyz/dwmblocks
+  - origin: https://github.com/andros21/slock
+    upstream: https://git.suckless.org/slock
 
-cloned_gits:
-   - origin: https://github.com/andros21/ytdl-mpv
-     branch: master
-   - origin: https://github.com/carnager/rofi-pass
-     branch: master
-   - origin: https://github.com/carnager/teiler
-     branch: master
-   - origin: https://github.com/universal-ctags/ctags
-     branch: master
-   - origin: https://github.com/89luca89/distrobox
-     branch: main
+git_cloned_gits:
+  - origin: https://github.com/andros21/ytdl-mpv
+    branch: master
+  - origin: https://github.com/carnager/rofi-pass
+    branch: master
+  - origin: https://github.com/carnager/teiler
+    branch: master
+  - origin: https://github.com/89luca89/distrobox
+    branch: main
 
-ranger_gits:
-   - https://github.com/alexanderjeurissen/ranger_devicons
+git_ranger_gits:
+  - https://github.com/alexanderjeurissen/ranger_devicons
+  - https://github.com/jchook/ranger-zoxide

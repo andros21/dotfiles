@@ -1,7 +1,7 @@
 ---
 # vars/alpine.yml
 
-rc_services:
+conf_rc_services:
   - cgroups
   - dbus
   - dhcpcd

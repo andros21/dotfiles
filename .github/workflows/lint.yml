@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
       - name: Shellcheck scripts
         run: |
-          find * -type f -executable -exec shellcheck {} \;
+          find -- * -type f -executable -exec shellcheck {} \;
   lint-playbook:
     name: Lint playbooks
     needs: changes
@@ -49,33 +49,35 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
-      - name: Setup some envs
+      - name: Setup env
         run: |
-          echo "HOME=$HOME" >> $GITHUB_ENV
-          echo "PATH=$PATH:$HOME/.local/bin" >> $GITHUB_ENV
-          echo "ansible_dwm=ansible/.ansible/dwm/" >> $GITHUB_ENV
+          python -m venv "$HOME/.venv"
+          { echo "HOME=$HOME";
+          echo "PATH=$HOME/.venv/bin:$PATH";
+            echo "ansible_dwm=ansible/.ansible/dwm/";
+          } >> "$GITHUB_ENV"
       - name: Install requirements-dev.txt
         run: |
-          cd $ansible_dwm
-          python -m pip install -r requirements-dev.txt
+          cd "$ansible_dwm"
+          pip install -r requirements-dev.txt
       - name: Check ansible version
         run: |
           ansible --version
           ansible-lint --version
       - name: Install requirements.yml
         run: |
-          cd $ansible_dwm
+          cd "$ansible_dwm"
           ansible-galaxy collection install -r requirements.yml
       - name: Run yaml-lint
         run: |
-          cd $ansible_dwm
+          cd "$ansible_dwm"
           yamllint .
       - name: Run playbook syntax-check
         run: |
-          cd $ansible_dwm
+          cd "$ansible_dwm"
           ansible-playbook --syntax-check dwm.yml
           ansible-playbook --syntax-check update.yml
       - name: Run ansible-lint
         run: |
-          cd $ansible_dwm
+          cd "$ansible_dwm"
           ansible-lint
