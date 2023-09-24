@@ -30,5 +30,5 @@
       when: build_cloned_gits_meson is iterable
     - name: Install distrobox
       ansible.builtin.shell: |
-        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ distrobox_git | basename }}'
+        cd '{{ ansible_user_dir }}/Documents/dev/clone/{{ build_distrobox_git | basename }}'
         ./install

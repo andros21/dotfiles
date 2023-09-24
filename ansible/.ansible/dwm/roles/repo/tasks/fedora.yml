@@ -8,5 +8,5 @@
 
 - name: Add rpmfusion_free repos
   ansible.builtin.dnf:
-    name: '{{ repo_rpmfusion_repo }}'
+    name: '{{ repo_rpmfusion }}'
     state: present
