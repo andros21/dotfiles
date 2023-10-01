@@ -24,6 +24,7 @@ andros21.cfg = {
          yaml = { "yamllint", "actionlint" },
          sh = { "shellcheck" },
          python = { "ruff" },
+         dockerfile = { "hadolint" },
       },
       lsp_zero = { rust = { "rust-analyzer" } },
       exclude_install = { "fishindent" },
