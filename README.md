@@ -10,17 +10,13 @@
   <br>
   <br>
   <a href="https://github.com/andros21/dotfiles/blob/master/.github/workflows/lint.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/andros21/dotfiles/lint.yml?branch=master&label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI">
-  </a>
-   <a href="https://dwm.suckless.org/">
-    <img src="https://img.shields.io/badge/dwm-powered-important?logo=fedora&style=flat-square" alt="Lint CI">
-  </a>
-   <a href="https://dwm.suckless.org/">
-    <img src="https://img.shields.io/badge/dwm-powered-important?logo=alpinelinux&style=flat-square" alt="Lint CI">
-  </a>
+    <img src="https://img.shields.io/github/actions/workflow/status/andros21/dotfiles/lint.yml?branch=master&label=Lint%20CI&logo=github&style=flat-square" alt="Lint CI"></a>
+  <a href="https://dwm.suckless.org/">
+   <img src="https://img.shields.io/badge/dwm-powered-important?logo=fedora&style=flat-square" alt="Lint CI"></a>
+  <a href="https://dwm.suckless.org/">
+   <img src="https://img.shields.io/badge/dwm-powered-important?logo=alpinelinux&style=flat-square" alt="Lint CI"></a>
   <a href="https://github.com/andros21/dotfiles/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/andros21/dotfiles?color=blue&label=License&style=flat-square" alt="License">
-  </a>
+    <img src="https://img.shields.io/github/license/andros21/dotfiles?color=blue&label=License&style=flat-square" alt="License"></a>
 
   <h3 align="center">with ansible playbooks</h3>
   <div align="center">
