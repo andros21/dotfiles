@@ -6,7 +6,7 @@
 local M = {}
 
 -- this will return a function that calls fzflua.
--- cwd will default to lazyvim.util.get_root
+-- cwd will default to lazyvim.util.root.get
 -- for `files`, git_files or find_files will be chosen depending on .git
 function M.fzflua(builtin, opts)
    local params = { builtin = builtin, opts = opts }
@@ -14,7 +14,7 @@ function M.fzflua(builtin, opts)
       builtin = params.builtin
       opts = params.opts
       skip = params
-      opts = vim.tbl_deep_extend("force", { cwd = require("lazyvim.util.init").get_root() }, opts or {})
+      opts = vim.tbl_deep_extend("force", { cwd = require("lazyvim.util.init").root.get() }, opts or {})
       if builtin == "gfiles" then
          if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
             builtin = "git_files"
