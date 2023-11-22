@@ -73,3 +73,7 @@ pkg_utils:
   - openssl
   - socat
   - srm
+
+pkg_drivers:
+  - epson-inkjet-printer-escpr
+  - epson-inkjet-printer-escpr2

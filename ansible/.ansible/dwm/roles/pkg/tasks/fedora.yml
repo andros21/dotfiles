@@ -11,7 +11,7 @@
   block:
     - name: Dnf install
       ansible.builtin.dnf:
-        name: '{{ pkg_base + pkg_base_deps + pkg_base_libs + pkg_build + pkg_utils }}'
+        name: '{{ pkg_base + pkg_base_deps + pkg_base_libs + pkg_build + pkg_utils + pkg_drivers }}'
         state: present
         update_cache: yes
     - name: Dnf remove
