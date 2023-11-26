@@ -15,7 +15,7 @@ return {
       require("bufferline").setup({
          highlights = highlights,
          options = {
-            buffer_close_icon = "",
+            buffer_close_icon = "✖",
             hover = {
                enabled = true,
                delay = 70,
