@@ -75,6 +75,10 @@
     - name: Download Hack Nerd Fonts
       ansible.builtin.get_url:
         url: '{{ conf_font_url }}'
+        dest: '/tmp/Hack.tar.xz'
+    - name: Extract Hack Nerd Fonts
+      ansible.builtin.unarchive:
+        src: '/tmp/Hack.tar.xz'
         dest: '{{ ansible_user_dir }}/.local/share/fonts/Hack/'
     - name: Install Hack Nerd Fonts
       ansible.builtin.command: fc-cache -f
