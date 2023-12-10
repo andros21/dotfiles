@@ -129,7 +129,7 @@ Here my build [slock](https://github.com/andros21/slock)
   - a sudo user
   - `requirements.txt`
   - `requirements-dev.txt` (devel)
-- `alpine == 3.18`
+- `alpine == 3.19`
   - a sudo user
   - advice `apk add py3-pip py3-cryptography`
   - `requirements.txt`
