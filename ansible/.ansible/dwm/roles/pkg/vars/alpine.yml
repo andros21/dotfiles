@@ -28,7 +28,9 @@ pkg_base_deps:
   - curl
   - feh
   - ffmpeg
+  - gnu-libiconv
   - hunspell
+  - jq
   - maim
   - mpv
   - picom
@@ -43,6 +45,7 @@ pkg_base_deps:
   - slop
   - sqlite
   - syncthing
+  - tar
   - tmux
   - util-linux-misc   # apk add mount umount if needed
   - xautolock
@@ -61,6 +64,7 @@ pkg_input_deps:
   - android-tools
   - lm-sensors
   - rng-tools
+  - rng-tools-openrc
   - udisks2
   - udisks2-doc
   - usbutils
@@ -108,8 +112,7 @@ pkg_build:
   - autoconf
   - automake
   - build-base
-  - clang15
-  - clang15-extra-tools
+  - clang17
   - g++
   - gcc
   - meson
@@ -129,11 +132,11 @@ pkg_base_libs:
 
 pkg_utils:
   - encfs
+  - helm
+  - kubectl
   - socat
 
 pkg_edge_community:
-  - helm
-  - kubectl
 
 pkg_edge_testing:
   - atool
