@@ -33,9 +33,9 @@
 
 - name: Clone ranger gits
   ansible.builtin.git:
-    repo: '{{ item }}'
-    dest: '{{ ansible_user_dir }}/.config/ranger/plugins/{{ item | basename }}'
-    version: main
+    repo: '{{ item.origin }}'
+    dest: '{{ ansible_user_dir }}/.config/ranger/plugins/{{ item.origin | basename }}'
+    version: '{{ item.branch }}'
   with_items: '{{ git_ranger_gits }}'
 
 - name: Latest tag
