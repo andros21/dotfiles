@@ -9,10 +9,13 @@
         state: present
         method: user
       with_items: '{{ pkg_flathub }}'
-    - name: Pip install
+    - name: Setup venv local
       ansible.builtin.pip:
-        name: '{{ item }}'
-        state: present
-        executable: /usr/bin/pip
-        extra_args: --user
-      with_items: '{{ pkg_pypi }}'
+        chdir: '{{ playbook_dir }}'
+        requirements: requirements/pip-tools/pip-tools.txt
+        virtualenv_command: python3 -m venv
+        virtualenv: '{{ pkg_venv }}/local'
+    - name: Piptools sync
+      ansible.builtin.command:
+        cmd: |
+          {{ pkg_venv }}/local/bin/python3 -m piptools sync requirements/pip-tools/pip-tools.txt {{ role_path }}/requirements/local.txt

@@ -36,17 +36,9 @@
     - name: Pip update
       tags: pip
       block:
-        - name: Get outdated pip packages
-          ansible.builtin.shell:
+        - name: Piptools sync
+          ansible.builtin.command:
             cmd: |
-              pip list --user --outdated --exclude ansible-core --exclude ansible-lint \
-              | awk '{print $1}' \
-              | tail -n +3
-          register: pypi
-        - name: Pip install
-          ansible.builtin.pip:
-            name: '{{ item }}'
-            state: present
-            executable: /usr/bin/pip
-            extra_args: --user --upgrade
-          with_items: '{{ pypi.stdout_lines }}'
+              {{ pkg_venv }}/local/bin/python3 -m piptools sync requirements/pip-tools/pip-tools.txt roles/pkg/requirements/local.txt
+          vars:
+            pkg_venv: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}'

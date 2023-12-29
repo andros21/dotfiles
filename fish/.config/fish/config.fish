@@ -13,6 +13,11 @@ if status is-login
     if test -d ~/.cargo/bin
         set -x PATH "$HOME/.cargo/bin" $PATH
     end
+    # If python venvs installed, modify PATH
+    if test -d ~/.local/share/venv
+        set -x PATH "$HOME/.local/share/venv/py311/local/bin" $PATH
+        set -x PATH "$HOME/.local/share/venv/py311/ansible/bin" $PATH
+    end
     # If FISHER not installed, install it with plugins
     if not functions -q fisher
         set -l FISHER_SHA 2efd33ccd0777ece3f58895a093f32932bd377b6 # tag: 4.4.4
