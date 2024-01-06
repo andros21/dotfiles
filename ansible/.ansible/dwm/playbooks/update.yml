@@ -36,9 +36,10 @@
     - name: Pip update
       tags: pip
       block:
-        - name: Piptools sync
-          ansible.builtin.command:
+        - name: Pip upgrade
+          ansible.builtin.shell:
             cmd: |
-              {{ pkg_venv }}/local/bin/python3 -m piptools sync requirements/pip-tools/pip-tools.txt roles/pkg/requirements/local.txt
+              {{ pkg_py }} -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
+              {{ pkg_py }} -m pip install --upgrade -r roles/pkg/requirements/local.in -c roles/pkg/requirements/local.txt
           vars:
-            pkg_venv: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}'
+            pkg_py: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}/local/bin/python3'

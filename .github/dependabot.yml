@@ -10,3 +10,54 @@ updates:
       timezone: "Europe/Rome"
     reviewers:
       - "andros21"
+  - package-ecosystem: "pip"
+    directory: "ansible/.ansible/dwm/requirements/ansible"
+    schedule:
+      interval: "daily"
+      time: "07:00"
+      timezone: "Europe/Rome"
+    reviewers:
+      - "andros21"
+    ignore:
+      - dependency-name: "ansible-*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+    groups:
+      ansible:
+        patterns:
+          - "ansible-*"
+        update-types:
+          - "patch"
+  - package-ecosystem: "pip"
+    directory: "ansible/.ansible/dwm/requirements/pip"
+    schedule:
+      interval: "daily"
+      time: "07:00"
+      timezone: "Europe/Rome"
+    reviewers:
+      - "andros21"
+    groups:
+      pip:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "pip"
+    directory: "ansible/.ansible/dwm/roles/pkg/requirements"
+    schedule:
+      interval: "daily"
+      time: "07:00"
+      timezone: "Europe/Rome"
+    reviewers:
+      - "andros21"
+    groups:
+      local:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "yt-dlp"   # no semver
+        update-types:
+          - "minor"
+          - "patch"

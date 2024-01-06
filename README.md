@@ -129,16 +129,16 @@ Here my build [slock](https://github.com/andros21/slock)
   - a sudo user
   - python venv setup
     ```bash
-    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     sudo dnf install python3-pip
+    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     python3 -m venv "$HOME/.local/share/venv/$PYV/ansible"
     ```
 - `alpine == 3.19`
   - a sudo user
   - python venv setup
     ```bash
-    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     sudo apk add py3-pip py3-cryptography
+    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     python3 -m venv --system-site-packages "$HOME/.local/share/venv/$PYV/ansible"
     ```
 
@@ -154,9 +154,9 @@ It's simple:
 - Install dependencies
   ```bash
   source "$HOME/.local/share/venv/$PYV/ansible"
-  python3 -m pip install -r requirements/pip-tools/pip-tools.txt
-  python3 -m piptools sync requirements/pip-tools/pip-tools.txt
-  python3 -m piptools sync requirements/ansible/ansible.txt # or ansible-dev.txt
+  python3 -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
+  # ansible-dev for ansible-core + ansible-lint
+  python3 -m pip install --upgrade -r requirements/ansible/ansible.in -c requirements/ansible/ansible.txt
   ansible-galaxy collection install -r requirements/ansible/galaxy.yml
   ```
 - Read/check with attention the ansible `dwm` playbook

@@ -12,10 +12,10 @@
     - name: Setup venv local
       ansible.builtin.pip:
         chdir: '{{ playbook_dir }}'
-        requirements: requirements/pip-tools/pip-tools.txt
+        requirements: requirements/pip/pip.txt
         virtualenv_command: python3 -m venv
         virtualenv: '{{ pkg_venv }}/local'
-    - name: Piptools sync
+    - name: Pip install
       ansible.builtin.command:
         cmd: |
-          {{ pkg_venv }}/local/bin/python3 -m piptools sync requirements/pip-tools/pip-tools.txt {{ role_path }}/requirements/local.txt
+          {{ pkg_venv }}/local/bin/python3 -m pip install --upgrade -r {{ role_path }}/requirements/local.in -c {{ role_path }}/requirements/local.txt
