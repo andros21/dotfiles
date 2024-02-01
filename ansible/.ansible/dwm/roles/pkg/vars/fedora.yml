@@ -12,6 +12,7 @@ pkg_base:
   - git-delta
   - htop
   - just
+  - moreutils
   - neovim
   - pass
   - ranger

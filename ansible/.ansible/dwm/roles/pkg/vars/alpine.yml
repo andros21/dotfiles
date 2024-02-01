@@ -16,6 +16,7 @@ pkg_base:
   - htop
   - just
   - mandoc
+  - moreutils
   - neovim
   - pass
   - ranger
