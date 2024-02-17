@@ -157,7 +157,7 @@ It's simple:
   python3 -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
   # ansible-dev for ansible-core + ansible-lint
   python3 -m pip install --upgrade -r requirements/ansible/ansible.in -c requirements/ansible/ansible.txt
-  ansible-galaxy collection install -r requirements/ansible/galaxy.yml
+  ansible-galaxy collection install -r requirements/ansible/requirements.yml
   ```
 - Read/check with attention the ansible `dwm` playbook
 - Run it

@@ -53,13 +53,14 @@ jobs:
         run: |
           python -m venv "$HOME/.venv"
           { echo "HOME=$HOME";
-          echo "PATH=$HOME/.venv/bin:$PATH";
+            echo "PATH=$HOME/.venv/bin:$PATH";
             echo "ansible_dwm=ansible/.ansible/dwm/";
           } >> "$GITHUB_ENV"
       - name: Install requirements-dev.txt
         run: |
           cd "$ansible_dwm"
-          pip install -r requirements-dev.txt
+          python -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
+          python3 -m pip install --upgrade -r requirements/ansible/ansible-dev.in -c requirements/ansible/ansible-dev.txt
       - name: Check ansible version
         run: |
           ansible --version
@@ -67,7 +68,7 @@ jobs:
       - name: Install requirements.yml
         run: |
           cd "$ansible_dwm"
-          ansible-galaxy collection install -r requirements.yml
+          ansible-galaxy collection install -r requirements/ansible/requirements.yml
       - name: Run yaml-lint
         run: |
           cd "$ansible_dwm"
@@ -75,8 +76,8 @@ jobs:
       - name: Run playbook syntax-check
         run: |
           cd "$ansible_dwm"
-          ansible-playbook --syntax-check dwm.yml
-          ansible-playbook --syntax-check update.yml
+          ansible-playbook --syntax-check playbooks/dwm.yml
+          ansible-playbook --syntax-check playbooks/update.yml
       - name: Run ansible-lint
         run: |
           cd "$ansible_dwm"
