@@ -13,7 +13,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "ansible/.ansible/dwm/requirements/ansible"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
@@ -32,7 +32,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "ansible/.ansible/dwm/requirements/pip"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
@@ -47,7 +47,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "ansible/.ansible/dwm/roles/pkg/requirements"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
