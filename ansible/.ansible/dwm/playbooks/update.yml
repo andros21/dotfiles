@@ -36,10 +36,17 @@
     - name: Pip update
       tags: pip
       block:
-        - name: Pip upgrade
+        - name: Pip upgrade local
           ansible.builtin.shell:
             cmd: |
               {{ pkg_py }} -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
               {{ pkg_py }} -m pip install --upgrade -r roles/pkg/requirements/local.in -c roles/pkg/requirements/local.txt
           vars:
             pkg_py: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}/local/bin/python3'
+        - name: Pip upgrade ansible
+          ansible.builtin.shell:
+            cmd: |
+              {{ pkg_py }} -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
+              {{ pkg_py }} -m pip install --upgrade -r requirements/ansible/ansible-dev.in -c requirements/ansible/ansible-dev.txt
+          vars:
+            pkg_py: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}/ansible/bin/python3'
