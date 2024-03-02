@@ -5,7 +5,4 @@ pkg_flathub:
   - io.gitlab.librewolf-community
   - org.telegram.desktop
 
-pkg_pypi:
-  - ipython
-  - pre-commit
-  - yt-dlp
+pkg_venv: '{{ ansible_user_dir }}/.local/share/venv/py{{ ansible_python.version.major }}{{ ansible_python.version.minor }}'

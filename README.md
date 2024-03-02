@@ -127,26 +127,41 @@ Here my build [slock](https://github.com/andros21/slock)
 
 - `fedora == 37`
   - a sudo user
-  - `requirements.txt`
-  - `requirements-dev.txt` (devel)
+  - python venv setup
+    ```bash
+    sudo dnf install python3-pip
+    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
+    python3 -m venv "$HOME/.local/share/venv/$PYV/ansible"
+    ```
 - `alpine == 3.19`
   - a sudo user
-  - advice `apk add py3-pip py3-cryptography`
-  - `requirements.txt`
-  - `requirements-dev.txt` (devel)
+  - python venv setup
+    ```bash
+    sudo apk add py3-pip py3-cryptography
+    export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
+    python3 -m venv --system-site-packages "$HOME/.local/share/venv/$PYV/ansible"
+    ```
 
 ### How to run
 
 It's simple:
 
 - Pull the repository
-- Read/check with attention the ansible `dwm` playbook
-- Run it
-
   ```bash
   git clone https://github.com/andros21/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles/ansible/.ansible/dwm/
-  ansible-galaxy collection install -r requirements.yml
-  ansible-playbook dwm.yml
+  ```
+- Install dependencies
+  ```bash
+  source "$HOME/.local/share/venv/$PYV/ansible"
+  python3 -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
+  # ansible-dev for ansible-core + ansible-lint
+  python3 -m pip install --upgrade -r requirements/ansible/ansible.in -c requirements/ansible/ansible.txt
+  ansible-galaxy collection install -r requirements/ansible/requirements.yml
+  ```
+- Read/check with attention the ansible `dwm` playbook
+- Run it
+  ```bash
+  ansible-playbook playbooks/dwm.yml
   sudo reboot
   ```
