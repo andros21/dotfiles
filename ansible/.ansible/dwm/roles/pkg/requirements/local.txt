@@ -28,8 +28,8 @@ identify==2.5.33
     # via pre-commit
 idna==3.6
     # via requests
-ipython==8.19.0
-    # via -r pip-venv.in
+ipython==8.22.1
+    # via -r local.in
 jedi==0.19.1
     # via ipython
 matplotlib-inline==0.1.6
@@ -44,8 +44,8 @@ pexpect==4.9.0
     # via ipython
 platformdirs==4.1.0
     # via virtualenv
-pre-commit==3.6.0
-    # via -r pip-venv.in
+pre-commit==3.6.2
+    # via -r local.in
 prompt-toolkit==3.0.43
     # via ipython
 ptyprocess==0.7.0
@@ -79,4 +79,4 @@ wcwidth==0.2.12
 websockets==12.0
     # via yt-dlp
 yt-dlp==2023.11.16
-    # via -r pip-venv.in
+    # via -r local.in
