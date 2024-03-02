@@ -1,2 +1,2 @@
 ansible-core<2.15
-ansible-lint<7.0
+ansible-lint<25.0
