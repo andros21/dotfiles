@@ -153,7 +153,7 @@ It's simple:
   ```
 - Install dependencies
   ```bash
-  source "$HOME/.local/share/venv/$PYV/ansible"
+  source "$HOME/.local/share/venv/$PYV/ansible/bin/activate"
   python3 -m pip install --upgrade -r requirements/pip/pip.in -c requirements/pip/pip.txt
   # ansible-dev for ansible-core + ansible-lint
   python3 -m pip install --upgrade -r requirements/ansible/ansible.in -c requirements/ansible/ansible.txt
