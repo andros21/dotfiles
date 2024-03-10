@@ -1,26 +1,23 @@
 -- rust.lua
 -- ========
 -- see:
---  * https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/guides/quick-recipes.md#setup-with-rust-tools
---  * https://github.com/simrat39/rust-tools.nvim
+--  * https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/quick-recipes.md#setup-with-rustaceanvim
+--  * https://github.com/mrcjkb/rustaceanvim
 
 local util = require("andros21.util")
 
 return {
-   "simrat39/rust-tools.nvim",
+   "mrcjkb/rustaceanvim",
+   version = "^4",
+   ft = { "rust" },
    config = function(_, opts)
-      local lsp_zero = require("lsp-zero").preset({})
+      local lsp_zero = require("lsp-zero")
       lsp_zero.on_attach(util.lsp_zero_on_attach(lsp_zero))
-      lsp_zero.skip_server_setup({ "rust_analyzer" })
-      lsp_zero.setup()
-      local rust_tools = require("rust-tools")
-      rust_tools.setup({
+      vim.g.rustaceanvim = {
          server = {
-            on_attach = function(_, bufnr)
-               vim.keymap.set("n", "<leader>ca", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-            end,
+            capabilities = lsp_zero.get_capabilities(),
          },
-      })
+      }
    end,
    priority = 80,
 }
