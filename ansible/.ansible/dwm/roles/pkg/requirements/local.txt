@@ -78,5 +78,5 @@ wcwidth==0.2.12
     # via prompt-toolkit
 websockets==12.0
     # via yt-dlp
-yt-dlp==2023.12.30
+yt-dlp==2024.3.10
     # via -r local.in
