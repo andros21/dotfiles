@@ -14,7 +14,7 @@ function M.fzflua(builtin, opts)
       builtin = params.builtin
       opts = params.opts
       skip = params
-      opts = vim.tbl_deep_extend("force", { cwd = require("lazyvim.util.init").root.get() }, opts or {})
+      opts = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
       if builtin == "gfiles" then
          if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
             builtin = "git_files"
