@@ -14,6 +14,7 @@ updates:
     directory: "ansible/.ansible/dwm/requirements/ansible"
     schedule:
       interval: "weekly"
+      day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
@@ -33,6 +34,7 @@ updates:
     directory: "ansible/.ansible/dwm/requirements/pip"
     schedule:
       interval: "weekly"
+      day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
@@ -48,6 +50,7 @@ updates:
     directory: "ansible/.ansible/dwm/roles/pkg/requirements"
     schedule:
       interval: "weekly"
+      day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
     reviewers:
