@@ -28,7 +28,7 @@ identify==2.5.33
     # via pre-commit
 idna==3.6
     # via requests
-ipython==8.22.1
+ipython==8.22.2
     # via -r local.in
 jedi==0.19.1
     # via ipython
