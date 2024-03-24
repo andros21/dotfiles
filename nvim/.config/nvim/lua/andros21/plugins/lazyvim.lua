@@ -6,6 +6,7 @@ return {
    "LazyVim/LazyVim",
    lazy = false,
    config = function()
+      _G.LazyVim = require("lazyvim.util")
       require("lazyvim.config.options")
       require("lazyvim.config.autocmds")
       require("lazyvim.config.keymaps")
