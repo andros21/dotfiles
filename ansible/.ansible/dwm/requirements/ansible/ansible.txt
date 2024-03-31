@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=ansible.txt ansible.in
 #
-ansible-core==2.14.14
+ansible-core==2.14.15
     # via -r ansible.in
 cffi==1.16.0
     # via cryptography
