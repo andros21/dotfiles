@@ -58,7 +58,7 @@ pygments==2.17.2
     # via ipython
 pyyaml==6.0.1
     # via pre-commit
-requests==2.31.0
+requests==2.32.0
     # via yt-dlp
 six==1.16.0
     # via asttokens
