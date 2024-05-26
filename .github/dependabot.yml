@@ -19,15 +19,10 @@ updates:
       timezone: "Europe/Rome"
     reviewers:
       - "andros21"
-    ignore:
-      - dependency-name: "ansible-*"
-        update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
     groups:
       ansible:
         patterns:
-          - "ansible-*"
+          - "*"
         update-types:
           - "patch"
   - package-ecosystem: "pip"
