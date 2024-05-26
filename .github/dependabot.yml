@@ -20,14 +20,16 @@ updates:
     reviewers:
       - "andros21"
     ignore:
-      - dependency-name: "ansible-*"
+      - dependency-name: "ansible-core"
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
     groups:
       ansible:
         patterns:
-          - "ansible-*"
+          - "*"
+        exclude-patterns:
+          - "ansible-lint"   # no semver
         update-types:
           - "patch"
   - package-ecosystem: "pip"
