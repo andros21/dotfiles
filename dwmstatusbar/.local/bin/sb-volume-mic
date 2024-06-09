@@ -8,4 +8,5 @@ esac
 
 printf '%s' "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)" \
     | sed -E 's/Volume: 0.(.*)/\1%/' \
+    | sed -E 's/Volume: 1.(.*)/1\1%/' \
     | sed -E 's/(.*)[MUTED](.*)/M/'
