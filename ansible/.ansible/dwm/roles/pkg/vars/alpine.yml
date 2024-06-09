@@ -104,6 +104,7 @@ pkg_xorg_deps:
   - xdg-desktop-portal-gtk
   - xdg-user-dirs
   - xdg-utils
+  - xinit
   - xinput
   - xrandr
   - xset
