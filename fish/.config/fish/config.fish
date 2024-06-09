@@ -15,8 +15,9 @@ if status is-login
     end
     # If python venvs installed, modify PATH
     if test -d ~/.local/share/venv
-        set -x PATH "$HOME/.local/share/venv/py311/local/bin" $PATH
-        set -x PATH "$HOME/.local/share/venv/py311/ansible/bin" $PATH
+        set -l PYV py3(python3 --version | awk -F '.' '{print $2}')
+        set -x PATH "$HOME/.local/share/venv/$PYV/local/bin" $PATH
+        set -x PATH "$HOME/.local/share/venv/$PYV/ansible/bin" $PATH
     end
     # If FISHER not installed, install it with plugins
     if not functions -q fisher
