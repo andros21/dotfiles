@@ -133,7 +133,7 @@ Here my build [slock](https://github.com/andros21/slock)
     export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     python3 -m venv "$HOME/.local/share/venv/$PYV/ansible"
     ```
-- `alpine == 3.19`
+- `alpine == 3.20`
   - a sudo user
   - python venv setup
     ```bash
