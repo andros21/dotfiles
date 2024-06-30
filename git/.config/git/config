@@ -6,3 +6,5 @@
    path = ~/.config/git/config-dev
 [includeIf "gitdir:~/Documents/lcm/"]
    path = ~/.config/git/config-lcm
+[includeIf "gitdir:~/Documents/sanfai-leat/"]
+   path = ~/.config/git/config-sanfai-leat
