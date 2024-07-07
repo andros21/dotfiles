@@ -58,7 +58,7 @@ pygments==2.17.2
     # via ipython
 pyyaml==6.0.1
     # via pre-commit
-requests==2.32.0
+requests==2.32.3
     # via yt-dlp
 six==1.16.0
     # via asttokens
@@ -80,5 +80,5 @@ wcwidth==0.2.12
     # via prompt-toolkit
 websockets==12.0
     # via yt-dlp
-yt-dlp==2024.5.27
+yt-dlp==2024.7.2
     # via -r local.in
