@@ -94,5 +94,5 @@ wcmatch==8.5.1
     # via ansible-lint
 yamllint==1.35.1
     # via ansible-lint
-zipp==3.18.2
+zipp==3.19.1
     # via importlib-metadata
