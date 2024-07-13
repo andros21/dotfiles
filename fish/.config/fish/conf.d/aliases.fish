@@ -65,7 +65,7 @@ alias grhh1 'git reset HEAD~1 --hard'
 alias gclean 'git reset --hard; and git clean -dfx'
 
 alias gco 'git checkout'
-alias gcm 'git checkout master'
+alias gcm 'git checkout main 2>/dev/null || git checkout master'
 alias gb 'git branch'
 alias gbv 'git branch -vv'
 alias gba 'git branch -a'
