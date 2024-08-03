@@ -5,8 +5,18 @@
 # ------------------------------------
 
 if [ "$GDMSESSION" = "dwm-xorg" ]; then
-   # Setup minor screen resolution for built-in screen
-   xrandr --output eDP-1 --mode 1368x768
+   # Monitor setup as function of connected monitors
+   #  1. Reduce built-in screen resolution
+   #  2. Mirrors with auto resolution
+   mapfile -t MONITORS < <(xrandr | awk '$2 == "connected" {print $1}')
+   NUM_MONITORS=${#MONITORS[@]}
+   if [[ $NUM_MONITORS -eq 1 ]]; then
+      xrandr --output "${MONITORS[0]}" --mode 1368x768
+   elif [[ $NUM_MONITORS -eq 2 ]]; then
+      xrandr --output "${MONITORS[0]}" --auto --output "${MONITORS[1]}" --auto --same-as "${MONITORS[0]}"
+   else
+      xrandr --auto
+   fi
    # Setup higher keyboard rate
    xset r rate 300 35
    # Xinput set touchpad properties
