@@ -32,7 +32,7 @@ if status is-login
     # If STARSHIP not installed, install it
     if not functions -q starship
         curl -sSL https://starship.rs/install.sh \
-            | sh -s -- -y -v v1.20.1 -b $HOME/.local/bin >/dev/null
+            | sh -s -- -y -v v1.21.1 -b $HOME/.local/bin >/dev/null
     end
     # Default EDITOR
     set -x EDITOR nvim
