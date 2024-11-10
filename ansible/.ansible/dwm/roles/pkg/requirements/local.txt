@@ -6,16 +6,8 @@
 #
 asttokens==2.4.1
     # via stack-data
-brotli==1.1.0
-    # via yt-dlp
-certifi==2024.7.4
-    # via
-    #   requests
-    #   yt-dlp
 cfgv==3.4.0
     # via pre-commit
-charset-normalizer==3.3.2
-    # via requests
 decorator==5.1.1
     # via ipython
 distlib==0.3.8
@@ -26,16 +18,12 @@ filelock==3.13.1
     # via virtualenv
 identify==2.5.33
     # via pre-commit
-idna==3.7
-    # via requests
 ipython==8.29.0
     # via -r local.in
 jedi==0.19.1
     # via ipython
 matplotlib-inline==0.1.6
     # via ipython
-mutagen==1.47.0
-    # via yt-dlp
 nodeenv==1.8.0
     # via pre-commit
 parso==0.8.3
@@ -52,14 +40,10 @@ ptyprocess==0.7.0
     # via pexpect
 pure-eval==0.2.2
     # via stack-data
-pycryptodomex==3.19.1
-    # via yt-dlp
 pygments==2.17.2
     # via ipython
 pyyaml==6.0.1
     # via pre-commit
-requests==2.32.3
-    # via yt-dlp
 six==1.16.0
     # via asttokens
 stack-data==0.6.3
@@ -70,15 +54,9 @@ traitlets==5.14.0
     #   matplotlib-inline
 typing-extensions==4.11.0
     # via ipython
-urllib3==2.2.2
-    # via
-    #   requests
-    #   yt-dlp
 virtualenv==20.25.0
     # via pre-commit
 wcwidth==0.2.12
     # via prompt-toolkit
-websockets==13.1
-    # via yt-dlp
-yt-dlp==2024.10.22
+yt-dlp==2024.11.4
     # via -r local.in
