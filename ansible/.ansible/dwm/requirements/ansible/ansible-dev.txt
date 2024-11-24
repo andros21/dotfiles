@@ -6,48 +6,48 @@
 #
 ansible-compat==24.10.0
     # via ansible-lint
-ansible-core==2.15.13
+ansible-core==2.16.13
     # via
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
 ansible-lint==24.10.0
     # via -r ansible-dev.in
-attrs==23.2.0
+attrs==24.2.0
     # via
     #   jsonschema
     #   referencing
-black==24.3.0
+black==24.10.0
     # via ansible-lint
-bracex==2.4
+bracex==2.5.post1
     # via wcmatch
-cffi==1.16.0
+cffi==1.17.1
     # via cryptography
 click==8.1.7
     # via black
-cryptography==43.0.1
+cryptography==43.0.3
     # via ansible-core
-filelock==3.13.1
+filelock==3.16.1
     # via ansible-lint
-importlib-metadata==7.1.0
+importlib-metadata==8.5.0
     # via ansible-lint
 jinja2==3.1.4
     # via ansible-core
-jsonschema==4.21.1
+jsonschema==4.23.0
     # via
     #   ansible-compat
     #   ansible-lint
-jsonschema-specifications==2023.12.1
+jsonschema-specifications==2024.10.1
     # via jsonschema
 markdown-it-py==3.0.0
     # via rich
-markupsafe==2.1.5
+markupsafe==3.0.2
     # via jinja2
 mdurl==0.1.2
     # via markdown-it-py
 mypy-extensions==1.0.0
     # via black
-packaging==23.2
+packaging==24.2
     # via
     #   ansible-compat
     #   ansible-core
@@ -58,41 +58,41 @@ pathspec==0.12.1
     #   ansible-lint
     #   black
     #   yamllint
-platformdirs==4.2.0
+platformdirs==4.3.6
     # via black
-pycparser==2.21
+pycparser==2.22
     # via cffi
-pygments==2.17.2
+pygments==2.18.0
     # via rich
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   ansible-compat
     #   ansible-core
     #   ansible-lint
     #   yamllint
-referencing==0.33.0
+referencing==0.35.1
     # via
     #   jsonschema
     #   jsonschema-specifications
-resolvelib==0.8.1
+resolvelib==1.0.1
     # via ansible-core
-rich==13.7.1
+rich==13.9.4
     # via ansible-lint
-rpds-py==0.18.0
+rpds-py==0.21.0
     # via
     #   jsonschema
     #   referencing
 ruamel-yaml==0.18.6
     # via ansible-lint
-ruamel-yaml-clib==0.2.8
+ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-subprocess-tee==0.4.1
+subprocess-tee==0.4.2
     # via
     #   ansible-compat
     #   ansible-lint
-wcmatch==8.5.1
+wcmatch==10.0
     # via ansible-lint
 yamllint==1.35.1
     # via ansible-lint
-zipp==3.19.1
+zipp==3.21.0
     # via importlib-metadata
