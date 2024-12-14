@@ -7,7 +7,6 @@ conf_file_to_rm:
   - .config/fish/
 
 conf_path_to_mk:
-  - .config/alacritty/
   - .config/fish/conf.d/
   - .config/fish/functions/
   - .gnupg/
@@ -20,8 +19,6 @@ conf_my_std_xdg_path:
   - Pictures/Screenshots
   - Pictures/Wallpapers
   - Videos/Screencasts
-
-conf_nord_alatty_url: https://raw.githubusercontent.com/nordtheme/alacritty/main/src/nord.yaml
 
 conf_font_url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.tar.xz
 

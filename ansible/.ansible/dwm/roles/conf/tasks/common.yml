@@ -58,18 +58,6 @@
           random_seed
           .#*
 
-- name: Download nord theme alacritty
-  block:
-    - name: Download nord theme
-      ansible.builtin.get_url:
-        url: '{{ conf_nord_alatty_url }}'
-        dest: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
-    - name: Temp patch it (lazy upstream)
-      ansible.builtin.replace:
-        path: '{{ ansible_user_dir }}/.config/alacritty/nord.yml'
-        regexp: 'bar:'
-        replace: 'footer_bar:'
-
 - name: Download and install Hack Nerd Fonts
   block:
     - name: Download Hack Nerd Fonts
