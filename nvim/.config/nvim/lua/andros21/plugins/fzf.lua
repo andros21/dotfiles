@@ -19,7 +19,7 @@ return {
       -- find
       { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
       { "<leader>ff", util.fzflua("files"), desc = "Find Files (root dir)" },
-      { "<leader>fF", util.fzflua("files", { cwd = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", util.fzflua("files", { cwd = "." }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
       -- git
       { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "commits" },
