@@ -7,11 +7,12 @@ return {
    lazy = false,
    config = function()
       _G.LazyVim = require("lazyvim.util")
+      _G.Snacks = require("snacks")
       require("lazyvim.config.options")
       require("lazyvim.config.autocmds")
       require("lazyvim.config.keymaps")
    end,
    cond = true,
-   version = "v12.44.1",
+   version = "v14.3.0",
    priority = 1000,
 }
