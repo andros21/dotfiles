@@ -11,7 +11,7 @@ ansible-core==2.16.14
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
-ansible-lint==24.10.0
+ansible-lint==24.12.2
     # via -r ansible-dev.in
 attrs==24.2.0
     # via
@@ -39,12 +39,8 @@ jsonschema==4.23.0
     #   ansible-lint
 jsonschema-specifications==2024.10.1
     # via jsonschema
-markdown-it-py==3.0.0
-    # via rich
 markupsafe==3.0.2
     # via jinja2
-mdurl==0.1.2
-    # via markdown-it-py
 mypy-extensions==1.0.0
     # via black
 packaging==24.2
@@ -62,8 +58,6 @@ platformdirs==4.3.6
     # via black
 pycparser==2.22
     # via cffi
-pygments==2.18.0
-    # via rich
 pyyaml==6.0.2
     # via
     #   ansible-compat
@@ -76,8 +70,6 @@ referencing==0.35.1
     #   jsonschema-specifications
 resolvelib==1.0.1
     # via ansible-core
-rich==13.9.4
-    # via ansible-lint
 rpds-py==0.21.0
     # via
     #   jsonschema
