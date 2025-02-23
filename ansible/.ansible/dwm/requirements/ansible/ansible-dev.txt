@@ -4,14 +4,14 @@
 #
 #    pip-compile --output-file=ansible-dev.txt ansible-dev.in
 #
-ansible-compat==25.1.2
+ansible-compat==25.1.4
     # via ansible-lint
 ansible-core==2.16.14
     # via
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
-ansible-lint==25.1.2
+ansible-lint==25.1.3
     # via -r ansible-dev.in
 attrs==24.2.0
     # via
