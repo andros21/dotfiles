@@ -20,7 +20,7 @@ conf_my_std_xdg_path:
   - Pictures/Wallpapers
   - Videos/Screencasts
 
-conf_font_url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.tar.xz
+conf_font_url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.tar.xz
 
 conf_wallpapers:
   - url: https://r4.wallpaperbetter.com/wallpaper/912/256/892/landscape-forest-deer-artwork-wallpaper-19d0082d01fa2debd647a8df70a166fd.jpg
