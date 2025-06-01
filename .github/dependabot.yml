@@ -8,8 +8,6 @@ updates:
       day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
-    reviewers:
-      - "andros21"
   - package-ecosystem: "pip"
     directory: "ansible/.ansible/dwm/requirements/ansible"
     schedule:
@@ -17,8 +15,6 @@ updates:
       day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
-    reviewers:
-      - "andros21"
     ignore:
       - dependency-name: "ansible-core"
         update-types:
@@ -39,8 +35,6 @@ updates:
       day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
-    reviewers:
-      - "andros21"
     groups:
       pip:
         patterns:
@@ -55,8 +49,6 @@ updates:
       day: "sunday"
       time: "07:00"
       timezone: "Europe/Rome"
-    reviewers:
-      - "andros21"
     groups:
       local:
         patterns:
