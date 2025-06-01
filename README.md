@@ -125,7 +125,7 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ### Prerequisites
 
-- `fedora == 38`
+- `fedora == 39`
   - a sudo user
   - python venv setup
     ```bash
