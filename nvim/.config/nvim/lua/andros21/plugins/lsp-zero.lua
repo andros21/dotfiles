@@ -8,12 +8,12 @@ return {
    dependencies = {
       { "neovim/nvim-lspconfig" },
       {
-         "williamboman/mason.nvim",
+         "mason-org/mason.nvim",
          build = function()
             pcall(vim.cmd, "MasonUpdate")
          end,
       },
-      { "williamboman/mason-lspconfig.nvim" },
+      { "mason-org/mason-lspconfig.nvim" },
    },
    priority = 75,
 }
