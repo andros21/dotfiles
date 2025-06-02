@@ -13,6 +13,6 @@ return {
       require("lazyvim.config.keymaps")
    end,
    cond = true,
-   version = "v14.14.0",
+   version = "v14.15.0",
    priority = 1000,
 }
