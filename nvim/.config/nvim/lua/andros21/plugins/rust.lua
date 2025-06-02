@@ -8,7 +8,7 @@ local util = require("andros21.util")
 
 return {
    "mrcjkb/rustaceanvim",
-   version = vim.fn.has("nvim-0.10.0") == 0 and "^4" or false,
+   version = "v5.26.0",
    ft = { "rust" },
    config = function(_, opts)
       local lsp_zero = require("lsp-zero")
