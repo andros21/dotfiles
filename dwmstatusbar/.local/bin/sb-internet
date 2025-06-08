@@ -5,12 +5,12 @@
 # Show V if a vpn connection is active
 
 case $BLOCK_BUTTON in
-   1) setsid -f alacritty -e nmtui ;;
+1) setsid -f alacritty -e nmtui ;;
 esac
 
 case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-   down) wifiicon="D " ;;
-   up) wifiicon="$(awk '/^\s*w/ { print "U", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
+down) wifiicon="D " ;;
+up) wifiicon="$(printf 'U %s%% ' $(nmcli -f IN-USE,SIGNAL dev wifi | grep "\*" | awk '{print $2}'))" ;;
 esac
 
 printf "%s%s%s\n" "$wifiicon" "$(sed "s/down/D/;s/up/U/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/V/" /sys/class/net/tun*/operstate 2>/dev/null)"
