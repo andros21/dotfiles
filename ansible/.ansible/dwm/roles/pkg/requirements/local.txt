@@ -62,5 +62,5 @@ virtualenv==20.26.6
     # via pre-commit
 wcwidth==0.2.12
     # via prompt-toolkit
-yt-dlp==2025.6.25
+yt-dlp==2025.6.30
     # via -r local.in
