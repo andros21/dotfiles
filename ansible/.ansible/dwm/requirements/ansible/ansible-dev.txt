@@ -11,7 +11,7 @@ ansible-core==2.17.13
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
-ansible-lint==25.8.1
+ansible-lint==25.8.2
     # via -r ansible-dev.in
 attrs==25.3.0
     # via
