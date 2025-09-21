@@ -11,7 +11,7 @@ ansible-core==2.17.14
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
-ansible-lint==25.8.2
+ansible-lint==25.9.0
     # via -r ansible-dev.in
 attrs==25.3.0
     # via
@@ -22,11 +22,17 @@ black==25.1.0
 bracex==2.5.post1
     # via wcmatch
 cffi==1.17.1
-    # via cryptography
+    # via
+    #   ansible-lint
+    #   cryptography
 click==8.2.1
     # via black
 cryptography==45.0.3
-    # via ansible-core
+    # via
+    #   ansible-core
+    #   ansible-lint
+distro==1.9.0
+    # via ansible-lint
 filelock==3.18.0
     # via ansible-lint
 importlib-metadata==8.7.0
@@ -78,7 +84,9 @@ rpds-py==0.25.1
 ruamel-yaml==0.18.12
     # via ansible-lint
 ruamel-yaml-clib==0.2.12
-    # via ruamel-yaml
+    # via
+    #   ansible-lint
+    #   ruamel-yaml
 subprocess-tee==0.4.2
     # via
     #   ansible-compat
