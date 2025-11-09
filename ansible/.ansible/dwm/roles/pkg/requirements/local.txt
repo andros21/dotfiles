@@ -18,7 +18,7 @@ filelock==3.13.1
     # via virtualenv
 identify==2.5.33
     # via pre-commit
-ipython==9.6.0
+ipython==9.7.0
     # via -r local.in
 ipython-pygments-lexers==1.1.1
     # via ipython
@@ -34,7 +34,7 @@ pexpect==4.9.0
     # via ipython
 platformdirs==4.1.0
     # via virtualenv
-pre-commit==4.3.0
+pre-commit==4.4.0
     # via -r local.in
 prompt-toolkit==3.0.43
     # via ipython
