@@ -58,7 +58,7 @@ traitlets==5.14.0
     #   matplotlib-inline
 typing-extensions==4.11.0
     # via ipython
-virtualenv==20.26.6
+virtualenv==20.36.1
     # via pre-commit
 wcwidth==0.2.12
     # via prompt-toolkit
