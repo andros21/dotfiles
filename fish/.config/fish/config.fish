@@ -21,7 +21,7 @@ if status is-login
     end
     # If FISHER not installed, install it with plugins
     if not functions -q fisher
-        set -l FISHER_SHA 4fd75f156adf621e15993435f4c0fc1cacb948ad # tag: 4.4.6
+        set -l FISHER_SHA a04308be92daa6cfecdbb0ca58b1e8508664cff2 # tag: 4.4.8
         set -l FZF_SHA 8920367cf85eee5218cc25a11e209d46e2591e7a # tag: v10.3
         curl -sSL https://raw.githubusercontent.com/jorgebucaran/fisher/$FISHER_SHA/functions/fisher.fish \
             | source && fisher install jorgebucaran/fisher@$FISHER_SHA
