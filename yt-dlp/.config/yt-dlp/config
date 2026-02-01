@@ -1,0 +1,5 @@
+# yt-dlp config
+# ===
+
+# https://github.com/yt-dlp/yt-dlp/wiki/EJS#node
+--js-runtimes node
