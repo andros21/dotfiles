@@ -18,4 +18,4 @@
     - name: Pip install
       ansible.builtin.command:
         cmd: |
-          {{ pkg_venv }}/local/bin/python3 -m pip install --upgrade -r {{ role_path }}/requirements/local.in -c {{ role_path }}/requirements/local.txt
+          {{ pkg_venv }}/local/bin/python3 -m pip install --upgrade -r {{ role_path }}/requirements/local.txt
