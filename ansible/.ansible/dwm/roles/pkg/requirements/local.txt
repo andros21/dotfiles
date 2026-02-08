@@ -28,7 +28,7 @@ identify==2.6.16
     # via pre-commit
 idna==3.11
     # via requests
-ipython==9.9.0
+ipython==9.10.0
     # via -r local.in
 ipython-pygments-lexers==1.1.1
     # via ipython
@@ -80,7 +80,7 @@ wcwidth==0.5.3
     # via prompt-toolkit
 websockets==16.0
     # via yt-dlp
-yt-dlp[default]==2026.1.31
+yt-dlp[default]==2026.2.4
     # via -r local.in
 yt-dlp-ejs==0.4.0
     # via yt-dlp
