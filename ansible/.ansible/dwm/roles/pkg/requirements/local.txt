@@ -80,7 +80,7 @@ wcwidth==0.5.3
     # via prompt-toolkit
 websockets==16.0
     # via yt-dlp
-yt-dlp[default]==2026.3.13
+yt-dlp[default]==2026.3.17
     # via -r local.in
-yt-dlp-ejs==0.7.0
+yt-dlp-ejs==0.8.0
     # via yt-dlp
