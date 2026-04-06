@@ -119,7 +119,6 @@ Here my build [slock](https://github.com/andros21/slock)
 - [rofi-power](https://github.com/okraits/rofi-tools) as systemctl power tool
 - [teiler](https://github.com/carnager/teiler) as powerful screenshots and screencasts tool
 - [ytdl-mpv](https://github.com/andros21/ytdl-mpv) as yt player
-- [distrobox](https://github.com/89luca89/distrobox) as podman wrapper
 
 ## :rocket: Usage
 
