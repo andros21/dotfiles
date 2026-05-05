@@ -29,7 +29,7 @@ fix_layout=true
 
 layout_cmd () {
   setxkbmap it
-  xinput -list | grep -q "Dell KB216 Wired Keyboard" && setxkbmap us
+  xinput -list | grep -q "Evision AK820 Keyboard" && setxkbmap us
 }
 
 # fields to be used
