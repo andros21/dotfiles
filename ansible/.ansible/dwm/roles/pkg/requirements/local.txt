@@ -28,7 +28,7 @@ identify==2.6.16
     # via pre-commit
 idna==3.11
     # via requests
-ipython==9.12.0
+ipython==9.13.0
     # via -r local.in
 ipython-pygments-lexers==1.1.1
     # via ipython
@@ -46,9 +46,11 @@ pexpect==4.9.0
     # via ipython
 platformdirs==4.5.1
     # via virtualenv
-pre-commit==4.5.1
+pre-commit==4.6.0
     # via -r local.in
 prompt-toolkit==3.0.52
+    # via ipython
+psutil==7.2.2
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
