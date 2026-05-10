@@ -6,14 +6,14 @@
 #
 ansible-compat==26.3.0
     # via ansible-lint
-ansible-core==2.18.16
+ansible-core==2.19.9
     # via
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
 ansible-lint==26.4.0
     # via -r ansible-dev.in
-attrs==25.4.0
+attrs==26.1.0
     # via
     #   jsonschema
     #   referencing
@@ -25,19 +25,19 @@ cffi==2.0.0
     # via
     #   ansible-lint
     #   cryptography
-click==8.3.1
+click==8.3.3
     # via black
-cryptography==46.0.7
+cryptography==48.0.0
     # via
     #   ansible-core
     #   ansible-lint
 distro==1.9.0
     # via ansible-lint
-filelock==3.20.3
+filelock==3.29.0
     # via ansible-lint
 jinja2==3.1.6
     # via ansible-core
-jsonschema==4.25.1
+jsonschema==4.26.0
     # via
     #   ansible-compat
     #   ansible-lint
@@ -47,20 +47,20 @@ markupsafe==3.0.3
     # via jinja2
 mypy-extensions==1.1.0
     # via black
-packaging==25.0
+packaging==26.2
     # via
     #   ansible-compat
     #   ansible-core
     #   ansible-lint
     #   black
-pathspec==1.0.3
+pathspec==1.0.4
     # via
     #   ansible-lint
     #   black
     #   yamllint
-platformdirs==4.5.0
+platformdirs==4.9.6
     # via black
-pycparser==2.23
+pycparser==3.0
     # via cffi
 pytokens==0.4.1
     # via black
@@ -75,18 +75,16 @@ referencing==0.37.0
     #   ansible-lint
     #   jsonschema
     #   jsonschema-specifications
-resolvelib==1.0.1
+resolvelib==1.2.1
     # via ansible-core
-rpds-py==0.29.0
+rpds-py==0.30.0
     # via
     #   jsonschema
     #   referencing
-ruamel-yaml==0.18.16
+ruamel-yaml==0.19.1
     # via ansible-lint
 ruamel-yaml-clib==0.2.15
-    # via
-    #   ansible-lint
-    #   ruamel-yaml
+    # via ansible-lint
 subprocess-tee==0.4.2
     # via
     #   ansible-compat
