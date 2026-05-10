@@ -124,7 +124,7 @@ Here my build [slock](https://github.com/andros21/slock)
 
 ### Prerequisites
 
-- `fedora == 40`
+- `fedora == 41`
   - a sudo user
   - python venv setup
     ```bash
@@ -132,7 +132,7 @@ Here my build [slock](https://github.com/andros21/slock)
     export PYV="py3$(python3 --version | awk -F '.' '{print $2}')"
     python3 -m venv "$HOME/.local/share/venv/$PYV/ansible"
     ```
-- `alpine == 3.20`
+- `alpine == 3.20` (unmaintained)
   - a sudo user
   - python venv setup
     ```bash
