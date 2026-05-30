@@ -3,12 +3,12 @@
 
 # path
 # ----
-alias ls exa
-alias l 'exa -l --git'
-alias la 'exa -a'
-alias ll 'exa -al'
-alias tre 'exa --tree'
-alias tra 'exa --tree -a'
+#alias ls exa
+#alias l 'exa -l --git'
+#alias la 'exa -a'
+#alias ll 'exa -al'
+#alias tre 'exa --tree'
+#alias tra 'exa --tree -a'
 alias rm 'rm -i'
 alias md 'mkdir -p'
 alias p 'cd -'
