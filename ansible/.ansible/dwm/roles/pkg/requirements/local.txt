@@ -28,7 +28,7 @@ identify==2.6.16
     # via pre-commit
 idna==3.15
     # via requests
-ipython==9.14.0
+ipython==9.14.1
     # via -r local.in
 ipython-pygments-lexers==1.1.1
     # via ipython
