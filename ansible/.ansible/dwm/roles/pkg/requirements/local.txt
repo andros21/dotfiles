@@ -44,7 +44,7 @@ pexpect==4.9.0
     # via ipython
 platformdirs==4.5.1
     # via virtualenv
-pre-commit==4.6.1
+pre-commit==4.6.2
     # via -r local.in
 prompt-toolkit==3.0.52
     # via ipython
