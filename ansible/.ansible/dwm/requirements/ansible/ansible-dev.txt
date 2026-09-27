@@ -11,7 +11,7 @@ ansible-core==2.19.13
     #   -r ansible-dev.in
     #   ansible-compat
     #   ansible-lint
-ansible-lint==26.8.0
+ansible-lint==26.9.0
     # via -r ansible-dev.in
 attrs==26.1.0
     # via
@@ -82,8 +82,6 @@ rpds-py==0.30.0
     #   jsonschema
     #   referencing
 ruamel-yaml==0.19.1
-    # via ansible-lint
-ruamel-yaml-clib==0.2.15
     # via ansible-lint
 subprocess-tee==0.4.2
     # via
