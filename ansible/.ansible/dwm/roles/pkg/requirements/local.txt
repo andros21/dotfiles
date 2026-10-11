@@ -20,8 +20,10 @@ distlib==0.4.0
     # via virtualenv
 executing==2.2.1
     # via stack-data
-filelock==3.20.3
-    # via virtualenv
+filelock==3.32.7
+    # via
+    #   python-discovery
+    #   virtualenv
 identify==2.6.16
     # via pre-commit
 idna==3.15
@@ -60,6 +62,8 @@ pygments==2.20.0
     # via
     #   ipython
     #   ipython-pygments-lexers
+python-discovery==1.6.1
+    # via virtualenv
 pyyaml==6.0.3
     # via pre-commit
 requests==2.33.0
@@ -74,7 +78,7 @@ urllib3==2.7.0
     # via
     #   requests
     #   yt-dlp
-virtualenv==20.36.1
+virtualenv==21.7.13
     # via pre-commit
 wcwidth==0.5.3
     # via prompt-toolkit
