@@ -6,7 +6,7 @@
 #
 asttokens==3.0.1
     # via stack-data
-brotli==1.2.0
+brotli==1.2.1
     # via yt-dlp
 certifi==2026.10.23
     # via
