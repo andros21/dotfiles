@@ -8,7 +8,7 @@ asttokens==3.0.1
     # via stack-data
 brotli==1.2.0
     # via yt-dlp
-certifi==2026.1.4
+certifi==2026.10.23
     # via
     #   requests
     #   yt-dlp
@@ -84,7 +84,7 @@ wcwidth==0.5.3
     # via prompt-toolkit
 websockets==16.0
     # via yt-dlp
-yt-dlp[default]==2026.8.19
+yt-dlp[default]==2026.10.21
     # via -r local.in
 yt-dlp-ejs==0.8.0
     # via yt-dlp
