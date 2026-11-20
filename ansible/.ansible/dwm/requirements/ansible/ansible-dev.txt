@@ -19,7 +19,7 @@ attrs==26.1.0
     #   referencing
 black==26.10.1
     # via ansible-lint
-bracex==2.6
+bracex==3.2.4
     # via wcmatch
 cffi==2.0.0
     # via
@@ -87,7 +87,7 @@ subprocess-tee==0.4.2
     # via
     #   ansible-compat
     #   ansible-lint
-wcmatch==10.1
+wcmatch==11.2
     # via ansible-lint
 yamllint==1.38.0
     # via ansible-lint
